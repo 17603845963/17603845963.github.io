@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://17603845963.github.io</id>
     <title>井 sir 的私人博客</title>
-    <updated>2020-09-03T12:04:56.345Z</updated>
+    <updated>2020-09-03T12:06:09.982Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://17603845963.github.io"/>
     <link rel="self" href="https://17603845963.github.io/atom.xml"/>
@@ -10,6 +10,38 @@
     <logo>https://17603845963.github.io/images/avatar.png</logo>
     <icon>https://17603845963.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 井 sir 的私人博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Jmeter图标双击运行且不显示cmd对话框]]></title>
+        <id>https://17603845963.github.io/post/jmeter-tu-biao-shuang-ji-yun-xing-qie-bu-xian-shi-cmd-dui-hua-kuang/</id>
+        <link href="https://17603845963.github.io/post/jmeter-tu-biao-shuang-ji-yun-xing-qie-bu-xian-shi-cmd-dui-hua-kuang/">
+        </link>
+        <updated>2020-09-03T12:05:08.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="如何不运行cmd直接打开jmeter">如何不运行cmd直接打开Jmeter</h1>
+<hr>
+<hr>
+<h5 id="最近电脑不知道怎么回事">最近电脑不知道怎么回事</h5>
+<h2 id="jmeter-bin目录下的-apachejmeterjar-突然双击就不能运行了">Jmeter — bin目录下的 ApacheJMeter.jar 突然双击就不能运行了</h2>
+<h5 id="网上找了好多方法无非就是运行-jmeterbat文件或者cmd敲jmeter启动">网上找了好多方法，无非就是运行 <strong>jmeter.bat</strong>文件或者<strong>cmd</strong>敲jmeter启动</h5>
+<h5 id="最后找到了这么一个方法">最后找到了这么一个方法：</h5>
+<h1 id="1-在jmeter的bin目录下新建一个jmetertxt文本添加以下内容">1、在Jmeter的bin目录下新建一个【jmeter.txt】文本，添加以下内容：</h1>
+<pre><code class="language-python">Dim wsh
+Set wsh=WScript.CreateObject(&quot;WScript.Shell&quot;)
+wsh.run &quot;jmeter.bat&quot;,0
+</code></pre>
+<hr>
+<h1 id="2-将文件改为jmetervbs">2、将文件改为【jmeter.vbs】</h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200517165128676.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<h1 id="3-右键发送桌面快捷方式到桌面">3、右键发送桌面快捷方式到桌面</h1>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200517165354498.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<h1 id="4-图标默认的不太好看这里我把-ico图标也放上想要的自己换">4、图标默认的不太好看，这里我把 ico图标也放上，想要的自己换</h1>
+<p><strong>链接：https://pan.baidu.com/s/1RVzYqJbyArCzdwpJb4StiA<br>
+提取码：oltl</strong></p>
+<hr>
+<h1 id="5-然后双击就能跳过cmd窗口运行jmeter啦快去试试吧">5、然后双击就能跳过cmd窗口运行Jmeter啦，快去试试吧</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Jmeter环境搭建]]></title>
         <id>https://17603845963.github.io/post/jmeter-huan-jing-da-jian/</id>
@@ -741,179 +773,6 @@ runner.run()
 </code></pre>
 <h1 id="三-运行-testsuitepy文件打开生成的测试报告html页面">三、运行 testsuite.py文件，打开生成的测试报告Html页面</h1>
 <figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200801170856844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CentOS 7 下的 Docker初识+安装配置]]></title>
-        <id>https://17603845963.github.io/post/centos-7-xia-de-docker-chu-shi-an-zhuang-pei-zhi/</id>
-        <link href="https://17603845963.github.io/post/centos-7-xia-de-docker-chu-shi-an-zhuang-pei-zhi/">
-        </link>
-        <updated>2020-09-03T11:49:16.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="docker-配置国内加速器加速镜像下载"><a href="https://www.cnblogs.com/atuotuo/p/6264800.html">Docker - 配置国内加速器加速镜像下载</a></h1>
-<hr>
-<h1 id="docker-能做什么">Docker 能做什么？</h1>
-<ul>
-<li>
-<h1 id="搭建测试环境">搭建测试环境</h1>
-</li>
-<li>
-<h1 id="搭建各类基础服务">搭建各类基础服务</h1>
-</li>
-<li>
-<h1 id="搭建测试执行环境">搭建测试执行环境</h1>
-</li>
-</ul>
-<hr>
-<h1 id="centos-7-下的-docker-的安装最新版">CentOS 7 下的 Docker 的安装【最新版】</h1>
-<h1 id="下载安装运行就三条命令">★ ★ ★ 下载安装运行就三条命令 ★ ★ ★</h1>
-<pre><code class="language-python">'''更新现有的yum包 :''' 
-sudo yam update
-'''执行docker安装脚本'''
-curl -sSL https://get.docker.com/ | sh
-'''启动docker服务'''
-sudo service docker start
-</code></pre>
-<hr>
-<h1 id="docker的基本使用命令">Docker的基本使用命令</h1>
-<hr>
-<h3 id="镜像管理命令">镜像管理命令 :</h3>
-<hr>
-<blockquote>
-<ol>
-<li>
-<p>docker pull {image_name} (拉取镜像)</p>
-</li>
-<li>
-<p>docker push {image_name} (推送镜像)</p>
-</li>
-<li>
-<p>docker images (查看当前机器的所有镜像)</p>
-</li>
-<li>
-<p>docker rmi {image_name} (删除当前机器的一个镜像)</p>
-</li>
-<li>
-<p>docker tag {source_images_name:tag your_image_name:tag}为一个镜像打tag</p>
-</li>
-<li>
-<p>docker save busybox &gt; busybox.tar</p>
-</li>
-<li>
-<p>docker load &lt; busybox.tar.gz</p>
-</li>
-</ol>
-</blockquote>
-<h3 id="容器管理命令">容器管理命令</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">命令</th>
-<th style="text-align:left">释义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">docker run --name={your_name} --d {image_name}</td>
-<td style="text-align:left">(运行容器)</td>
-</tr>
-<tr>
-<td style="text-align:left">docker ps -s -a</td>
-<td style="text-align:left">{查看当前所有容器}</td>
-</tr>
-<tr>
-<td style="text-align:left">docker stop {container_name}</td>
-<td style="text-align:left">(停止容器)</td>
-</tr>
-<tr>
-<td style="text-align:left">docker kill (container_name)</td>
-<td style="text-align:left">{杀死容器}</td>
-</tr>
-<tr>
-<td style="text-align:left">docker rm -f {container_name}</td>
-<td style="text-align:left">(容器如果运行中，-f强制删除容器；容器不在运行，可不加-f)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="查信息相关命令">查信息相关命令</h3>
-<hr>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">命令</th>
-<th style="text-align:left">释义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">docker logs -f</td>
-<td style="text-align:left">{容器名称} (查看容器日志)</td>
-</tr>
-<tr>
-<td style="text-align:left">docker info</td>
-<td style="text-align:left">(查看docker服务的信息)</td>
-</tr>
-<tr>
-<td style="text-align:left">docker inspect</td>
-<td style="text-align:left">{容器名称} (查看容器的元数据)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="与容器交互的命令">与容器交互的命令</h3>
-<hr>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">命令</th>
-<th style="text-align:left">释义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">docker exec -it  {容器名称} bash</td>
-<td style="text-align:left">进入容器，exec的意思是在容器中运行一个命令。如果是bash 并且指定了-it就会打开容器的shell交互</td>
-</tr>
-<tr>
-<td style="text-align:left">docker cp {container:name}:{container_path} {host_path}</td>
-<td style="text-align:left">把宿主机上的一个文件copy到容器中</td>
-</tr>
-</tbody>
-</table>
-<h3 id="容器运行命令的一些参数-docker-run">容器运行命令的一些参数 （docker run）</h3>
-<hr>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">命令</th>
-<th style="text-align:left">释义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">docker run  --name</td>
-<td style="text-align:left">指定容器名称</td>
-</tr>
-<tr>
-<td style="text-align:left">docker run  -d</td>
-<td style="text-align:left">后台运行</td>
-</tr>
-<tr>
-<td style="text-align:left">docker run      -port</td>
-<td style="text-align:left">指定端口映射规则</td>
-</tr>
-<tr>
-<td style="text-align:left">docker run   --network</td>
-<td style="text-align:left">指定容器运行的网路模式</td>
-</tr>
-<tr>
-<td style="text-align:left">docker run   -v</td>
-<td style="text-align:left">指定需要挂载的数据卷</td>
-</tr>
-<tr>
-<td style="text-align:left">docker run    -env</td>
-<td style="text-align:left">指定需要传递给容器的环境变量</td>
-</tr>
-</tbody>
-</table>
 ]]></content>
     </entry>
 </feed>
