@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>使用Python发送Get/Post请求 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="需要导入requests模块：
+import requests
+
+①发送 get 请求：
+# get 请求
+url = &quot;http://www.baidu.com&quot;
+res = requests.get(url) # ↑..." />
+    <meta name="keywords" content="pycharm,Api自动化" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">使用Python发送Get/Post请求</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <p>需要导入requests模块：</p>
+<pre><code class="language-python">import requests
+</code></pre>
+<p>①发送 get 请求：</p>
+<pre><code class="language-python"># get 请求
+url = &quot;http://www.baidu.com&quot;
+res = requests.get(url) # ↑返回一个消息实体（响应头、报文、状态码等）
+print(res)
+print(&quot;响应头&quot;,res.headers)
+print(&quot;响应状态码&quot;,res.status_code)
+print(&quot;响应正文&quot;,res.text)
+</code></pre>
+<p>②发送post请求：</p>
+<pre><code class="language-python"># post 请求
+url='https://xxxx.com'
+data={&quot;username&quot;:&quot;test&quot;,&quot;pwd&quot;:&quot;test&quot;}
+res=requests.post(url,data)
+print(&quot;响应头&quot;,res.headers)
+print(&quot;响应状态码&quot;,res.status_code)
+print(&quot;响应cookies&quot;,res.cookies) # 登录成功后才会显示
+print(&quot;cookie的value值&quot;,res.cookies['JSESSIONID(key属性名)']) # 类字典形式通过key取值
+print(&quot;响应正文1&quot;,res.text)    # 返回类型为 html 、xml、json 均可使用
+print(&quot;响应正文2&quot;,res.json())  # 只有json类型的返回值才可以使用.json
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/K8K5TeG3Q/" class="tag">
+                    pycharm
+                  </a>
+                
+                  <a href="https://17603845963.github.io/tag/mEQt7ZTJY/" class="tag">
+                    Api自动化
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/python-zhong-for-xun-huan-yu-ju-de-shi-yong-pei-he-ge-chong-wen-ti/">
+                  <h3 class="post-title">
+                    python中For循环语句的使用（配合各种问题）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

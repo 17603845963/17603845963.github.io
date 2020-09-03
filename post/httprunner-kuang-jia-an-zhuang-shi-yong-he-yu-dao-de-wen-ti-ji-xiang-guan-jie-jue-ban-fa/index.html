@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>HttpRunner框架：安装使用和遇到的问题及相关解决办法 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="HttpRunner安装
+一. 运行 cmd 执行安装命令：
+C:\Users\test&gt;pip install httprunner
+
+【这条命令如果出现报错，就切换一下命令】：
+① pip.exe install httprunn..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">HttpRunner框架：安装使用和遇到的问题及相关解决办法</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="httprunner安装">HttpRunner安装</h2>
+<p><strong>一. 运行 cmd 执行安装命令：</strong></p>
+<pre><code class="language-python">C:\Users\test&gt;pip install httprunner
+</code></pre>
+<p>【这条命令如果出现报错，就切换一下命令】：</p>
+<pre><code class="language-python">① pip.exe install httprunner
+② pip3 install httprunner
+</code></pre>
+<hr>
+<ul>
+<li><strong>安装校验</strong></li>
+</ul>
+<p>在 HttpRunner 安装成功后，系统中会新增如下 5 个命令：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">新增命令</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">httprunner :</td>
+<td style="text-align:left">核心命令</td>
+</tr>
+<tr>
+<td style="text-align:left">ate:</td>
+<td style="text-align:left">曾经用过的命令（当时框架名称为 ApiTestEngine），功能与 httprunner 完全相同</td>
+</tr>
+<tr>
+<td style="text-align:left">hrun:</td>
+<td style="text-align:left">httprunner 的缩写，功能与 httprunner 完全相同</td>
+</tr>
+<tr>
+<td style="text-align:left">locusts:</td>
+<td style="text-align:left">基于 Locust 实现性能测试</td>
+</tr>
+<tr>
+<td style="text-align:left">har2case:</td>
+<td style="text-align:left">辅助工具，可将标准通用的 HAR 格式（HTTP Archive）转换为YAML/JSON格式的测试用例</td>
+</tr>
+</tbody>
+</table>
+<p><strong>运行如下命令，若正常显示版本号，则说明 HttpRunner 安装成功：</strong><br>
+<strong>① httprunner -V<br>
+② hrun -V<br>
+③ har2case -V</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200613145337456.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<h2 id="二-运行-hrun-v报如下错">二、运行 hrun -V，报如下错：</h2>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200613145635807.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="报错原因">报错原因：</h2>
+<p><strong>hrun.exe 和 httprunner.exe在python目录的script文件夹下，<br>
+因 此 需 要 在 系 统 PATH 变 量 里 面 设 置 环 境 变 量<br>
+【添加python路径和script路径即可】<br>
+添加完毕后重启cmd 运行：hrun -V ，即可正确显示版本号。</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200613145815273.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<h2 id="三-运行-har2case-v-报错">三、运行 har2case -V 报错：</h2>
+<p><strong>运行cmd执行下载安装命令：</strong></p>
+<pre><code class="language-python">C:\Users\test&gt;pip install har2case
+</code></pre>
+<p><strong>【这条命令如果出现报错，就切换一下命令】：</strong></p>
+<pre><code class="language-python">① pip.exe install har2case
+② pip3 install har2case
+</code></pre>
+<p><strong>添加完毕后重启cmd 运行：har2case -V ，即可正确显示版本号</strong></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/linux-chang-yong-yong-hu-yu-yong-hu-zu-guan-li-ming-ling-san/">
+                  <h3 class="post-title">
+                    Linux常用用户与用户组管理命令（三）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

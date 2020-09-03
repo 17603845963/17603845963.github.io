@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>数据库---MySQL的命令行命令（在已创建的表中添加主键、自增、默认值） | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="1、MySQL命令行创建一个订单表
+mysql&gt; create table order_table(
+    -&gt; order_id int not null,
+    -&gt; price float(10,2),
+    ..." />
+    <meta name="keywords" content="Linux" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">数据库---MySQL的命令行命令（在已创建的表中添加主键、自增、默认值）</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="1-mysql命令行创建一个订单表">1、MySQL命令行创建一个订单表</h2>
+<pre><code class="language-powershell">mysql&gt; create table order_table(
+    -&gt; order_id int not null,
+    -&gt; price float(10,2),
+    -&gt; user_id int);
+</code></pre>
+<p>创建成功，效果如下：</p>
+<pre><code class="language-powershell">mysql&gt; desc order_table;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| order_id | int(11)     | NO   |     | NULL    |       |
+| price    | float(10,2) | YES  |     | NULL    |       |
+| user_id  | int(11)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set
+</code></pre>
+<hr>
+<hr>
+<h2 id="2-为已建好的表中-order_id-添加主键">2、为已建好的表中 order_id 添加主键</h2>
+<pre><code class="language-python">mysql&gt; alter table order_table add primary key(order_id);
+</code></pre>
+<p>添加成功，效果如下：</p>
+<pre><code class="language-python">mysql&gt; desc order_table;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| order_id | int(11)     | NO   | PRI | NULL    |       |
+| price    | float(10,2) | YES  |     | NULL    |       |
+| user_id  | int(11)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set
+</code></pre>
+<hr>
+<hr>
+<h2 id="3-为已建好的表中-order_id-添加自增">3、为已建好的表中 order_id 添加自增</h2>
+<pre><code class="language-python">mysql&gt; alter table order_table modify order_id int auto_increment;
+</code></pre>
+<p>添加成功，效果如下：</p>
+<pre><code class="language-python">mysql&gt; desc order_table;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| order_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| price    | float(10,2) | YES  |     | NULL    |                |
+| user_id  | int(11)     | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+3 rows in set
+</code></pre>
+<hr>
+<hr>
+<h2 id="4-为已建好的表中-price-添加默认值">4、为已建好的表中 price 添加默认值：</h2>
+<pre><code class="language-python">mysql&gt; alter table order_table modify price float(10,2) default '1234';
+</code></pre>
+<p>添加成功，效果如下：</p>
+<pre><code class="language-python">mysql&gt; desc order_table;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| order_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| price    | float(10,2) | YES  |     | 1234.00 |                |
+| user_id  | int(11)     | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+3 rows in set
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/OmS0Cvnsp/" class="tag">
+                    Linux
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/shu-ju-ku-mysql-zhi-chang-yong-ming-ling-xing-ming-ling/">
+                  <h3 class="post-title">
+                    数据库---mysql 之 常用命令行命令
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

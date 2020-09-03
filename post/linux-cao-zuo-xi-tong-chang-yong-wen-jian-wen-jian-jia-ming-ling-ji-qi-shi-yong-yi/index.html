@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Linux操作系统常用文件/文件夹命令及其使用（一） | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="Linux操作系统常用 文件/文件夹 命令及其作用
+前言：
+初学 linux 命令，千万不要死记硬背，最好在理解缩写命令含义的基础上加以活用！！！
+
+一、pwd  ：【print workspace dictionary】
+
+打印当前所在目..." />
+    <meta name="keywords" content="Linux" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Linux操作系统常用文件/文件夹命令及其使用（一）</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="linux操作系统常用-文件文件夹-命令及其作用">Linux操作系统常用 文件/文件夹 命令及其作用</h2>
+<h2 id="前言"><strong>前言：</strong></h2>
+<p><strong>初学 linux 命令，千万不要死记硬背，最好在理解缩写命令含义的基础上加以活用！！！</strong></p>
+<hr>
+<p><strong>一、pwd</strong>  ：【print workspace dictionary】</p>
+<blockquote>
+<p>打印当前所在目录的绝对路径</p>
+</blockquote>
+<hr>
+<p><strong>二、cd</strong>：【change dictionary】</p>
+<blockquote>
+<p>切 换 目 录</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">cd</th>
+<th style="text-align:left">切换至用户主目录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cd . .</td>
+<td style="text-align:left">切换至上级目录</td>
+</tr>
+<tr>
+<td style="text-align:left">cd . . /. .</td>
+<td style="text-align:left">切换至同级目录不同文件/文件夹下</td>
+</tr>
+<tr>
+<td style="text-align:left">cd ~</td>
+<td style="text-align:left">切换至根目录下</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>三、ls：【list：列表】</strong></p>
+<blockquote>
+<p>显示文件目录列表</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ls</th>
+<th style="text-align:left">【就是 List 单词的缩写】</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-l ：</td>
+<td style="text-align:left">【-list】列出长数据串，包含文件的属性与权限数据等（常用：ll 直接代替）</td>
+</tr>
+<tr>
+<td style="text-align:left">-a ：</td>
+<td style="text-align:left">【-all】列出全部的文件，连同隐藏文件（开头为.的文件）一起列出来（常用）</td>
+</tr>
+<tr>
+<td style="text-align:left">-R ：</td>
+<td style="text-align:left">【-recurse】连同子目录的内容一起列出（递归列出），该目录下的所有文件都会显示出来（常用）</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>四、mkdir</strong> ：【make dictionary】</p>
+<blockquote>
+<p>创 建 文 件 夹</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">mkdir test</th>
+<th style="text-align:left">创建名为test的文件夹</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">mkdir -p test1/test2/test3</td>
+<td style="text-align:left">【-p：parent】创建多级目录文件夹</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>五、rmdir</strong> ：【remove dictionary】</p>
+<blockquote>
+<p>删 除 空 文 件 夹</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">rmdir -p test1/test2/test3</th>
+<th style="text-align:left">删除多级目录空文件夹</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<hr>
+<p><strong>六、cat：【concatenate（连接、连续）的简写】</strong> ：</p>
+<blockquote>
+<p>查看文本文件的内容</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">cat test1</th>
+<th style="text-align:left">查看名为 test1 文件的内容信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cat -n test1</td>
+<td style="text-align:left">【-n：number】<strong>正序、有序号</strong>的展示名为test1文件的内容信息</td>
+</tr>
+<tr>
+<td style="text-align:left">tac test1</td>
+<td style="text-align:left"><strong>倒序</strong>展示名为test1文件的内容信息</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>七、vi ：Linux系统下标准的编辑器</strong></p>
+<blockquote>
+<p>可以分为命令模式（command mode）、插入模式（Insert mode）</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令行模式</th>
+<th style="text-align:left">控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入插入模式下</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">插入模式</td>
+<td style="text-align:left">在「命令行模式」下按一下字母「i」就可以进入「插入模式」</td>
+</tr>
+<tr>
+<td style="text-align:left">ESC</td>
+<td style="text-align:left">退出插入模式</td>
+</tr>
+<tr>
+<td style="text-align:left">vi test1</td>
+<td style="text-align:left">对名为test的文件进行编辑【如文件不存在则新建并进入编辑模式】</td>
+</tr>
+<tr>
+<td style="text-align:left">ESC→：wq！</td>
+<td style="text-align:left">保存编辑并退出</td>
+</tr>
+<tr>
+<td style="text-align:left">ESC→：q！</td>
+<td style="text-align:left">不保存编辑并退出</td>
+</tr>
+<tr>
+<td style="text-align:left">ESC→：！</td>
+<td style="text-align:left">强制退出</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>八、cp:【copy 复制】</strong></p>
+<blockquote>
+<p>复制文件至新路径下</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">cp 	  /root/test.txt  	 /root/test1</th>
+<th style="text-align:left">复制root路径下名为test.txt 的文件至root目录下的test1文件夹中</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cp  - r /root/test1 /root/test2</td>
+<td style="text-align:left">【 r：recurse 递归】复制 <strong>名为test1</strong> 文件夹下 <strong>所有的文件</strong> 至 <strong>名为test2</strong> 文件夹下</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>九、mv：【move 移动】</strong></p>
+<blockquote>
+<p>移动或重命名文件/文件夹【<strong>推荐使用绝对路径</strong>】</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">mv test1 test2</th>
+<th style="text-align:left">【test2文件夹已存在】将 名为test1 的文件夹整体移动到 名为test2 的文件夹下</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">mv test1 test111</td>
+<td style="text-align:left">【<strong>test111文件夹不存在</strong>】将 名为test1 的文件夹<strong>重命名</strong>为 test111</td>
+</tr>
+<tr>
+<td style="text-align:left">mv test1 test2</td>
+<td style="text-align:left">【<strong>test2文件夹已存在</strong>】将 名为test1 的文件夹整体移动到 名为test2 的文件夹下</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>十、rm：【remove】</strong></p>
+<blockquote>
+<p>删除文件夹/文件</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">rm</th>
+<th style="text-align:left">表示删除单一文件，需输入：Y  确认删除</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">rm -r</td>
+<td style="text-align:left">【 r：recurse 递归】表示递归删除，适用删除文件夹，但是需要一步步<strong>输入：Y</strong>  确认</td>
+</tr>
+<tr>
+<td style="text-align:left">rm -f</td>
+<td style="text-align:left">【<strong>-f,：force</strong> 忽略不存在的文件，从不给出提示】表示强制删除单个文件且无需确认</td>
+</tr>
+<tr>
+<td style="text-align:left">rm -fr</td>
+<td style="text-align:left">表示强制删除文件夹所有内容且无需确认</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>十一、find：</strong></p>
+<blockquote>
+<p>查找文件/文件夹</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">find test1</th>
+<th style="text-align:left">查找显示 名为test 的文件夹及其目录下所有文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">find ./ -name ‘test*’</td>
+<td style="text-align:left">查找显示 <strong>以 test</strong>* 打头的文件夹及其目录下所有文件</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>十二、tar：</strong></p>
+<blockquote>
+<p>文件/文件夹压缩（解压缩）命令</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">用法</th>
+<th style="text-align:left">tar -cvf 压缩文件.tar 被压缩文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tar  -cvf  test1.tar  test1</td>
+<td style="text-align:left">将 test1 文件压缩为 test1.tar 文件</td>
+</tr>
+<tr>
+<td style="text-align:left">tar  -xvf  test1.tar</td>
+<td style="text-align:left">将 test1.tar 文件解压缩至当前目录</td>
+</tr>
+<tr>
+<td style="text-align:left">tar  -xvf  test1.tar -C /root/..</td>
+<td style="text-align:left">【-C：指定解压目录】将 test1.tar 文件解压缩至指定目录</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>十三、tail：【查看文件内容】</strong></p>
+<blockquote>
+<p>(不加参数，默认显示最后10行)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">tail test1</th>
+<th style="text-align:left">查看并显示 名为test1 的文件最后十行的内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tail  -15 test1</td>
+<td style="text-align:left">查看并显示 <strong>名为test1</strong> 的文件<strong>最后15行</strong>的内容</td>
+</tr>
+<tr>
+<td style="text-align:left">tail -f test.txt</td>
+<td style="text-align:left">持续侦测 <strong>test.txt</strong> 后面所接的文件</td>
+</tr>
+</tbody>
+</table>
+<p><strong>tail 也可以用来查看日志log：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">tail -100f test.log</th>
+<th style="text-align:left">实时监控100行日志</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tail  -n  10  test.log</td>
+<td style="text-align:left">查询日志尾部最后10行的日志;</td>
+</tr>
+<tr>
+<td style="text-align:left">tail -n +10 test.log</td>
+<td style="text-align:left">查询10行之后的所有日志</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>十四、echo：</strong></p>
+<blockquote>
+<p>用于字符串的输出</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">echo  &quot;HelloWorld&quot;  &gt;&gt; /root/test/test.txt</th>
+<th style="text-align:left">输出 HelloWorld 追加到此文件最后一行【目标文件不存在则新建】</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<hr>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/OmS0Cvnsp/" class="tag">
+                    Linux
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/app-ce-shi-zhi-chang-yong-adb-ming-ling-hui-zong/">
+                  <h3 class="post-title">
+                    app测试之常用adb命令汇总
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

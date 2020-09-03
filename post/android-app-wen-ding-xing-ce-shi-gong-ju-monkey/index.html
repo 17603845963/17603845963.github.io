@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Android  App 稳定性测试工具--Monkey | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="稳定性测试
+稳定性测试是指对应用进行长时间的操作，检测功能是否稳定。一般稳定性测试时间是 N*12小时。项目中稳定测试多采用monkey，进行随机测试。
+测试方法：
+1、跑monkey
+adb shell monkey -p package..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Android  App 稳定性测试工具--Monkey</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="稳定性测试">稳定性测试</h2>
+<p>稳定性测试是指对应用进行长时间的操作，检测功能是否稳定。一般稳定性测试时间是 N*12小时。项目中稳定测试多采用<strong>monkey</strong>，进行随机测试。</p>
+<p>测试方法：<br>
+<strong>1、跑monkey</strong></p>
+<p>adb shell monkey -p packageName【包名】 -v -v -v --throttle 500 -s 4 --ignore-crashes --ignore-timeouts --ignore-security-exceptions times(次数) |logcat -v time &gt; e:\log\monkeyLog.txt（日志保存路径）</p>
+<p>参数：<br>
+-p ： 指点包名,如果要指定多个包名，需多个-p参数<br>
+-v ： 指定日志的详细程度，取值1-3，三个 -v 详细程度最高<br>
+--throttle ： 指定用户操作时的时延，单位毫秒<br>
+-s ： 指定伪随机数生成器的seed值，取值1-10，当seed相同，产生的事件序列也相同<br>
+--ignore-crashes ： 指应用程序崩溃，monkey依然发送事件，直到事件数完成<br>
+--ignore-timeouts： 指应用程序发生ANR，monkey依然发送事件，直到事件数完成<br>
+--ignore-security-exceptions： 指应用程序发生许可错误，monkey依然发送事件，直到事件数完成<br>
+|logcat -v time： 给monkey命令的日志加上时间</p>
+<p><strong>2、日志解析</strong><br>
+稳定性测试是否能通过在于日志，需要把日志里的报错日志搜索出来，开发定位问题。<br>
+1）、用Notepad++打开日志<br>
+2）、ctrl + F<br>
+<img src="https://img-blog.csdnimg.cn/2020050614195694.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>3）、分析exception日志，定位问题。</strong></p>
+<p>————————————————<br>
+版权声明：本文为CSDN博主「Kitten_336368」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
+原文链接：https://blog.csdn.net/xiaomaoxiao336368/article/details/84887948</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/shu-ju-ku-mysql-de-ming-ling-xing-ming-ling-zai-yi-chuang-jian-de-biao-zhong-tian-jia-zhu-jian-zi-zeng-mo-ren-zhi/">
+                  <h3 class="post-title">
+                    数据库---MySQL的命令行命令（在已创建的表中添加主键、自增、默认值）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Linux常用用户与用户组管理命令（三） | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="一、用户组管理命令
+
+
+
+用户组管理命令
+作用
+
+
+
+
+cat /etc/group
+查看用户组
+
+
+groupadd test
+新建名为 test 用户组
+
+
+groupmod  -n test1 test
+把名为 test 用户组改为 ..." />
+    <meta name="keywords" content="Linux" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Linux常用用户与用户组管理命令（三）</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="一-用户组管理命令">一、用户组管理命令</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">用户组管理命令</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cat /etc/group</td>
+<td style="text-align:left">查看用户组</td>
+</tr>
+<tr>
+<td style="text-align:left">groupadd test</td>
+<td style="text-align:left">新建名为 test 用户组</td>
+</tr>
+<tr>
+<td style="text-align:left">groupmod  -n test1 test</td>
+<td style="text-align:left">把名为 test 用户组改为 test1</td>
+</tr>
+<tr>
+<td style="text-align:left">groupdel  test1</td>
+<td style="text-align:left">删除名为 test1 的用户组</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="二-用户的管理命令">二、用户的管理命令</h2>
+<table>
+<thead>
+<tr>
+<th>用户的管理命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cat /etc/passwd</td>
+<td>查看用户</td>
+</tr>
+<tr>
+<td>useradd user1 -c test</td>
+<td>增加用户 user1 并备注注释信息</td>
+</tr>
+<tr>
+<td>useradd user1 -g test</td>
+<td>增加用户 user1 到名为 test 的用户组中</td>
+</tr>
+<tr>
+<td>usermod -l user2 user1</td>
+<td>把名为user1的用户改为 user2</td>
+</tr>
+<tr>
+<td>usermod -g test1 user1</td>
+<td>将 test2 用户移动至新组 test1 中</td>
+</tr>
+<tr>
+<td>usermod user1 -c 注释内容</td>
+<td>修改用户注释信息</td>
+</tr>
+<tr>
+<td>userdel user1</td>
+<td>删除用户user1</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="三-passwd命令">三、passwd命令</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">密码设置命令</th>
+<th style="text-align:left">左右</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">passwd</td>
+<td style="text-align:left">为 root 用户设置密码</td>
+</tr>
+<tr>
+<td style="text-align:left">passwd user1</td>
+<td style="text-align:left">为名为 user1 的用户设置密码</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/OmS0Cvnsp/" class="tag">
+                    Linux
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/linux-cao-zuo-xi-tong-chang-yong-xi-tong-xiang-guan-ming-ling-ji-qi-shi-yong-er/">
+                  <h3 class="post-title">
+                    Linux操作系统常用系统相关命令及其使用（二）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

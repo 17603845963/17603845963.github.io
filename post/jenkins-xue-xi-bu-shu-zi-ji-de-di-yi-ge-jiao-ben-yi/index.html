@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Jenkins学习--部署自己的第一个脚本（一） | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+一、安装配置并启用Jenkins
+
+Windows下安装Jenkins请参考（二选一即可）：
+
+Windows环境下安装Jenkins
+Jenkins环境搭建（Windows下配置流程）
+
+
+1、Jenkins启动
+2、修改默认端口
+
+①..." />
+    <meta name="keywords" content="Jenkins" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Jenkins学习--部署自己的第一个脚本（一）</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <p><ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%B9%B6%E5%90%AF%E7%94%A8jenkins">一、安装配置并启用Jenkins</a>
+<ul>
+<li><a href="#windows%E4%B8%8B%E5%AE%89%E8%A3%85jenkins%E8%AF%B7%E5%8F%82%E8%80%83%E4%BA%8C%E9%80%89%E4%B8%80%E5%8D%B3%E5%8F%AF">Windows下安装Jenkins请参考（二选一即可）：</a>
+<ul>
+<li><a href="#windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85jenkins">Windows环境下安装Jenkins</a></li>
+<li><a href="#jenkins%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAwindows%E4%B8%8B%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B">Jenkins环境搭建（Windows下配置流程）</a></li>
+</ul>
+</li>
+<li><a href="#1-jenkins%E5%90%AF%E5%8A%A8">1、Jenkins启动</a></li>
+<li><a href="#2-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3">2、修改默认端口</a>
+<ul>
+<li><a href="#1-%E6%89%BE%E5%88%B0jenkins%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95%E4%B8%8Bjenkinsjenkinsxml">① 找到Jenkins安装目录下：<strong>\Jenkins\jenkins.xml</strong></a></li>
+<li><a href="#2%E4%BD%BF%E7%94%A8%E8%AE%B0%E4%BA%8B%E6%9C%AC%E5%B7%A5%E5%85%B7%E6%89%93%E5%BC%80%E5%B9%B6%E4%BF%AE%E6%94%B9%E7%AB%AF%E5%8F%A3%E5%8F%B7">②使用记事本工具打开并修改端口号：</a></li>
+<li><a href="#3%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6%E5%B9%B6%E9%87%8D%E6%96%B0%E5%90%AF%E5%8A%A8jenkins%E6%9C%8D%E5%8A%A1">③保存文件并重新启动Jenkins服务：</a></li>
+</ul>
+</li>
+<li><a href="#3-%E9%87%8D%E5%90%AFjenkins">3、重启Jenkins</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-jenkins%E4%B8%AD%E5%88%9B%E5%BB%BA%E4%BB%BB%E5%8A%A1">二、Jenkins中创建任务</a>
+<ul>
+<li><a href="#1-%E6%96%B0%E5%BB%BA%E4%BB%BB%E5%8A%A1">1、新建任务</a>
+<ul>
+<li><a href="#%E7%82%B9%E5%87%BB%E6%96%B0%E5%BB%BAitem-%E8%BE%93%E5%85%A5%E4%BB%BB%E5%8A%A1%E5%90%8D%E7%A7%B0-%E9%80%89%E6%8B%A9freestyle%E9%A3%8E%E6%A0%BC%E7%9A%84%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE-%E7%82%B9%E5%87%BB%E7%A1%AE%E5%AE%9A">点击新建item → 输入任务名称 → 选择Freestyle风格的软件项目 →点击确定</a></li>
+</ul>
+</li>
+<li><a href="#2-%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF">2、项目相关信息</a>
+<ul>
+<li><a href="#1-general-%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%A1%B9%E7%9B%AE%E6%8F%8F%E8%BF%B0">① General 中添加项目描述</a></li>
+<li><a href="#2%E5%87%86%E5%A4%87%E5%A5%BD%E4%BA%8B%E5%85%88%E5%86%99%E5%A5%BD%E7%9A%84-helloworldpy%E6%96%87%E4%BB%B6">②准备好事先写好的 HelloWorld.py文件</a></li>
+<li><a href="#3%E9%80%89%E4%B8%AD%E6%96%87%E4%BB%B6%E5%8F%B3%E9%94%AE%E7%82%B9%E5%87%BB-copy-path%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84">③选中文件，右键点击 Copy path复制文件路径</a></li>
+<li><a href="#4-%E6%9E%84%E5%BB%BA-%E4%B8%AD%E9%80%89%E6%8B%A9-windows%E6%89%B9%E5%A4%84%E7%90%86%E9%A1%B9">④ 构建 中选择 Windows批处理项</a></li>
+<li><a href="#5-%E7%82%B9%E5%87%BB%E4%BF%9D%E5%AD%98">⑤ 点击保存</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE">三、构建项目</a>
+<ul>
+<li><a href="#1-%E7%82%B9%E5%87%BBbuild-now-%E7%AB%8B%E5%8D%B3%E6%9E%84%E5%BB%BA">1、点击Build Now 【立即构建】</a></li>
+<li><a href="#2-%E8%84%9A%E6%9C%AC%E8%BF%90%E8%A1%8C%E6%88%90%E5%8A%9F">2、脚本运行成功！！！</a></li>
+</ul>
+</li>
+</ul>
+(Jenkins下部署自己的第一个脚本)</p>
+<h1 id="一-安装配置并启用jenkins">一、安装配置并启用Jenkins</h1>
+<h2 id="windows下安装jenkins请参考二选一即可">Windows下安装Jenkins请参考（二选一即可）：</h2>
+<h3 id="windows环境下安装jenkins"><a href="https://blog.csdn.net/weixin_43184774/article/details/104428244#comments_12374451">Windows环境下安装Jenkins</a></h3>
+<h3 id="jenkins环境搭建windows下配置流程"><a href="https://blog.csdn.net/J_____Q/article/details/107756263">Jenkins环境搭建（Windows下配置流程）</a></h3>
+<hr>
+<h2 id="1-jenkins启动">1、Jenkins启动</h2>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200713202917728.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<h2 id="2-修改默认端口">2、修改默认端口</h2>
+<p><strong>默认为127.0.0.1：8080，如果端口被占用就需要修改，方法如下：</strong></p>
+<h3 id="1-找到jenkins安装目录下jenkinsjenkinsxml">① 找到Jenkins安装目录下：<strong>\Jenkins\jenkins.xml</strong></h3>
+<h3 id="2使用记事本工具打开并修改端口号">②使用记事本工具打开并修改端口号：</h3>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200713203527693.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="3保存文件并重新启动jenkins服务">③保存文件并重新启动Jenkins服务：</h3>
+<p>任务管理器【ctrl+alt+del】，在服务中找到Jenkins服务，右键点击重新启动</p>
+<pre><code>![在这里插入图片描述](https://img-blog.csdnimg.cn/20200713203702296.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70)
+</code></pre>
+<hr>
+<h2 id="3-重启jenkins">3、重启Jenkins</h2>
+<p>这时候使用127.0.0.1:7777  <strong>[这里输入修改后的端口号]</strong></p>
+<hr>
+<hr>
+<h1 id="二-jenkins中创建任务">二、Jenkins中创建任务</h1>
+<h2 id="1-新建任务">1、新建任务</h2>
+<h3 id="点击新建item-输入任务名称-选择freestyle风格的软件项目-点击确定">点击新建item → 输入任务名称 → 选择Freestyle风格的软件项目 →点击确定</h3>
+<p><img src="https://img-blog.csdnimg.cn/20200713204321925.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200713204853641.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<h2 id="2-项目相关信息">2、项目相关信息</h2>
+<h3 id="1-general-中添加项目描述">① General 中添加项目描述</h3>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200713205103511.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="2准备好事先写好的-helloworldpy文件">②准备好事先写好的 HelloWorld.py文件</h3>
+<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20200713210302448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="3选中文件右键点击-copy-path复制文件路径">③选中文件，右键点击 Copy path复制文件路径</h3>
+<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/20200713210429918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="4-构建-中选择-windows批处理项">④ 构建 中选择 Windows批处理项</h3>
+<p><img src="https://img-blog.csdnimg.cn/20200713205856157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200713211716801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<h3 id="5-点击保存">⑤ 点击保存</h3>
+<hr>
+<hr>
+<h1 id="三-构建项目">三、构建项目</h1>
+<h2 id="1-点击build-now-立即构建">1、点击Build Now 【立即构建】</h2>
+<figure data-type="image" tabindex="6"><img src="https://img-blog.csdnimg.cn/20200713211518726.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="2-脚本运行成功">2、脚本运行成功！！！</h2>
+<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/2020071321162362.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/tchrhqHw2/" class="tag">
+                    Jenkins
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/jmeter-tu-biao-shuang-ji-yun-xing-qie-bu-xian-shi-cmd-dui-hua-kuang/">
+                  <h3 class="post-title">
+                    Jmeter图标双击运行且不显示cmd对话框
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

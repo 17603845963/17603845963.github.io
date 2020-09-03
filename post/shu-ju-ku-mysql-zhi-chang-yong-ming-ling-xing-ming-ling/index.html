@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>数据库---mysql 之 常用命令行命令 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="1、展示当前所有的数据库：show databases;
+mysql&gt; show databases;
++--------------------+
+| Database           |
++------------------..." />
+    <meta name="keywords" content="Mysql" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">数据库---mysql 之 常用命令行命令</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <p><strong>1、展示当前所有的数据库：show databases;</strong></p>
+<pre><code class="language-python">mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| jzq_test           |
+| mtx_1              |
+| mysql              |
+| performance_schema |
+| study              |
+| sys                |
++--------------------+
+7 rows in set
+</code></pre>
+<p><strong>2、选中某个数据库（相当于鼠标点击选中）：use sql_name;</strong><br>
+<strong>【使用  数据库名.表名 可以省略 use 数据库名的操作】</strong></p>
+<pre><code class="language-python">mysql&gt; use jzq_test;
+Database changed
+</code></pre>
+<p><strong>3、展示选中数据库下所有的表：show tables;</strong></p>
+<pre><code class="language-python">mysql&gt; show tables;
++--------------------+
+| Tables_in_jzq_test |
++--------------------+
+| order_table        |
+| user_info          |
+| user_info_table    |
++--------------------+
+3 rows in set
+
+</code></pre>
+<p><strong>4、展示表结构：desc table_name;</strong></p>
+<pre><code class="language-python">mysql&gt; desc user_info;
++-----------+-------------+------+-----+----------+----------------+
+| Field     | Type        | Null | Key | Default  | Extra          |
++-----------+-------------+------+-----+----------+----------------+
+| user_id   | int(11)     | NO   | PRI | NULL     | auto_increment |
+| user_name | char(10)    | YES  |     | NULL     |                |
+| password  | varchar(10) | YES  |     | 12345555 |                |
+| user_nick | varchar(10) | YES  |     | NULL     |                |
+| card_num  | bigint(20)  | YES  |     | NULL     |                |
++-----------+-------------+------+-----+----------+----------------+
+5 rows in set
+</code></pre>
+<p><strong>5、查看表数据信息：select * from table_name;</strong></p>
+<pre><code class="language-python">mysql&gt; select * from user_info;
++---------+-----------+----------+-----------+---------------+
+| user_id | user_name | password | user_nick | card_num      |
++---------+-----------+----------+-----------+---------------+
+|       1 | zhangsan  | 12345555 | zhangsan  |  123456789111 |
+|       2 | lisi      | 12345555 | ls        | 1234567891222 |
+|       3 | wangwu    | 12345555 | ww        | 1234567891333 |
+|       4 | zhaoliu   | 12345555 | zl        | 1234567891444 |
++---------+-----------+----------+-----------+---------------+
+4 rows in set
+</code></pre>
+<p><strong>6、创建数据库：create database sql_name;</strong></p>
+<pre><code class="language-python">mysql&gt; create database test_sql;
+Query OK, 1 row affected
+
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| jzq_test           |
+| mtx_1              |
+| mysql              |
+| performance_schema |
+| study              |
+| sys                |
+| test_sql           |
++--------------------+
+8 rows in set
+
+</code></pre>
+<p><strong>7、创建表:</strong></p>
+<pre><code class="language-python">mysql&gt; create table test_sql_table(
+    -&gt; t_id int zerofill unsigned not null primary key auto_increment,
+    -&gt; t_name varchar(20),
+    -&gt; t_num int(10));
+
+//创建成功，展示如下：
+mysql&gt; desc test_sql_table;
++--------+---------------------------+------+-----+---------+----------------+
+| Field  | Type                      | Null | Key | Default | Extra          |
++--------+---------------------------+------+-----+---------+----------------+
+| t_id   | int(10) unsigned zerofill | NO   | PRI | NULL    | auto_increment |
+| t_name | varchar(20)               | YES  |     | NULL    |                |
+| t_num  | int(10)                   | YES  |     | NULL    |                |
++--------+---------------------------+------+-----+---------+----------------+
+3 rows in set
+</code></pre>
+<p><strong>8、删除表：drop table table_name;</strong></p>
+<pre><code class="language-python">//删表之前：
+mysql&gt; show tables;
++--------------------+
+| Tables_in_jzq_test |
++--------------------+
+| order_table        |
+| test_sql_table     |
+| user_info          |
+| user_info_table    |
++--------------------+
+4 rows in set
+
+//执行删表操作：
+mysql&gt; drop table order_table;
+
+//删表后结果显示；
+mysql&gt; show tables;
++--------------------+
+| Tables_in_jzq_test |
++--------------------+
+| test_sql_table     |
+| user_info          |
+| user_info_table    |
++--------------------+
+3 rows in set
+</code></pre>
+<p><strong>9、删数据库：drop database sql_name;</strong></p>
+<pre><code class="language-python">//删库之前：
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| jzq_test           |
+| mtx_1              |
+| mysql              |
+| performance_schema |
+| study              |
+| sys                |
+| test_sql           |
++--------------------+
+8 rows in set
+
+//执行删库命令：
+mysql&gt; drop database test_sql;
+
+//删库后展示结果：
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| jzq_test           |
+| mtx_1              |
+| mysql              |
+| performance_schema |
+| study              |
+| sys                |
++--------------------+
+7 rows in set
+</code></pre>
+<p><strong>10、修改表名：alter table  old_table  rename  to  new_table;</strong></p>
+<pre><code class="language-python"># 当前表名
+mysql&gt; show tables;
++---------------+
+| Tables_in_jzq |
++---------------+
+| old_table     |
++---------------+
+1 row in set
+
+# 执行修改表名的命令
+mysql&gt; alter table old_table rename  to new_table;
+Query OK, 0 rows affected
+
+# 展示修改后的表名
+mysql&gt; show tables;
++---------------+
+| Tables_in_jzq |
++---------------+
+| new_table     |
++---------------+
+1 row in set
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/lf--_c-3a/" class="tag">
+                    Mysql
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/qin-ce-mysql-bu-shi-nei-bu-huo-wai-bu-ming-ling-ye-bu-shi-ke-yun-xing-de-cheng-xu-huo-pi-chu-li-wen-jian-jie-jue-ban-fa/">
+                  <h3 class="post-title">
+                    亲测mysql不是内部或外部命令,也不是可运行的程序或批处理文件解决办法
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

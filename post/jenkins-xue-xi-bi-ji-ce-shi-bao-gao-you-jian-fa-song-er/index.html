@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Jenkins学习笔记--测试报告邮件发送（二） | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+一、安装插件
+二、开启 STMP 服务
+三、设置邮件服务
+四、构建后操作发送邮件
+五、再次 【立即构建Build Now】 → 控制台输出
+
+(邮件发送)
+一、安装插件
+Manage Jenkins → Manage Plugins → ..." />
+    <meta name="keywords" content="Jenkins" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Jenkins学习笔记--测试报告邮件发送（二）</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <p><ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6">一、安装插件</a></li>
+<li><a href="#%E4%BA%8C-%E5%BC%80%E5%90%AF-stmp-%E6%9C%8D%E5%8A%A1">二、开启 STMP 服务</a></li>
+<li><a href="#%E4%B8%89-%E8%AE%BE%E7%BD%AE%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1">三、设置邮件服务</a></li>
+<li><a href="#%E5%9B%9B-%E6%9E%84%E5%BB%BA%E5%90%8E%E6%93%8D%E4%BD%9C%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6">四、构建后操作发送邮件</a></li>
+<li><a href="#%E4%BA%94-%E5%86%8D%E6%AC%A1-%E7%AB%8B%E5%8D%B3%E6%9E%84%E5%BB%BAbuild-now-%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA">五、再次 【立即构建Build Now】 → 控制台输出</a></li>
+</ul>
+(邮件发送)</p>
+<h1 id="一-安装插件">一、安装插件</h1>
+<p>Manage Jenkins → Manage Plugins → 在可选插件中 搜索 email 安装 <strong>Email Extension Plugin</strong><br>
+<img src="https://img-blog.csdnimg.cn/2020071321334743.gif" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<hr>
+<h1 id="二-开启-stmp-服务">二、开启 STMP 服务</h1>
+<p><strong>方法参考：</strong><a href="https://www.cnblogs.com/hhmm99/p/9931861.html"><strong>QQ邮箱开启SMTP方法如何授权</strong></a></p>
+<hr>
+<hr>
+<h1 id="三-设置邮件服务">三、设置邮件服务</h1>
+<ol>
+<li>点击 Manage Jenkins → 选择 Configure System<br>
+<img src="https://img-blog.csdnimg.cn/20200713214240930.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+<li>点击【高级】 → 展开<br>
+<img src="https://img-blog.csdnimg.cn/20200713215319983.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="3." loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200713220003561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+<li>设置完成后，点击保存</li>
+</ol>
+<hr>
+<hr>
+<h1 id="四-构建后操作发送邮件">四、构建后操作发送邮件</h1>
+<p><strong>设置好邮件配置后，什么时候？怎么发送邮件呢？？？</strong></p>
+<ol>
+<li><strong>点击项目 →选择【配置】 → 构建后操作 → Editable Email Notification</strong><img src="https://img-blog.csdnimg.cn/20200713220433745.gif" alt="在这里插入图片描述" loading="lazy"></li>
+<li><strong>Editable Email Notification 相关配置信息</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200713221537158.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200713221928507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>Triggers：选择发送的条件【Always：不管结果一直发送】→ 点击【保存】</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200713222200695.gif" alt="在这里插入图片描述" loading="lazy"></li>
+</ol>
+<hr>
+<hr>
+<h1 id="五-再次-立即构建build-now-控制台输出">五、再次 【立即构建Build Now】 → 控制台输出</h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200713222817316.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/tchrhqHw2/" class="tag">
+                    Jenkins
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/jenkins-xue-xi-bu-shu-zi-ji-de-di-yi-ge-jiao-ben-yi/">
+                  <h3 class="post-title">
+                    Jenkins学习--部署自己的第一个脚本（一）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

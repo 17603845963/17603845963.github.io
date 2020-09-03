@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>python+selenium：移除时间控件readonly属性，实现send_keys输入 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="参考博客：
+python+selenium：web端关闭时间控件readonly属性，可直接输入【今天】【昨天】【任意】时间
+
+
+类似这样的时间戳控件：
+
+可以看到控件有：readonly 属性【只读】
+
+一、移除或者关闭web端时间控件的..." />
+    <meta name="keywords" content="python基础" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">python+selenium：移除时间控件readonly属性，实现send_keys输入</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="参考博客">参考博客：</h2>
+<h1 id=""><a href="https://blog.csdn.net/ak739105231/article/details/85008280?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159413644319726869024247%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id=159413644319726869024247&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v3~pc_rank_v3-1-85008280.pc_ecpm_v3_pc_rank_v3&amp;utm_term=python%E6%97%B6%E9%97%B4%E6%A1%86readonly%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4"><strong>python+selenium：web端关闭时间控件readonly属性，可直接输入【今天】【昨天】【任意】时间</strong></a></h1>
+<hr>
+<hr>
+<h2 id="类似这样的时间戳控件">类似这样的时间戳控件：</h2>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200708090518256.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="可以看到控件有readonly-属性只读">可以看到控件有：readonly 属性【只读】</h2>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200708090453569.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="一-移除或者关闭web端时间控件的readonly属性的方法">一、移除或者关闭web端时间控件的readonly属性的方法</h2>
+<ol>
+<li>
+<p><strong>方法一：原生js，移除readonly属性</strong></p>
+<pre><code class="language-python">
+js = &quot;document.getElementById('train_date').removeAttribute('readonly')&quot;
+
+</code></pre>
+</li>
+<li>
+<p><strong>方法二：jQuery，移除readonly属性</strong></p>
+<pre><code class="language-python">
+js = &quot;$('input[id=train_date]').removeAttr('readonly')&quot;
+
+</code></pre>
+</li>
+<li>
+<p><strong>方法三：jQuery，设置属性为false</strong></p>
+<pre><code class="language-python">
+js = &quot;$('input[id=train_date]').attr('readonly',false)&quot;
+
+</code></pre>
+</li>
+<li>
+<p><strong>方法四：jQuery，设置属性为空</strong></p>
+<pre><code class="language-python">
+js = &quot;$('input[id=train_date]').attr('readonly',’ ‘)&quot;
+
+</code></pre>
+</li>
+</ol>
+<hr>
+<hr>
+<h2 id="二-清除时间控件原有显示文本-send_keys输入自己想要输入的时间">二、清除时间控件原有显示文本， send_keys输入自己想要输入的时间</h2>
+<pre><code class="language-python"># 随便选一种方法移除或者关闭web端时间控件的readonly属性
+js_beginDate = &quot;$('input[id=beginDate]').removeAttr('readonly')&quot;
+driver.execute_script(js_beginDate)
+# 清除时间控件原有显示文本
+driver.find_element_by_id('beginDate').clear()
+# send_keys输入自己想要输入的时间
+driver.find_element_by_id('beginDate').send_keys('2020-07-07 00:00:00')
+
+# 同理
+js_endDate = &quot;$('input[id=endDate]').removeAttr('readonly')&quot;
+driver.execute_script(js_endDate)
+driver.find_element_by_id('endDate').clear()
+driver.find_element_by_id('endDate').send_keys('2020-07-07 23:59:59')
+
+</code></pre>
+<hr>
+<hr>
+<h2 id="三-如何向控件中传入昨天的指定日期时间呢">三、如何向控件中传入昨天的指定日期时间呢？</h2>
+<ul>
+<li><strong>当前日期为：2020-07-08</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200708145808550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<p><strong>- 运行结果：</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200708145834680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<h2 id="想要明天的话就直接days1简单粗暴">想要明天的话，就直接（days=1），简单粗暴</h2>
+<pre><code class="language-python">import datetime
+
+# 输出 ：昨天的日期+00：00：00
+now_time = datetime.datetime.now()
+yesterday = now_time + datetime.timedelta(days = -1)
+begin_time = yesterday.strftime('%Y-%m-%d 00:00:00')
+print(begin_time)
+
+# 输出 ：昨天的日期+23：59：59
+now_time = datetime.datetime.now()
+yesterday = now_time + datetime.timedelta(days = -1)
+end_time = yesterday.strftime('%Y-%m-%d 23:59:59')
+print(end_time)
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/python/" class="tag">
+                    python基础
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/appium-app-zi-dong-hua-ce-shi-huan-jing-da-jian/">
+                  <h3 class="post-title">
+                    Appium---APP自动化测试环境搭建
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

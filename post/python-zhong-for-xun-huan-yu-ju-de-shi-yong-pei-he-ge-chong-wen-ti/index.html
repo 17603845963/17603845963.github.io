@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>python中For循环语句的使用（配合各种问题） | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="For 循环语句的使用场景：
+1.现有列表L=【5，9，4，7，3】，求元素和？
+L = [5,6,9,3,7]
+result = 0
+for item in L :
+    result += item
+print(result)
+
+2...." />
+    <meta name="keywords" content="python基础" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">python中For循环语句的使用（配合各种问题）</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <p><strong>For 循环语句的使用场景：</strong></p>
+<p>1.现有列表L=【5，9，4，7，3】，求元素和？</p>
+<pre><code class="language-python">L = [5,6,9,3,7]
+result = 0
+for item in L :
+    result += item
+print(result)
+</code></pre>
+<p>2.求出1-100的整数和？</p>
+<pre><code class="language-python"># 计算1-100的和
+count = 0
+# range函数，取左不取右
+for i in range(1,101) :
+    count += i
+print(count)
+</code></pre>
+<p>3.打印如下图案：</p>
+<pre><code class="language-python">*
+* *
+* * *
+* * * *
+* * * * *
+# i 打印5行
+for i in range(1,6):
+	# 每行多打印 i-1 个*号
+    for j in range(i-1):
+        print(&quot;* &quot;,end=&quot;&quot;)
+    print(&quot;*&quot;)
+</code></pre>
+<p>4.遍历字典中的key，value值</p>
+<pre><code class="language-python">d = {&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:26 }
+for item in d :
+	# 遍历所有的key值
+	print(item)
+	# 根据遍历的key值获取对应的value值
+	print(d[item])
+</code></pre>
+<p>5.遍历列表所有的元素</p>
+<pre><code class="language-python">L = [5,6,9,7,3]
+# len（L）为5，range函数默认从0开始
+for i in range(len(L)):
+    print(L[i])
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/python/" class="tag">
+                    python基础
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/android-app-wen-ding-xing-ce-shi-gong-ju-monkey/">
+                  <h3 class="post-title">
+                    Android  App 稳定性测试工具--Monkey
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

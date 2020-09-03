@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://17603845963.github.io</id>
     <title>井 sir 的私人博客</title>
-    <updated>2020-09-03T12:06:09.982Z</updated>
+    <updated>2020-09-03T12:27:53.474Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://17603845963.github.io"/>
     <link rel="self" href="https://17603845963.github.io/atom.xml"/>
@@ -11,768 +11,614 @@
     <icon>https://17603845963.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 井 sir 的私人博客</rights>
     <entry>
-        <title type="html"><![CDATA[Jmeter图标双击运行且不显示cmd对话框]]></title>
-        <id>https://17603845963.github.io/post/jmeter-tu-biao-shuang-ji-yun-xing-qie-bu-xian-shi-cmd-dui-hua-kuang/</id>
-        <link href="https://17603845963.github.io/post/jmeter-tu-biao-shuang-ji-yun-xing-qie-bu-xian-shi-cmd-dui-hua-kuang/">
+        <title type="html"><![CDATA[Github下载与使用]]></title>
+        <id>https://17603845963.github.io/post/github-xia-zai-yu-shi-yong/</id>
+        <link href="https://17603845963.github.io/post/github-xia-zai-yu-shi-yong/">
         </link>
-        <updated>2020-09-03T12:05:08.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="如何不运行cmd直接打开jmeter">如何不运行cmd直接打开Jmeter</h1>
-<hr>
-<hr>
-<h5 id="最近电脑不知道怎么回事">最近电脑不知道怎么回事</h5>
-<h2 id="jmeter-bin目录下的-apachejmeterjar-突然双击就不能运行了">Jmeter — bin目录下的 ApacheJMeter.jar 突然双击就不能运行了</h2>
-<h5 id="网上找了好多方法无非就是运行-jmeterbat文件或者cmd敲jmeter启动">网上找了好多方法，无非就是运行 <strong>jmeter.bat</strong>文件或者<strong>cmd</strong>敲jmeter启动</h5>
-<h5 id="最后找到了这么一个方法">最后找到了这么一个方法：</h5>
-<h1 id="1-在jmeter的bin目录下新建一个jmetertxt文本添加以下内容">1、在Jmeter的bin目录下新建一个【jmeter.txt】文本，添加以下内容：</h1>
-<pre><code class="language-python">Dim wsh
-Set wsh=WScript.CreateObject(&quot;WScript.Shell&quot;)
-wsh.run &quot;jmeter.bat&quot;,0
+        <updated>2020-09-03T12:27:31.000Z</updated>
+        <content type="html"><![CDATA[<p>官网下载真的是好慢好慢。。附上网盘链接<br>
+windows（64位）<br>
+<strong>链接：https://pan.baidu.com/s/1bRndwnVtCY_wE1A26Xtzeg<br>
+提取码：yvpk</strong></p>
+<p><strong>1.下载完毕后就傻瓜式默认一步步安装（保持默认选项即可）<br>
+2.安装完毕后在桌面点击鼠标右键，显示如下：</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200503144240423.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>3.验证Git是否安装成功：</strong><br>
+①win+R→cmd→打开命令提示符<br>
+②输入：git --version<br>
+③显示如下信息即为安装成功<br>
+<img src="https://img-blog.csdnimg.cn/20200503144724713.png" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>4.需要在官网注册Git账号：https://github.com</strong><br>
+注册账号时请退出电脑上的杀毒软件，如：电脑管家、360等。。。<br>
+看不懂可以使用谷歌浏览器登录，右键翻译网页还是挺好用的</p>
+<p><strong>5.配置sshkey：</strong><br>
+桌面鼠标右键点击【Git Bash Here】</p>
+<p>①回到根目录下：</p>
+<pre><code class="language-bash">cd /
 </code></pre>
-<hr>
-<h1 id="2-将文件改为jmetervbs">2、将文件改为【jmeter.vbs】</h1>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200517165128676.png" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<h1 id="3-右键发送桌面快捷方式到桌面">3、右键发送桌面快捷方式到桌面</h1>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200517165354498.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<h1 id="4-图标默认的不太好看这里我把-ico图标也放上想要的自己换">4、图标默认的不太好看，这里我把 ico图标也放上，想要的自己换</h1>
-<p><strong>链接：https://pan.baidu.com/s/1RVzYqJbyArCzdwpJb4StiA<br>
-提取码：oltl</strong></p>
-<hr>
-<h1 id="5-然后双击就能跳过cmd窗口运行jmeter啦快去试试吧">5、然后双击就能跳过cmd窗口运行Jmeter啦，快去试试吧</h1>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Jmeter环境搭建]]></title>
-        <id>https://17603845963.github.io/post/jmeter-huan-jing-da-jian/</id>
-        <link href="https://17603845963.github.io/post/jmeter-huan-jing-da-jian/">
-        </link>
-        <updated>2020-09-03T12:03:33.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="一-搭建jmeter环境">一、搭建jmeter环境：</h2>
-<p><strong>链接：https://pan.baidu.com/s/1D2uvrrThEeuhVS26rofDXg<br>
-提取码：ekln</strong></p>
-<p>内附 jmeter 包和 JDK 安装包<br>
-<img src="https://img-blog.csdnimg.cn/20200718001737487.png" alt="在这里插入图片描述" loading="lazy"></p>
-<ul>
-<li>
-<h1 id="jdk环境搭建path-中添加exe-绝对路径">JDK环境搭建：【PATH 中添加.exe 绝对路径】</h1>
-<img src="https://img-blog.csdnimg.cn/20200717235955112.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
-<li>
-<h1 id="cmd运行-java-version-显示如图所示结果即为配置成功">cmd运行 <strong>java -version</strong> 显示如图所示结果即为配置成功</h1>
-<img src="https://img-blog.csdnimg.cn/20200718000230913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
-</ul>
-<h2 id="二-运行jmeter程序">二、运行Jmeter程序</h2>
-<ul>
-<li>jmeter 文件夹下载后剪切到自定义目录下，进入 bin目录<br>
-<img src="https://img-blog.csdnimg.cn/2020071800081735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
-</ul>
-<h1 id="三-jmeter启动后页面展示">三、Jmeter启动后页面展示</h1>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/2020071800093995.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<h1 id="这里说明一下apachejmeterjar-文件双击无法启动-jmeter-就选择双击-jmeterbat-来启动但是这步操作会顺带启动一个-cmd-窗口稍带强迫症用户请参考我的这篇文章">这里说明一下，ApacheJMeter.jar 文件双击无法启动 jmeter ，就选择双击 jmeter.bat 来启动，但是这步操作会顺带启动一个 cmd 窗口，稍带强迫症用户请参考我的这篇文章：</h1>
-<h1 id="jmeter图标双击运行且不显示cmd对话框"><a href="https://blog.csdn.net/J_____Q/article/details/106176704">Jmeter图标双击运行且不显示cmd对话框</a></h1>
-<hr>
-<hr>
-<h1 id="下一篇写一下如何使用-jmeter-抓取web端与手机app端的请求接口网上的教程太坑了-有兴趣可以看看">下一篇写一下如何使用 jmeter 抓取Web端与手机APP端的请求接口，网上的教程太坑了 ，有兴趣可以看看</h1>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Fiddler工具之抓取IOS设备app的包]]></title>
-        <id>https://17603845963.github.io/post/fiddler-gong-ju-zhi-zhua-qu-ios-she-bei-app-de-bao/</id>
-        <link href="https://17603845963.github.io/post/fiddler-gong-ju-zhi-zhua-qu-ios-she-bei-app-de-bao/">
-        </link>
-        <updated>2020-09-03T12:03:00.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="一-fiddler-设置">一、Fiddler 设置</h1>
-<ul>
-<li>
-<h1 id="点击-tools-fiddler-options">点击 Tools &gt; Fiddler Options</h1>
-</li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200718124336103.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<ul>
-<li>
-<h2 id="勾选-capture-https-connects">勾选 Capture HTTPS CONNECTS</h2>
-</li>
-<li>
-<h2 id="勾选-decrypt-https-traffic">勾选 Decrypt HTTPS traffic</h2>
-</li>
-<li>
-<h2 id="勾选-allow-remote-computers-to-connect">勾选 Allow  remote computers to connect</h2>
-</li>
-</ul>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200718124525455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200718124401422.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<ul>
-<li>
-<h1 id="重启-fiddler">重启 Fiddler</h1>
-</li>
-<li>
-<h1 id="确保防火墙允许-fiddler-进程可以远程连接">确保防火墙允许 Fiddler 进程可以远程连接</h1>
-<p>【直接关闭本机防火墙，此项即可无视】</p>
-</li>
-<li>
-<h1 id="ios设备连接到wifi">IOS设备连接到WIFI</h1>
-<p>ios设备必须和Fiddler所在主机处在相同网段<br>
-测试方法：<br>
-cmd &gt;ping 手机ip地址，收到正确回复则为主机与手机网路畅通<br>
-<img src="https://img-blog.csdnimg.cn/20200718125233818.png" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-<li>
-<h1 id="确保ios设备可以访问到http主机ip8888">确保ios设备可以访问到：http://主机IP:8888，</h1>
-<p><strong>该地址会返回Fiddler Echo Service 页面</strong><br>
-<img src="https://img-blog.csdnimg.cn/20200718125553757.png" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200718125713256.png" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200718130945130.png" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/2020071813100958.png" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200718131054897.png" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200718131251346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-<li>
-<h1 id="安装完成后信任证书">安装完成后信任证书</h1>
-</li>
-</ul>
-<p>设置 &gt; 通用 &gt; 关于本机 &gt; 证书信任设置，信任刚刚安装的 Fiddler 证书<br>
-<img src="https://img-blog.csdnimg.cn/20200718131737507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<hr>
-<hr>
-<h1 id="二-ios设备设置">二、iOS设备设置</h1>
-<ol>
-<li>设置 &gt; WiFi &gt; 打开已连接的WiFi</li>
-<li>点击配置代理 &gt; 手动</li>
-<li>设置 iOS 代理服务器地址为 Fiddler 所在主机的 ip 地址</li>
-<li>设置端口为 Fiddler 监听的端口：默认8888</li>
-<li>保存当前代理设置信息</li>
-<li>打开一个网页或者App，此时 Fiddler 已经可以捕获到 HTTP 请求了</li>
-<li><img src="https://img-blog.csdnimg.cn/20200718130618735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Jmeter—处理Unicode编码转为中文]]></title>
-        <id>https://17603845963.github.io/post/jmeter-chu-li-unicode-bian-ma-zhuan-wei-zhong-wen/</id>
-        <link href="https://17603845963.github.io/post/jmeter-chu-li-unicode-bian-ma-zhuan-wei-zhong-wen/">
-        </link>
-        <updated>2020-09-03T11:54:17.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="原文链接jmeter处理unicode编码转为中文"><a href="https://blog.csdn.net/weixin_42675206/article/details/81064257">原文链接：Jmeter—处理Unicode编码转为中文</a></h1>
-<p>1.添加一个后置处理器（BeanShell PostProcessor）</p>
-<p>2.编写转译方法</p>
-<p>3.保存，运行<br>
-<img src="https://img-blog.csdnimg.cn/20200719204320804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-源码如下：</p>
-<pre><code class="language-python">代码如下：
-
-String s2=new String(prev.getResponseData(),&quot;UTF-8&quot;);
-//---------------一下步骤为转码过程---------------
-        char aChar;
-        int len= s2.length();
-        StringBuffer outBuffer=new StringBuffer(len);
-        for(int x =0; x &lt;len;){
-            aChar= s2.charAt(x++);
-            if(aChar=='\\'){
-                aChar= s2.charAt(x++);
-                if(aChar=='u'){
-                    int value =0;
-                    for(int i=0;i&lt;4;i++){
-                        aChar= s2.charAt(x++);
-                        switch(aChar){
-                            case'0':
-                            case'1':
-                            case'2':
-                            case'3':
-                            case'4':
-                            case'5':
-                            case'6':
-                            case'7':
-                            case'8':
-                            case'9':
-                                value=(value &lt;&lt;4)+aChar-'0';
-                                break;
-                            case'a':
-                            case'b':
-                            case'c':
-                            case'd':
-                            case'e':
-                            case'f':
-                                value=(value &lt;&lt;4)+10+aChar-'a';
-                                break;
-                            case'A':
-                            case'B':
-                            case'C':
-                            case'D':
-                            case'E':
-                            case'F':
-                                value=(value &lt;&lt;4)+10+aChar-'A';
-                                break;
-                            default:
-                                throw new IllegalArgumentException(
-                                        &quot;Malformed   \\uxxxx  encoding.&quot;);}}
-                    outBuffer.append((char) value);}else{
-                    if(aChar=='t')
-                        aChar='\t';
-                    else if(aChar=='r')
-                    aChar='\r';
-                    else if(aChar=='n')
-                    aChar='\n';
-                    else if(aChar=='f')
-                    aChar='\f';
-                    outBuffer.append(aChar);}}else
-                outBuffer.append(aChar);}
-//-----------------以上内容为转码过程---------------------------
-//将转成中文的响应结果在查看结果树中显示
-
-        prev.setResponseData(outBuffer.toString());
+<p>②生成key(跟注册的邮箱地址)：</p>
+<pre><code class="language-bash">ssh -keygen -t rsa -C &quot;xxxxx@163.com/qq.com&quot;
 </code></pre>
+<p>③进入.ssh目录(生成了两个 id_rsa 文件)：</p>
+<pre><code class="language-bash">cd ~/.ssh
+</code></pre>
+<p>④获取ssh-key：</p>
+<pre><code class="language-bash">cat id_rsa.pub
+</code></pre>
+<p>#此时生成了一大串字符，全部复制<br>
+<img src="https://img-blog.csdnimg.cn/20200503151220229.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>⑤复制ssh-key，登录Github，点击个人信息【倒三角】进入setting设置</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200503151538749.png" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>⑥选择【SSH and GPG keys】并新建ssh key</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200503151719882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>⑦点击创建后，ssh key配置完成</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200503152113557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[使用Python发送Get/Post请求]]></title>
+        <id>https://17603845963.github.io/post/shi-yong-python-fa-song-getpost-qing-qiu/</id>
+        <link href="https://17603845963.github.io/post/shi-yong-python-fa-song-getpost-qing-qiu/">
+        </link>
+        <updated>2020-09-03T12:26:49.000Z</updated>
+        <content type="html"><![CDATA[<p>需要导入requests模块：</p>
+<pre><code class="language-python">import requests
+</code></pre>
+<p>①发送 get 请求：</p>
+<pre><code class="language-python"># get 请求
+url = &quot;http://www.baidu.com&quot;
+res = requests.get(url) # ↑返回一个消息实体（响应头、报文、状态码等）
+print(res)
+print(&quot;响应头&quot;,res.headers)
+print(&quot;响应状态码&quot;,res.status_code)
+print(&quot;响应正文&quot;,res.text)
+</code></pre>
+<p>②发送post请求：</p>
+<pre><code class="language-python"># post 请求
+url='https://xxxx.com'
+data={&quot;username&quot;:&quot;test&quot;,&quot;pwd&quot;:&quot;test&quot;}
+res=requests.post(url,data)
+print(&quot;响应头&quot;,res.headers)
+print(&quot;响应状态码&quot;,res.status_code)
+print(&quot;响应cookies&quot;,res.cookies) # 登录成功后才会显示
+print(&quot;cookie的value值&quot;,res.cookies['JSESSIONID(key属性名)']) # 类字典形式通过key取值
+print(&quot;响应正文1&quot;,res.text)    # 返回类型为 html 、xml、json 均可使用
+print(&quot;响应正文2&quot;,res.json())  # 只有json类型的返回值才可以使用.json
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[python中For循环语句的使用（配合各种问题）]]></title>
+        <id>https://17603845963.github.io/post/python-zhong-for-xun-huan-yu-ju-de-shi-yong-pei-he-ge-chong-wen-ti/</id>
+        <link href="https://17603845963.github.io/post/python-zhong-for-xun-huan-yu-ju-de-shi-yong-pei-he-ge-chong-wen-ti/">
+        </link>
+        <updated>2020-09-03T12:26:23.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>For 循环语句的使用场景：</strong></p>
+<p>1.现有列表L=【5，9，4，7，3】，求元素和？</p>
+<pre><code class="language-python">L = [5,6,9,3,7]
+result = 0
+for item in L :
+    result += item
+print(result)
+</code></pre>
+<p>2.求出1-100的整数和？</p>
+<pre><code class="language-python"># 计算1-100的和
+count = 0
+# range函数，取左不取右
+for i in range(1,101) :
+    count += i
+print(count)
+</code></pre>
+<p>3.打印如下图案：</p>
+<pre><code class="language-python">*
+* *
+* * *
+* * * *
+* * * * *
+# i 打印5行
+for i in range(1,6):
+	# 每行多打印 i-1 个*号
+    for j in range(i-1):
+        print(&quot;* &quot;,end=&quot;&quot;)
+    print(&quot;*&quot;)
+</code></pre>
+<p>4.遍历字典中的key，value值</p>
+<pre><code class="language-python">d = {&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:26 }
+for item in d :
+	# 遍历所有的key值
+	print(item)
+	# 根据遍历的key值获取对应的value值
+	print(d[item])
+</code></pre>
+<p>5.遍历列表所有的元素</p>
+<pre><code class="language-python">L = [5,6,9,7,3]
+# len（L）为5，range函数默认从0开始
+for i in range(len(L)):
+    print(L[i])
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Android  App 稳定性测试工具--Monkey]]></title>
+        <id>https://17603845963.github.io/post/android-app-wen-ding-xing-ce-shi-gong-ju-monkey/</id>
+        <link href="https://17603845963.github.io/post/android-app-wen-ding-xing-ce-shi-gong-ju-monkey/">
+        </link>
+        <updated>2020-09-03T12:26:13.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="稳定性测试">稳定性测试</h2>
+<p>稳定性测试是指对应用进行长时间的操作，检测功能是否稳定。一般稳定性测试时间是 N*12小时。项目中稳定测试多采用<strong>monkey</strong>，进行随机测试。</p>
+<p>测试方法：<br>
+<strong>1、跑monkey</strong></p>
+<p>adb shell monkey -p packageName【包名】 -v -v -v --throttle 500 -s 4 --ignore-crashes --ignore-timeouts --ignore-security-exceptions times(次数) |logcat -v time &gt; e:\log\monkeyLog.txt（日志保存路径）</p>
+<p>参数：<br>
+-p ： 指点包名,如果要指定多个包名，需多个-p参数<br>
+-v ： 指定日志的详细程度，取值1-3，三个 -v 详细程度最高<br>
+--throttle ： 指定用户操作时的时延，单位毫秒<br>
+-s ： 指定伪随机数生成器的seed值，取值1-10，当seed相同，产生的事件序列也相同<br>
+--ignore-crashes ： 指应用程序崩溃，monkey依然发送事件，直到事件数完成<br>
+--ignore-timeouts： 指应用程序发生ANR，monkey依然发送事件，直到事件数完成<br>
+--ignore-security-exceptions： 指应用程序发生许可错误，monkey依然发送事件，直到事件数完成<br>
+|logcat -v time： 给monkey命令的日志加上时间</p>
+<p><strong>2、日志解析</strong><br>
+稳定性测试是否能通过在于日志，需要把日志里的报错日志搜索出来，开发定位问题。<br>
+1）、用Notepad++打开日志<br>
+2）、ctrl + F<br>
+<img src="https://img-blog.csdnimg.cn/2020050614195694.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>3）、分析exception日志，定位问题。</strong></p>
 <p>————————————————<br>
-版权声明：本文为CSDN博主「Nathan_jyx」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
-原文链接：https://blog.csdn.net/weixin_42675206/article/details/81064257</p>
+版权声明：本文为CSDN博主「Kitten_336368」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
+原文链接：https://blog.csdn.net/xiaomaoxiao336368/article/details/84887948</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[jmeter之压测Mysql数据库（前期配置+操作详解）]]></title>
-        <id>https://17603845963.github.io/post/jmeter-zhi-ya-ce-mysql-shu-ju-ku-qian-qi-pei-zhi-cao-zuo-xiang-jie/</id>
-        <link href="https://17603845963.github.io/post/jmeter-zhi-ya-ce-mysql-shu-ju-ku-qian-qi-pei-zhi-cao-zuo-xiang-jie/">
+        <title type="html"><![CDATA[数据库---MySQL的命令行命令（在已创建的表中添加主键、自增、默认值）]]></title>
+        <id>https://17603845963.github.io/post/shu-ju-ku-mysql-de-ming-ling-xing-ming-ling-zai-yi-chuang-jian-de-biao-zhong-tian-jia-zhu-jian-zi-zeng-mo-ren-zhi/</id>
+        <link href="https://17603845963.github.io/post/shu-ju-ku-mysql-de-ming-ling-xing-ming-ling-zai-yi-chuang-jian-de-biao-zhong-tian-jia-zhu-jian-zi-zeng-mo-ren-zhi/">
         </link>
-        <updated>2020-09-03T11:53:49.000Z</updated>
-        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
-<li><a href="#1-jdbc%E5%8E%8B%E6%B5%8Bmysql%E7%9B%B8%E5%85%B3%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">1. jdbc压测mysql相关准备工作</a><br>
-*
-<ul>
-<li><a href="#1-thread-group-add-sampler-jdbc-request">1、Thread Group -&gt; add -&gt; sampler -&gt; jdbc request</a></li>
-<li><a href="#2-jdbc-request-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BB%B6-jdbc-connection-configuration">2. JDBC Request &gt; 配置元件 &gt; JDBC Connection Configuration</a></li>
-<li><a href="#3%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85mysql%E5%B9%B6%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93">3.配置数据库【本地安装mysql并新建一个数据库】</a></li>
-</ul>
-</li>
-<li><a href="#2-jar%E5%8C%85%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E4%B8%8B%E5%88%AB%E6%8E%8F%E9%92%B1%E4%B8%8B%E8%BD%BD%E5%95%A6">2. jar包添加【自己下，别掏钱下载啦】</a><br>
-*
-<ul>
-<li><a href="#%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E4%B8%AD%E6%B7%BB%E5%8A%A0-mysql-connector-java5138jar-%E6%96%87%E4%BB%B6">测试计划中添加 mysql-connector-java/5.1.38.jar 文件</a></li>
-</ul>
-</li>
-<li><a href="#3-%E9%85%8D%E7%BD%AE%E8%AE%B2%E8%A7%A3">3. 配置讲解</a><br>
-*
-<ul>
-<li><a href="#1-jdbc-request-%E9%85%8D%E7%BD%AE">1. JDBC Request 配置</a></li>
-<li><a href="#2-jdbc-connection-configuration%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE">2. JDBC Connection Configuration【数据库连接配置】</a></li>
-</ul>
-</li>
-<li><a href="#4-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%8B%E6%B5%8B%E8%B0%83%E8%AF%95">4、Mysql 数据库压测调试</a><br>
-*
-<ul>
-<li><a href="#1-jdbc-request-sql-query-%E4%B8%AD%E8%BE%93%E5%85%A5%E7%AE%80%E5%8D%95%E7%9A%84sql%E8%AF%AD%E5%8F%A5">1、JDBC Request &gt; SQL Query 中输入简单的SQL语句</a></li>
-<li><a href="#2-%E8%B0%83%E8%AF%95%E7%BB%93%E6%9E%9C">2、调试结果</a></li>
-</ul>
-</li>
-<li><a href="#5-jdbc-request-%E5%8F%82%E6%95%B0%E8%AE%B2%E8%A7%A3">5、JDBC Request 参数讲解：</a><br>
-*
-<ul>
-<li><a href="#1-%E9%A2%84%E7%BC%96%E8%AF%91-select-%E8%AF%AD%E5%8F%A5%E6%9F%A5%E8%AF%A2%E8%AF%A6%E8%A7%A3">1、预编译 select 语句查询详解</a></li>
-</ul>
-</li>
-</ul>
-(Jmeter压测实战之JDBC request压测Mysql)</p>
-<h1 id="1-jdbc压测mysql相关准备工作">1. jdbc压测mysql相关准备工作</h1>
-<h3 id="1-thread-group-add-sampler-jdbc-request">1、Thread Group -&gt; add -&gt; sampler -&gt; jdbc request</h3>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200721235644618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h3 id="2-jdbc-request-配置元件-jdbc-connection-configuration">2. JDBC Request &gt; 配置元件 &gt; JDBC Connection Configuration</h3>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200721235904507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h3 id="3配置数据库本地安装mysql并新建一个数据库">3.配置数据库【本地安装mysql并新建一个数据库】</h3>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200722001049855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<hr>
-<h1 id="2-jar包添加自己下别掏钱下载啦">2. jar包添加【自己下，别掏钱下载啦】</h1>
-<p><strong>点击跳转下载地址</strong>：<a href="https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.38"><strong>mysql-connector-java/5.1.38</strong></a><br>
-<img src="https://img-blog.csdnimg.cn/20200722002832243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<h3 id="测试计划中添加-mysql-connector-java5138jar-文件">测试计划中添加 mysql-connector-java/5.1.38.jar 文件</h3>
-<p><strong>这步操作结束后，JDBC Connection Configuration数据库连接配置中才可以选择驱动</strong></p>
-<ul>
-<li><strong>JDBC Driver class &gt;  com.mysql.jdbc.Driver</strong><br>
-<img src="https://img-blog.csdnimg.cn/20200722004232967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
-</ul>
-<hr>
-<hr>
-<h1 id="3-配置讲解">3. 配置讲解</h1>
-<h3 id="1-jdbc-request-配置">1. JDBC Request 配置</h3>
-<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20200722003932690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h3 id="2-jdbc-connection-configuration数据库连接配置">2. JDBC Connection Configuration【数据库连接配置】</h3>
-<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/20200722010348711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<ul>
-<li><strong>续上图</strong><br>
-<img src="https://img-blog.csdnimg.cn/20200722010534462.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
-</ul>
-<h1 id="4-mysql-数据库压测调试">4、Mysql 数据库压测调试</h1>
-<p>配置工作完成后，就可以进行简单的调试</p>
-<h3 id="1-jdbc-request-sql-query-中输入简单的sql语句">1、JDBC Request &gt; SQL Query 中输入简单的SQL语句</h3>
-<figure data-type="image" tabindex="6"><img src="https://img-blog.csdnimg.cn/20200722010831936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h3 id="2-调试结果">2、调试结果</h3>
-<p><img src="https://img-blog.csdnimg.cn/20200722011204407.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200722011223350.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<hr>
-<h1 id="5-jdbc-request-参数讲解">5、JDBC Request 参数讲解：</h1>
-<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/20200722013540327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h3 id="1-预编译-select-语句查询详解">1、预编译 select 语句查询详解</h3>
-<p><img src="https://img-blog.csdnimg.cn/20200724102212177.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200724102727421.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Pycharm正式版安装教程]]></title>
-        <id>https://17603845963.github.io/post/pycharm-zheng-shi-ban-an-zhuang-jiao-cheng/</id>
-        <link href="https://17603845963.github.io/post/pycharm-zheng-shi-ban-an-zhuang-jiao-cheng/">
-        </link>
-        <updated>2020-09-03T11:53:07.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="pycharm正式版">Pycharm正式版</h1>
-<h2 id="帮你们准备好了网盘链接下载后解压本地任意文件夹">帮你们准备好了网盘链接，下载后解压本地任意文件夹</h2>
-<p><strong>链接：https://pan.baidu.com/s/1dp0BJy2QR0bvDMORLi50Sw<br>
-提取码：bxkq</strong><br>
-<img src="https://img-blog.csdnimg.cn/20200722094409157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<hr>
-<hr>
-<h1 id="一-安装-python">一、安装 Python</h1>
-<h2 id="1-安装时选择安装界面的-add-python-37-to-path-进行勾选避免再次配置环境变量">1、<strong>安装时选择安装界面的“ Add Python 3.7 to PATH ”进行勾选，避免再次配置环境变量</strong></h2>
-<p><strong>32位、64位自行选择</strong><br>
-<img src="https://img-blog.csdnimg.cn/20200722093646972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<h2 id="2-验证python环境配置">2、验证Python环境配置</h2>
-<ol>
-<li>win +R 输入 cmd ，打开命令行窗口</li>
-<li>输入 python 显示版本号即为配置成功<br>
-<img src="https://img-blog.csdnimg.cn/20200722170922391.png" alt="在这里插入图片描述" loading="lazy"></li>
-</ol>
-<hr>
-<hr>
-<h1 id="二-安装pycharm">二、安装Pycharm</h1>
-<h2 id="1-双击解压好的-pycharm-professional-173372788exe-文件进行安装">1、双击解压好的 pycharm-professional-173.3727.88.exe 文件进行安装</h2>
-<h2 id="2-将该解压的-jar-文件放到pycharm安装目录的bin目录下">2、将该解压的 .jar 文件放到pycharm安装目录的bin目录下</h2>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200722094538266.png" alt="在这里插入图片描述" loading="lazy"></figure>
-<h2 id="3-在-bin-目录找到-pycharm64exevmoptions-文件并打开">3、在 bin 目录找到 pycharm64.exe.vmoptions 文件并打开</h2>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200722095844364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h2 id="4-在最后一行添加如下内容点击保存两个文件都要修改">4、在最后一行添加如下内容，点击保存【两个文件都要修改】</h2>
-<pre><code class="language-python">'''这个是我的安装路径，参考格式替换成自己的'''
--javaagent:D:\Program Files\JetBrains\PyCharm 2017.3\bin\JetbrainsCrack-2.6.10-release-enc.jar
+        <updated>2020-09-03T12:21:15.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1-mysql命令行创建一个订单表">1、MySQL命令行创建一个订单表</h2>
+<pre><code class="language-powershell">mysql&gt; create table order_table(
+    -&gt; order_id int not null,
+    -&gt; price float(10,2),
+    -&gt; user_id int);
 </code></pre>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200722100007968.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h2 id="5-启动-pycharm-程序">5、启动 pycharm 程序</h2>
-<ul>
-<li>
-<h3 id="pycharm打开help-register">pycharm打开→Help → Register</h3>
-<img src="https://img-blog.csdnimg.cn/20200722100335667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy">
-<ul>
-<li>
-<h3 id="选择注册码激活粘贴网盘链接的激活完点击确定按钮">选择注册码激活，粘贴网盘链接的激活完，点击确定按钮</h3>
-</li>
-</ul>
-<img src="https://img-blog.csdnimg.cn/20200722100507236.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
-<li>
-<h3 id="点击-help-about-查看破解状态">点击 Help &gt;  About 查看破解状态</h3>
-<img src="https://img-blog.csdnimg.cn/202007221009203.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
-<li>
-<h3 id="再次重启pycharm破解完成可以愉快的-printhello-world">再次重启Pycharm，破解完成，可以愉快的 print(&quot;Hello world&quot;)</h3>
-<img src="https://img-blog.csdnimg.cn/20200722101141179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python用例和数据的分离处理之DDT数据驱动测试]]></title>
-        <id>https://17603845963.github.io/post/python-yong-li-he-shu-ju-de-fen-chi-chu-li-zhi-ddt-shu-ju-qu-dong-ce-shi/</id>
-        <link href="https://17603845963.github.io/post/python-yong-li-he-shu-ju-de-fen-chi-chu-li-zhi-ddt-shu-ju-qu-dong-ce-shi/">
-        </link>
-        <updated>2020-09-03T11:52:41.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="ddt-data-driver-test-数据驱动测试">DDT 【data driver test 数据驱动测试】</h1>
+<p>创建成功，效果如下：</p>
+<pre><code class="language-powershell">mysql&gt; desc order_table;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| order_id | int(11)     | NO   |     | NULL    |       |
+| price    | float(10,2) | YES  |     | NULL    |       |
+| user_id  | int(11)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set
+</code></pre>
 <hr>
-<h1 id="一-先安装-ddt-模块">一、先安装 ddt 模块：</h1>
-<ul>
-<li>
-<h3 id="方法一可以直接-cmd-命令行敲-pip-install-ddt-pip行不通试试-pip3-pipexe-安装">方法一：可以直接 cmd 命令行敲： <strong>pip install ddt</strong> 【pip行不通试试 pip3 / pip.exe 安装】</h3>
-</li>
-<li>
-<h3 id="方法二按照下面的gif图片在pycharm直接安装">方法二：按照下面的GIF图片，在pycharm直接安装<img src="https://img-blog.csdnimg.cn/20200801213821214.gif" alt="在这里插入图片描述" loading="lazy"></h3>
-</li>
-</ul>
-<h1 id="二-ddt-简单使用">二、ddt 简单使用</h1>
-<ul>
-<li>
-<h3 id="先导入-ddt-模块-import-ddt">先导入 ddt 模块： import ddt</h3>
-</li>
-<li>
-<h3 id="class类上方输入-ddtddt-装饰器固定语法无需深究">class类上方输入： @ddt.ddt  【装饰器，固定语法，无需深究】</h3>
-</li>
-<li>
-<h3 id="函数方法上方输入-ddtdata">函数方法上方输入： @ddt.data( )</h3>
-</li>
-<li>
-<h3 id="括号传参传几个参数就生成几条测试用例">↑ ↑ ↑ 【括号传参，传几个参数就生成几条测试用例】</h3>
-</li>
-</ul>
-<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
-# -*- coding: utf-8 -*-                                         
-#  @Time   : 2020/08/01
-#  @File    : ddt_test.py
-# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
-import unittest
-# 先导入 ddt 模块
-import ddt
-
-
-# 固定语法，无需深究
-@ddt.ddt
-class TestMethod(unittest.TestCase):
-    # @ddt.data(括号中写参数，有几个参数，就生成多少条测试用例)
-    @ddt.data(1,2,3,4)
-    # case为形参，用于接收数据
-    def test_001(self,case):
-        print(&quot;测试用例,第{}条&quot;.format(case))
-
-
-if __name__ == '__main__':
-    unittest.main()
+<hr>
+<h2 id="2-为已建好的表中-order_id-添加主键">2、为已建好的表中 order_id 添加主键</h2>
+<pre><code class="language-python">mysql&gt; alter table order_table add primary key(order_id);
 </code></pre>
-<h2 id="main方法输入测试结果"><strong>main方法输入测试结果：</strong><img src="https://img-blog.csdnimg.cn/20200801233334667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h2>
-<h1 id="三-ddt-在用例中的使用">三、ddt 在用例中的使用</h1>
-<h3 id="1-封装一个类方法">1. 封装一个类方法</h3>
-<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
-# -*- coding: utf-8 -*-                                         
-#  @Time   : 2020/08/01
-#  @File    : D:\PyCharm_Community\DDT\test_login.py
-# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
-
-'''封装一个类方法'''
-import requests
-
-
-class Login():
-    def __init__(self,userName,password):
-        self.userName = userName
-        self.password = password
-
-    def login(self):
-        url = 'http://182.92.197.48:8088/api/user/login'
-        json = {&quot;userName&quot;: self.userName, &quot;password&quot;: self.password, &quot;remember&quot;: False}
-        header = {&quot;user-Agent&quot;: &quot;Mozilla/5.0&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}
-        res = requests.post(url, headers=header, json=json)
-        print(res.json())
-        return res.json()
-
-
-Login(&quot;xzsks001&quot;,&quot;123456&quot;).login()
+<p>添加成功，效果如下：</p>
+<pre><code class="language-python">mysql&gt; desc order_table;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| order_id | int(11)     | NO   | PRI | NULL    |       |
+| price    | float(10,2) | YES  |     | NULL    |       |
+| user_id  | int(11)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set
 </code></pre>
-<h3 id="2-准备变量参数数据-使用-ddt-分离数据">2. 准备变量参数数据 , 使用 ddt 分离数据</h3>
-<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
-# -*- coding: utf-8 -*-                                         
-#  @Time   : 2020/08/01
-#  @File    : D:\PyCharm_Community\DDT\ddt_test.py
-# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
-import unittest
-# 导入 ddt 模块
-import ddt
-from DDT.test_login import Login
-
-data_info = [   {&quot;params&quot;:(&quot;xzsks001&quot;,&quot;123456&quot;),&quot;excepted&quot;:{'code': 1, 'message': '成功'}},
-                {&quot;params&quot;:(&quot;xzsks&quot;,&quot;123456&quot;),&quot;excepted&quot;:{'code': 402, 'message': '用户名或密码错误', 'response': None}},
-                {&quot;params&quot;:(&quot;zhangsan&quot;,&quot;123&quot;),&quot;excepted&quot;:{'code': 402, 'message': '用户名或密码错误', 'response': None}}]
-
-
-# 固定语法，无需深究
-@ddt.ddt
-class TestMethod(unittest.TestCase):
-    # @ddt.data(括号中写参数，有几个参数，就生成多少条测试用例)
-    @ddt.data(*data_info)
-    # case为形参，用于接收数据，dict类型
-    def test_001(self,case):
-        # 预期结果为 case的excepted的属性值
-        excepted = case[&quot;excepted&quot;]
-        # 传入参数为 case的params的属性值
-        params = case[&quot;params&quot;]
-        # 调用被测函数，传入参数，获取实际结果
-        result = Login(*params).login()
-        # 比对预期与实际结果是否一致
-        self.assertEqual(excepted,result)
-
-if __name__ == '__main__':
-    unittest.main()
+<hr>
+<hr>
+<h2 id="3-为已建好的表中-order_id-添加自增">3、为已建好的表中 order_id 添加自增</h2>
+<pre><code class="language-python">mysql&gt; alter table order_table modify order_id int auto_increment;
 </code></pre>
-<h3 id="3执行结果生成测试报告">3.执行结果，生成测试报告</h3>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200802005350164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python之openpyxl操作Excel文件读写]]></title>
-        <id>https://17603845963.github.io/post/python-zhi-openpyxl-cao-zuo-excel-wen-jian-du-xie/</id>
-        <link href="https://17603845963.github.io/post/python-zhi-openpyxl-cao-zuo-excel-wen-jian-du-xie/">
-        </link>
-        <updated>2020-09-03T11:52:04.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="一-安装-openpyxl-模块">一、安装 Openpyxl 模块</h1>
-<h3 id="file-settings-project-interpreter">File &gt; Settings &gt; Project Interpreter<img src="https://img-blog.csdnimg.cn/20200802014708962.gif" alt="在这里插入图片描述" loading="lazy"></h3>
-<h1 id="二-桌面生成-excel-文件写入一些数据并复制到pycharm中">二、桌面生成 Excel 文件，写入一些数据并复制到PyCharm中</h1>
-<h1 id="注openpyxl-只支持-xlsx-格式的-excel-文件">注：【openpyxl 只支持 .xlsx 格式的 Excel 文件】</h1>
-<p><img src="https://img-blog.csdnimg.cn/20200802020203978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200802020833985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200802021515824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<h1 id="三-pycharm-中使用-openpyxl-读取文件数据">三、pycharm 中使用 openpyxl 读取文件数据</h1>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200802021953456.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
-# -*- coding: utf-8 -*-                                         
-#  @Time   : 2020/08/02
-#  @File    : openpyxl_study.py
-# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
-# 导入 openpyxl 模块
-import openpyxl
-
-# 1、将指定 excel 文件加载到一个工作簿对象中
-wb = openpyxl.load_workbook(&quot;jzq.xlsx&quot;)
-# 2、选择文件中的表单【sheet表名】
-sheet = wb['login']
-# 3、根据行号和列号读取数据【第一行第一列的数据】
-res = sheet.cell(row=1,column=1)
-# 4、打印取到的数据值
-print(res.value)
-
+<p>添加成功，效果如下：</p>
+<pre><code class="language-python">mysql&gt; desc order_table;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| order_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| price    | float(10,2) | YES  |     | NULL    |                |
+| user_id  | int(11)     | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+3 rows in set
 </code></pre>
-<h1 id="四-pycharm-中使用-openpyxl-操作-excel-写入数据">四、pycharm 中使用 openpyxl 操作 Excel 写入数据</h1>
-<pre><code class="language-python">
-# 导入 openpyxl 模块
-import openpyxl
-
-# 1、将指定 excel 文件加载到一个工作簿对象中
-wb = openpyxl.load_workbook(&quot;jzq.xlsx&quot;)
-# 2、选择文件中的表单【sheet表名】
-sheet = wb['login']
-# 3、根据行号、列号输入value值
-sheet.cell(row=1,column=1,value=&quot;张三&quot;)
-# 4、保存为文件
-wb.save(&quot;jzq.xlsx&quot;)
-
+<hr>
+<hr>
+<h2 id="4-为已建好的表中-price-添加默认值">4、为已建好的表中 price 添加默认值：</h2>
+<pre><code class="language-python">mysql&gt; alter table order_table modify price float(10,2) default '1234';
 </code></pre>
-<h4 id="执行后的结果">执行后的结果：</h4>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200802080637115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h4 id="如果出现以下报错信息-请注意">如果出现以下报错信息 ，请注意 ：</h4>
-<h2 id="在写入数据时文件不可处于打开状态">【在写入数据时，文件不可处于打开状态 ！！！】</h2>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200802080804822.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h1 id="五-读取文件所有单元格的数据内容">五、读取文件所有单元格的数据内容</h1>
-<pre><code class="language-python"># 导入 openpyxl 模块
-import openpyxl
-
-'''读取文件所有单元格的数据'''
-# 1、将指定 excel 文件加载到一个工作簿对象中
-wb = openpyxl.load_workbook(&quot;jzq.xlsx&quot;)
-# 2、选择文件中的表单【sheet表名】
-sheet = wb['login']
-# 3、使用 .rows 方法把所有的表单对象存储在列表中
-# type为列表嵌套元组再嵌套单元格
-res = list(sheet.rows)
-# 遍历每一行的内容
-for cases in res :
-    # 遍历每一行的所有单元格
-    for cells in cases :
-        # 获取每个单元格的 value 值
-        print(cells.value,end=&quot;   &quot;)
-    print()
-    
-</code></pre>
-<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20200802084316329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h1 id="六-openpyxl-读取-组装用例数据">六、 Openpyxl 读取、组装用例数据</h1>
-<ul>
-<li>
-<h3 id="新建一个-xlsx-文件">新建一个 .xlsx 文件<img src="https://img-blog.csdnimg.cn/20200802103014477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h3>
-</li>
-<li>
-<h3 id="复制文件至pycharm中并新建一个读取组装数据的-py文件">复制文件至pycharm中，并新建一个读取组装数据的 py文件<img src="https://img-blog.csdnimg.cn/20200802103544364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h3>
-</li>
-</ul>
-<pre><code class="language-python"># 导入 openpyxl 模块
-import openpyxl
-
-'''用例数据读取组装成列表嵌套字典的格式'''
-# 1、将指定 excel 文件加载到一个工作簿对象中
-wb = openpyxl.load_workbook(&quot;jzq_openpyxl.xlsx&quot;)
-# 2、选择文件中的表单【sheet表名】
-sheet = wb['login']
-res = list(sheet.rows)
-
-'''获取第一行的单元格'''
-title = []
-# 遍历第一行单元格所有数据并添加到列表中
-for tag in res[0]:
-    title.append(tag.value)
-case_data = []
-'''遍历除了第一行以外的所有行'''
-for row in res[1:]:
-    data = []
-    # 遍历每一行的所有单元格子
-    for c in row:
-        # 将每个单元格的 value 值添加列表 res_text 中
-        data.append(c.value)
-# 使用zip将title和excepted打包成dict属性
-    case = dict(zip(title,data))
-    case_data.append(case )
-print(case_data)
-
-    
-</code></pre>
-<h1 id="七-提供一个封装好的openpyxl类方法直接调用即可在-excel-表中-读取-写入数据">七、提供一个封装好的openpyxl类方法，直接调用即可在 excel 表中 读取 / 写入数据</h1>
-<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
-# -*- coding: utf-8 -*-                                         
-#  @Time   : 2020/08/02
-#  @File    : Excel_R&amp;W_demo.py
-# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
-import openpyxl
-
-class Excel:
-    def __init__(self,workbook_name,sheet_name):
-        self.workbook_name = workbook_name
-        self.sheet_name = sheet_name
-
-    def read_excel(self):
-        # 1、将指定 excel 文件加载到一个工作簿对象中
-        wb = openpyxl.load_workbook(self.workbook_name)
-        # 2、选择文件中的表单【sheet表名】
-        sheet = wb[self.sheet_name]
-        res = list(sheet.rows)
-
-        '''获取第一行的单元格'''
-        title = []
-        # 遍历第一行单元格所有数据并添加到列表中
-        for tag in res[0]:
-            title.append(tag.value)
-        case_data = []
-        '''遍历除了第一行以外的所有行'''
-        for row in res[1:]:
-            data = []
-            # 遍历每一行的所有单元格子
-            for c in row:
-                # 将每个单元格的 value 值添加列表 res_text 中
-                data.append(c.value)
-                # 使用zip将title和excepted打包成dict属性
-            case = dict(zip(title, data))
-            case_data.append(case)
-        return case_data
-
-
-    def write_excel(self,row,column,value):
-        # 1、将指定 excel 文件加载到一个工作簿对象中
-        wb = openpyxl.load_workbook(self.workbook_name)
-        # 2、选择文件中的表单【sheet表名】
-        sheet = wb[self.sheet_name]
-        # 3、根据行号、列号输入value值
-        sheet.cell(row=1,column=1,value=&quot;张三&quot;)
-        # 4、保存为文件
-        wb.save(self.workbook_name)
-
-
-if __name__ == '__main__':
-    excel = Excel(&quot;jzq_openpyxl.xlsx&quot;,&quot;login&quot;)
-    res = excel.read_excel()
-    print(res)
+<p>添加成功，效果如下：</p>
+<pre><code class="language-python">mysql&gt; desc order_table;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| order_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| price    | float(10,2) | YES  |     | 1234.00 |                |
+| user_id  | int(11)     | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+3 rows in set
 </code></pre>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Jenkins环境搭建（Windows下配置流程）]]></title>
-        <id>https://17603845963.github.io/post/jenkins-huan-jing-da-jian-windows-xia-pei-zhi-liu-cheng/</id>
-        <link href="https://17603845963.github.io/post/jenkins-huan-jing-da-jian-windows-xia-pei-zhi-liu-cheng/">
+        <title type="html"><![CDATA[数据库---mysql 之 常用命令行命令]]></title>
+        <id>https://17603845963.github.io/post/shu-ju-ku-mysql-zhi-chang-yong-ming-ling-xing-ming-ling/</id>
+        <link href="https://17603845963.github.io/post/shu-ju-ku-mysql-zhi-chang-yong-ming-ling-xing-ming-ling/">
         </link>
-        <updated>2020-09-03T11:50:45.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="jenkins-是什么">Jenkins 是什么？</h1>
-<p><strong>Jenkins是一个用java语言开发的开源的持续集成框架，使开发和运维从繁杂和重复的操作中解脱出来，专注于更为重要的业务逻辑实现上，其主要功能是监视重复工作的执行，有点类似于windows系统中的定时任务，不过Jenkins的功能更加强大，里面集成了很多插件，也可以自己写插件集成进去。Jenkins是开源CI&amp;CD软件领导者， 提供超过1000个插件来支持构建、部署、自动化， 满足任何项目的需要。</strong></p>
-<hr>
-<h1 id="前置条件需配置jdk环境">前置条件：需配置JDK环境 ！！！</h1>
-<ul>
-<li>
-<h1 id="windows环境下jdk安装操作步骤"><a href="https://blog.csdn.net/weixin_43184774/article/details/106140147">Windows环境下JDK安装操作步骤</a></h1>
-</li>
-</ul>
-<h1 id="windows系统下安装jenkins">windows系统下安装Jenkins</h1>
-<ul>
-<li>
-<h1 id="jenkins安装包下载地址httpswwwjenkinsiozhdownload"><a href="https://www.jenkins.io/zh/download/">jenkins安装包下载地址：https://www.jenkins.io/zh/download/</a></h1>
-</li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200803111034315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<ul>
-<li>
-<h1 id="点击下载后的-msi-文件双击进行安装">点击下载后的 msi 文件，双击进行安装<img src="https://img-blog.csdnimg.cn/20200803094058856.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h1>
-</li>
-<li>
-<h1 id="点击-next">点击 Next</h1>
-</li>
-</ul>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200803094135974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h1 id="一张张放图太麻烦了-汇总了一下">一张张放图太麻烦了 汇总了一下</h1>
-<p><img src="https://img-blog.csdnimg.cn/20200803122448480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20200803122931886.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<h1 id="第九步安装结束后在浏览器输入">第九步安装结束后，在浏览器输入：</h1>
-<h1 id="主机ip自定义的端口号1270017878-或者-localhost7878">主机ip+自定义的端口号：127.0.0.1:7878 或者 localhost:7878</h1>
-<ul>
-<li>
-<h1 id="首次登录需要粘贴管理员密码在提示的目录下寻找">★★★★★ 首次登录需要粘贴管理员密码【在提示的目录下寻找】</h1>
-</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20200803130816895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200803131508345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<ul>
-<li>
-<h1 id="至此jenkins环境就搭建好了学习部署自己的脚本叭">至此，jenkins环境就搭建好了！！！学习部署自己的脚本叭</h1>
-</li>
-</ul>
-<h1 id="jenkins学习-部署自己的第一个脚本一"><a href="https://blog.csdn.net/J_____Q/article/details/107324408">Jenkins学习--部署自己的第一个脚本（一）</a></h1>
+        <updated>2020-09-03T12:21:01.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>1、展示当前所有的数据库：show databases;</strong></p>
+<pre><code class="language-python">mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| jzq_test           |
+| mtx_1              |
+| mysql              |
+| performance_schema |
+| study              |
+| sys                |
++--------------------+
+7 rows in set
+</code></pre>
+<p><strong>2、选中某个数据库（相当于鼠标点击选中）：use sql_name;</strong><br>
+<strong>【使用  数据库名.表名 可以省略 use 数据库名的操作】</strong></p>
+<pre><code class="language-python">mysql&gt; use jzq_test;
+Database changed
+</code></pre>
+<p><strong>3、展示选中数据库下所有的表：show tables;</strong></p>
+<pre><code class="language-python">mysql&gt; show tables;
++--------------------+
+| Tables_in_jzq_test |
++--------------------+
+| order_table        |
+| user_info          |
+| user_info_table    |
++--------------------+
+3 rows in set
+
+</code></pre>
+<p><strong>4、展示表结构：desc table_name;</strong></p>
+<pre><code class="language-python">mysql&gt; desc user_info;
++-----------+-------------+------+-----+----------+----------------+
+| Field     | Type        | Null | Key | Default  | Extra          |
++-----------+-------------+------+-----+----------+----------------+
+| user_id   | int(11)     | NO   | PRI | NULL     | auto_increment |
+| user_name | char(10)    | YES  |     | NULL     |                |
+| password  | varchar(10) | YES  |     | 12345555 |                |
+| user_nick | varchar(10) | YES  |     | NULL     |                |
+| card_num  | bigint(20)  | YES  |     | NULL     |                |
++-----------+-------------+------+-----+----------+----------------+
+5 rows in set
+</code></pre>
+<p><strong>5、查看表数据信息：select * from table_name;</strong></p>
+<pre><code class="language-python">mysql&gt; select * from user_info;
++---------+-----------+----------+-----------+---------------+
+| user_id | user_name | password | user_nick | card_num      |
++---------+-----------+----------+-----------+---------------+
+|       1 | zhangsan  | 12345555 | zhangsan  |  123456789111 |
+|       2 | lisi      | 12345555 | ls        | 1234567891222 |
+|       3 | wangwu    | 12345555 | ww        | 1234567891333 |
+|       4 | zhaoliu   | 12345555 | zl        | 1234567891444 |
++---------+-----------+----------+-----------+---------------+
+4 rows in set
+</code></pre>
+<p><strong>6、创建数据库：create database sql_name;</strong></p>
+<pre><code class="language-python">mysql&gt; create database test_sql;
+Query OK, 1 row affected
+
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| jzq_test           |
+| mtx_1              |
+| mysql              |
+| performance_schema |
+| study              |
+| sys                |
+| test_sql           |
++--------------------+
+8 rows in set
+
+</code></pre>
+<p><strong>7、创建表:</strong></p>
+<pre><code class="language-python">mysql&gt; create table test_sql_table(
+    -&gt; t_id int zerofill unsigned not null primary key auto_increment,
+    -&gt; t_name varchar(20),
+    -&gt; t_num int(10));
+
+//创建成功，展示如下：
+mysql&gt; desc test_sql_table;
++--------+---------------------------+------+-----+---------+----------------+
+| Field  | Type                      | Null | Key | Default | Extra          |
++--------+---------------------------+------+-----+---------+----------------+
+| t_id   | int(10) unsigned zerofill | NO   | PRI | NULL    | auto_increment |
+| t_name | varchar(20)               | YES  |     | NULL    |                |
+| t_num  | int(10)                   | YES  |     | NULL    |                |
++--------+---------------------------+------+-----+---------+----------------+
+3 rows in set
+</code></pre>
+<p><strong>8、删除表：drop table table_name;</strong></p>
+<pre><code class="language-python">//删表之前：
+mysql&gt; show tables;
++--------------------+
+| Tables_in_jzq_test |
++--------------------+
+| order_table        |
+| test_sql_table     |
+| user_info          |
+| user_info_table    |
++--------------------+
+4 rows in set
+
+//执行删表操作：
+mysql&gt; drop table order_table;
+
+//删表后结果显示；
+mysql&gt; show tables;
++--------------------+
+| Tables_in_jzq_test |
++--------------------+
+| test_sql_table     |
+| user_info          |
+| user_info_table    |
++--------------------+
+3 rows in set
+</code></pre>
+<p><strong>9、删数据库：drop database sql_name;</strong></p>
+<pre><code class="language-python">//删库之前：
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| jzq_test           |
+| mtx_1              |
+| mysql              |
+| performance_schema |
+| study              |
+| sys                |
+| test_sql           |
++--------------------+
+8 rows in set
+
+//执行删库命令：
+mysql&gt; drop database test_sql;
+
+//删库后展示结果：
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| jzq_test           |
+| mtx_1              |
+| mysql              |
+| performance_schema |
+| study              |
+| sys                |
++--------------------+
+7 rows in set
+</code></pre>
+<p><strong>10、修改表名：alter table  old_table  rename  to  new_table;</strong></p>
+<pre><code class="language-python"># 当前表名
+mysql&gt; show tables;
++---------------+
+| Tables_in_jzq |
++---------------+
+| old_table     |
++---------------+
+1 row in set
+
+# 执行修改表名的命令
+mysql&gt; alter table old_table rename  to new_table;
+Query OK, 0 rows affected
+
+# 展示修改后的表名
+mysql&gt; show tables;
++---------------+
+| Tables_in_jzq |
++---------------+
+| new_table     |
++---------------+
+1 row in set
+</code></pre>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[python+UnitTest+UnitTestReport输出美化版测试报告]]></title>
-        <id>https://17603845963.github.io/post/pythonunittestunittestreport-shu-chu-mei-hua-ban-ce-shi-bao-gao/</id>
-        <link href="https://17603845963.github.io/post/pythonunittestunittestreport-shu-chu-mei-hua-ban-ce-shi-bao-gao/">
+        <title type="html"><![CDATA[亲测mysql不是内部或外部命令,也不是可运行的程序或批处理文件解决办法]]></title>
+        <id>https://17603845963.github.io/post/qin-ce-mysql-bu-shi-nei-bu-huo-wai-bu-ming-ling-ye-bu-shi-ke-yun-xing-de-cheng-xu-huo-pi-chu-li-wen-jian-jie-jue-ban-fa/</id>
+        <link href="https://17603845963.github.io/post/qin-ce-mysql-bu-shi-nei-bu-huo-wai-bu-ming-ling-ye-bu-shi-ke-yun-xing-de-cheng-xu-huo-pi-chu-li-wen-jian-jie-jue-ban-fa/">
         </link>
-        <updated>2020-09-03T11:50:12.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="最近在研究-htmltestrunner">最近在研究 HTMLTestRunner ，</h1>
-<h1 id="无意间在-github-发现了一套新的-unittest-测试报告生成模块">无意间在 GitHub 发现了一套新的 UnitTest 测试报告生成模块</h1>
-<h1 id="附上github地址unittestreport-测试报告生成器">附上GitHub地址：<a href="https://github.com/musen123/UnitTestReport">UnitTesTReport 测试报告生成器</a></h1>
-<h1 id="发现这是一位腾讯课堂-柠檬版的讲师不愧是柠檬班">发现这是一位腾讯课堂--柠檬版的讲师（不愧是柠檬班，🐂🍺）</h1>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200801165903366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h1 id="废话不多说下面开始实操图解">废话不多说，下面开始实操+图解</h1>
+        <updated>2020-09-03T12:20:13.000Z</updated>
+        <content type="html"><![CDATA[<p>初学mysql的时候，正式环境不能瞎玩，只能自己在Navicat上创建了数据库，<br>
+但是想用<strong>命令行连接自己本机的数据库</strong>却发生了下面的问题，偏偏  CSDN 上有<br>
+太多的烂贴了（明明照做了问题却没有解决）为了帮助初学者入门mysql数据库，<br>
+特意开了此帖，希望可以帮到你们！</p>
 <hr>
-<h1 id="一-新建一个-test001py-文件">一、新建一个 test001.py 文件</h1>
-<pre><code class="language-python">import unittest
-
-
-class TestMethod(unittest.TestCase):
-    def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    '''第一条用例'''
-    def test_001(self):
-        pass
-
-
-if __name__ == '__main__':
-    unittest.main()
+<h2 id="正文开始">正文开始：</h2>
+<h1 id="命令行本地连接自己的数据库出现以下问题">命令行本地连接自己的数据库，出现以下问题：</h1>
+<p><strong>'mysql' 不是内部或外部命令，也不是可运行的程序或批处理文件。</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200606092240206.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="原因是因为环境变量没有配置好">原因是因为环境变量没有配置好：</h2>
+<p>【我猜大部分人都不会记得自己数据库安装的路径】<br>
+<strong>以下方式可获取mysql的安装路径：</strong></p>
+<hr>
+<h1 id="1-组合键-winr输入servicesmsc">1、组合键 <strong>win+R</strong>，输入：<strong>services.msc</strong></h1>
+<h2 id=""><img src="https://img-blog.csdnimg.cn/20200606092017468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h2>
+<h1 id="2-找到mysql服务右键属性复制可执行文件路径">2、找到mysql服务，右键→属性→复制可执行文件路径</h1>
+<p><strong>【复制路径到 \bin 即可】<br>
+【复制路径到 \bin 即可】<br>
+【复制路径到 \bin 即可】</strong><br>
+如我的路径：C:\Program Files\MySQL\MySQL Server 5.7\bin</p>
+<h2 id="-2"><img src="https://img-blog.csdnimg.cn/20200606093239416.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200606093459166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h2>
+<hr>
+<h1 id="3-右击此电脑属性高级系统设置环境变量系统变量path">3、右击【此电脑】→属性→高级系统设置→环境变量→系统变量→PATH</h1>
+<h3 id="将下面两段分别添加到path的变量中">♥ 将下面<strong>两段分别</strong>添加到path的变量中！！！</h3>
+<h2 id="1-path-中新建添加-mysql-的-bin-目录路径"><strong>① path 中新建添加 mysql 的 bin 目录路径</strong></h2>
+<h2 id="注意放上自己的bin目录">注意放上自己的bin目录！！！</h2>
+<pre><code class="language-python">C:\Program Files\MySQL\MySQL Server 5.7\bin
 </code></pre>
-<h1 id="二-同目录下新建一个-testsuitepy-文件">二、同目录下新建一个 testsuite.py 文件</h1>
-<pre><code class="language-python"># 导入 unittest 类
-import unittest
-# 从unittestreport模块导入 TestRunner 类
-from unittestreport import TestRunner
-# 导入测试用例类
-from testcases.test001 import TestMethod
-
-# 先用suite套件存储用例【存储测试用例的容器】
-suite = unittest.TestSuite()
-# 创建一个加载器,寻找所有的用例【方法】
-loader = unittest.TestLoader()
-# 加载所有的用例
-suite.addTest(loader.loadTestsFromTestCase(TestMethod))
-
-# 新版生成测试报告代码
-runner = TestRunner(suite,
-                    filename=&quot;test001.html&quot;,
-                    report_dir=r&quot;D:\PyCharm_Community\testcases&quot;,
-                    title='测试报告',
-                    tester='X X X',
-                    desc=&quot;X X X 的测试执行结果&quot;,
-                    templates=1)
-runner.run()
+<h2 id="2复制下方内容至path变量中"><strong>②复制下方内容至path变量中：</strong></h2>
+<pre><code class="language-python">%MYSQL_HOME%\bin
 </code></pre>
-<h1 id="三-运行-testsuitepy文件打开生成的测试报告html页面">三、运行 testsuite.py文件，打开生成的测试报告Html页面</h1>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200801170856844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="-3"><img src="https://img-blog.csdnimg.cn/20200606095832183.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h2>
+<hr>
+<h1 id="4-重新打开命令行输入">4、重新打开命令行，输入：</h1>
+<p><strong>连接本地数据库不需要  -h+端口号</strong></p>
+<pre><code class="language-python">mysql -uroot -p
+Enter password:
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200606100431649.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>本地数据库连接成功！！！！</strong></p>
+<h2 id="至于数据库的一些基本命令行命令我也写有学习笔记有需要的可以参考一下">至于数据库的一些基本命令行命令我也写有学习笔记，有需要的可以参考一下</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Postman+Nodejs+Newman输出接口测试报告]]></title>
+        <id>https://17603845963.github.io/post/postmannodejsnewman-shu-chu-jie-kou-ce-shi-bao-gao/</id>
+        <link href="https://17603845963.github.io/post/postmannodejsnewman-shu-chu-jie-kou-ce-shi-bao-gao/">
+        </link>
+        <updated>2020-09-03T12:18:56.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1-先安装nodejs">1、先安装node.js</h2>
+<p>官网下载地址：<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
+<p>附上我的百度云网盘链接：<br>
+<strong>链接：https://pan.baidu.com/s/1lVzY2ZNbCbliLoFR8VHbXA  提取码：w3lk</strong></p>
+<p>【下载完成后就傻瓜式安装，建议默认C盘就行】</p>
+<hr>
+<h2 id="2-winrcmd打开命令行安装cnpm">2、Win+R，cmd打开命令行，安装cnpm</h2>
+<blockquote>
+<p>npm install -g cnpm --registry=https://registry.npm.taobao.org</p>
+</blockquote>
+<hr>
+<h2 id="3-安装newman">3、安装newman</h2>
+<blockquote>
+<p>cnpm install newman --global</p>
+</blockquote>
+<hr>
+<h2 id="4-检查是否安装成功">4、检查是否安装成功</h2>
+<blockquote>
+<p>newman -v</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/2020060723091881.png" alt="安装成功" loading="lazy"><br>
+出现以上版本号提示，表示安装成功；</p>
+<hr>
+<h2 id="5-安装reporter">5、安装reporter</h2>
+<blockquote>
+<p>cnpm install -g newman-reporter-html</p>
+</blockquote>
+<hr>
+<h2 id="6-使用newman命令行执行测试">6、使用newman命令行执行测试</h2>
+<p><strong>- 导出集合为json脚本</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200607231803347.gif" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>-  导出环境为json文件</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200607232007968.gif" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>-  执行命令</strong></p>
+<blockquote>
+<p>newman run 脚本 -e 环境文件 -n 循环次数 -r html --reporter-html-export 报告名称</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200607232440307.gif" alt="在这里插入图片描述" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[亲测：pip命令提示unknow or unsupported command install解决方法]]></title>
+        <id>https://17603845963.github.io/post/qin-ce-pip-ming-ling-ti-shi-unknow-or-unsupported-command-install-jie-jue-fang-fa/</id>
+        <link href="https://17603845963.github.io/post/qin-ce-pip-ming-ling-ti-shi-unknow-or-unsupported-command-install-jie-jue-fang-fa/">
+        </link>
+        <updated>2020-09-03T12:16:13.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="pip命令提示unknow-or-unsupported-command-install">pip命令提示unknow or unsupported command install</h2>
+<p>最近在学习<strong>Appium</strong>，运行 <strong>cmd</strong> 使用 <strong>pip install Appium-Python-Client</strong>命令<br>
+出现了下面图片所示的报错信息：<br>
+<img src="https://img-blog.csdnimg.cn/20200610110335340.png" alt="在这里插入图片描述" loading="lazy"></p>
+<h2 id="解决办法">解决办法：</h2>
+<p><strong>把pip命令稍加变动【pip → pip.exe 或者 pip3】：</strong></p>
+<pre><code class="language-clike">C:\Users\86176&gt;pip.exe install Appium-Python-Client
+C:\Users\86176&gt;pip3 install Appium-Python-Client
+</code></pre>
+<p><strong>操作执行成功：</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200610112035883.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<h2 id="至此pip操作命令执行成功希望可以帮到你们">至此，pip操作命令执行成功，希望可以帮到你们！</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HttpRunner框架：安装使用和遇到的问题及相关解决办法]]></title>
+        <id>https://17603845963.github.io/post/httprunner-kuang-jia-an-zhuang-shi-yong-he-yu-dao-de-wen-ti-ji-xiang-guan-jie-jue-ban-fa/</id>
+        <link href="https://17603845963.github.io/post/httprunner-kuang-jia-an-zhuang-shi-yong-he-yu-dao-de-wen-ti-ji-xiang-guan-jie-jue-ban-fa/">
+        </link>
+        <updated>2020-09-03T12:15:37.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="httprunner安装">HttpRunner安装</h2>
+<p><strong>一. 运行 cmd 执行安装命令：</strong></p>
+<pre><code class="language-python">C:\Users\test&gt;pip install httprunner
+</code></pre>
+<p>【这条命令如果出现报错，就切换一下命令】：</p>
+<pre><code class="language-python">① pip.exe install httprunner
+② pip3 install httprunner
+</code></pre>
+<hr>
+<ul>
+<li><strong>安装校验</strong></li>
+</ul>
+<p>在 HttpRunner 安装成功后，系统中会新增如下 5 个命令：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">新增命令</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">httprunner :</td>
+<td style="text-align:left">核心命令</td>
+</tr>
+<tr>
+<td style="text-align:left">ate:</td>
+<td style="text-align:left">曾经用过的命令（当时框架名称为 ApiTestEngine），功能与 httprunner 完全相同</td>
+</tr>
+<tr>
+<td style="text-align:left">hrun:</td>
+<td style="text-align:left">httprunner 的缩写，功能与 httprunner 完全相同</td>
+</tr>
+<tr>
+<td style="text-align:left">locusts:</td>
+<td style="text-align:left">基于 Locust 实现性能测试</td>
+</tr>
+<tr>
+<td style="text-align:left">har2case:</td>
+<td style="text-align:left">辅助工具，可将标准通用的 HAR 格式（HTTP Archive）转换为YAML/JSON格式的测试用例</td>
+</tr>
+</tbody>
+</table>
+<p><strong>运行如下命令，若正常显示版本号，则说明 HttpRunner 安装成功：</strong><br>
+<strong>① httprunner -V<br>
+② hrun -V<br>
+③ har2case -V</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200613145337456.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<h2 id="二-运行-hrun-v报如下错">二、运行 hrun -V，报如下错：</h2>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200613145635807.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="报错原因">报错原因：</h2>
+<p><strong>hrun.exe 和 httprunner.exe在python目录的script文件夹下，<br>
+因 此 需 要 在 系 统 PATH 变 量 里 面 设 置 环 境 变 量<br>
+【添加python路径和script路径即可】<br>
+添加完毕后重启cmd 运行：hrun -V ，即可正确显示版本号。</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200613145815273.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<h2 id="三-运行-har2case-v-报错">三、运行 har2case -V 报错：</h2>
+<p><strong>运行cmd执行下载安装命令：</strong></p>
+<pre><code class="language-python">C:\Users\test&gt;pip install har2case
+</code></pre>
+<p><strong>【这条命令如果出现报错，就切换一下命令】：</strong></p>
+<pre><code class="language-python">① pip.exe install har2case
+② pip3 install har2case
+</code></pre>
+<p><strong>添加完毕后重启cmd 运行：har2case -V ，即可正确显示版本号</strong></p>
 ]]></content>
     </entry>
 </feed>

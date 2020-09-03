@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Github下载与使用 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="官网下载真的是好慢好慢。。附上网盘链接
+windows（64位）
+链接：https://pan.baidu.com/s/1bRndwnVtCY_wE1A26Xtzeg
+提取码：yvpk
+1.下载完毕后就傻瓜式默认一步步安装（保持默认选项即可..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Github下载与使用</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <p>官网下载真的是好慢好慢。。附上网盘链接<br>
+windows（64位）<br>
+<strong>链接：https://pan.baidu.com/s/1bRndwnVtCY_wE1A26Xtzeg<br>
+提取码：yvpk</strong></p>
+<p><strong>1.下载完毕后就傻瓜式默认一步步安装（保持默认选项即可）<br>
+2.安装完毕后在桌面点击鼠标右键，显示如下：</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200503144240423.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>3.验证Git是否安装成功：</strong><br>
+①win+R→cmd→打开命令提示符<br>
+②输入：git --version<br>
+③显示如下信息即为安装成功<br>
+<img src="https://img-blog.csdnimg.cn/20200503144724713.png" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>4.需要在官网注册Git账号：https://github.com</strong><br>
+注册账号时请退出电脑上的杀毒软件，如：电脑管家、360等。。。<br>
+看不懂可以使用谷歌浏览器登录，右键翻译网页还是挺好用的</p>
+<p><strong>5.配置sshkey：</strong><br>
+桌面鼠标右键点击【Git Bash Here】</p>
+<p>①回到根目录下：</p>
+<pre><code class="language-bash">cd /
+</code></pre>
+<p>②生成key(跟注册的邮箱地址)：</p>
+<pre><code class="language-bash">ssh -keygen -t rsa -C &quot;xxxxx@163.com/qq.com&quot;
+</code></pre>
+<p>③进入.ssh目录(生成了两个 id_rsa 文件)：</p>
+<pre><code class="language-bash">cd ~/.ssh
+</code></pre>
+<p>④获取ssh-key：</p>
+<pre><code class="language-bash">cat id_rsa.pub
+</code></pre>
+<p>#此时生成了一大串字符，全部复制<br>
+<img src="https://img-blog.csdnimg.cn/20200503151220229.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>⑤复制ssh-key，登录Github，点击个人信息【倒三角】进入setting设置</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200503151538749.png" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>⑥选择【SSH and GPG keys】并新建ssh key</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200503151719882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>⑦点击创建后，ssh key配置完成</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200503152113557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/shi-yong-python-fa-song-getpost-qing-qiu/">
+                  <h3 class="post-title">
+                    使用Python发送Get/Post请求
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

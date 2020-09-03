@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>亲测mysql不是内部或外部命令,也不是可运行的程序或批处理文件解决办法 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="初学mysql的时候，正式环境不能瞎玩，只能自己在Navicat上创建了数据库，
+但是想用命令行连接自己本机的数据库却发生了下面的问题，偏偏  CSDN 上有
+太多的烂贴了（明明照做了问题却没有解决）为了帮助初学者入门mysql数据库，
+特..." />
+    <meta name="keywords" content="Mysql" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">亲测mysql不是内部或外部命令,也不是可运行的程序或批处理文件解决办法</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <p>初学mysql的时候，正式环境不能瞎玩，只能自己在Navicat上创建了数据库，<br>
+但是想用<strong>命令行连接自己本机的数据库</strong>却发生了下面的问题，偏偏  CSDN 上有<br>
+太多的烂贴了（明明照做了问题却没有解决）为了帮助初学者入门mysql数据库，<br>
+特意开了此帖，希望可以帮到你们！</p>
+<hr>
+<h2 id="正文开始">正文开始：</h2>
+<h1 id="命令行本地连接自己的数据库出现以下问题">命令行本地连接自己的数据库，出现以下问题：</h1>
+<p><strong>'mysql' 不是内部或外部命令，也不是可运行的程序或批处理文件。</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200606092240206.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="原因是因为环境变量没有配置好">原因是因为环境变量没有配置好：</h2>
+<p>【我猜大部分人都不会记得自己数据库安装的路径】<br>
+<strong>以下方式可获取mysql的安装路径：</strong></p>
+<hr>
+<h1 id="1-组合键-winr输入servicesmsc">1、组合键 <strong>win+R</strong>，输入：<strong>services.msc</strong></h1>
+<h2 id=""><img src="https://img-blog.csdnimg.cn/20200606092017468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h2>
+<h1 id="2-找到mysql服务右键属性复制可执行文件路径">2、找到mysql服务，右键→属性→复制可执行文件路径</h1>
+<p><strong>【复制路径到 \bin 即可】<br>
+【复制路径到 \bin 即可】<br>
+【复制路径到 \bin 即可】</strong><br>
+如我的路径：C:\Program Files\MySQL\MySQL Server 5.7\bin</p>
+<h2 id="-2"><img src="https://img-blog.csdnimg.cn/20200606093239416.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200606093459166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h2>
+<hr>
+<h1 id="3-右击此电脑属性高级系统设置环境变量系统变量path">3、右击【此电脑】→属性→高级系统设置→环境变量→系统变量→PATH</h1>
+<h3 id="将下面两段分别添加到path的变量中">♥ 将下面<strong>两段分别</strong>添加到path的变量中！！！</h3>
+<h2 id="1-path-中新建添加-mysql-的-bin-目录路径"><strong>① path 中新建添加 mysql 的 bin 目录路径</strong></h2>
+<h2 id="注意放上自己的bin目录">注意放上自己的bin目录！！！</h2>
+<pre><code class="language-python">C:\Program Files\MySQL\MySQL Server 5.7\bin
+</code></pre>
+<h2 id="2复制下方内容至path变量中"><strong>②复制下方内容至path变量中：</strong></h2>
+<pre><code class="language-python">%MYSQL_HOME%\bin
+</code></pre>
+<h2 id="-3"><img src="https://img-blog.csdnimg.cn/20200606095832183.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h2>
+<hr>
+<h1 id="4-重新打开命令行输入">4、重新打开命令行，输入：</h1>
+<p><strong>连接本地数据库不需要  -h+端口号</strong></p>
+<pre><code class="language-python">mysql -uroot -p
+Enter password:
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200606100431649.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>本地数据库连接成功！！！！</strong></p>
+<h2 id="至于数据库的一些基本命令行命令我也写有学习笔记有需要的可以参考一下">至于数据库的一些基本命令行命令我也写有学习笔记，有需要的可以参考一下</h2>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/lf--_c-3a/" class="tag">
+                    Mysql
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/postmannodejsnewman-shu-chu-jie-kou-ce-shi-bao-gao/">
+                  <h3 class="post-title">
+                    Postman+Nodejs+Newman输出接口测试报告
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

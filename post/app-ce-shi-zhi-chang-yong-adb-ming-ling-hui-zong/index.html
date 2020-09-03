@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>app测试之常用adb命令汇总 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="1、配置adb环境，输入adb --version显示版本号
+
+若弹出：
+
+请参照下文配置环境变量：
+adb不是内部或外部命令，也不是可运行的程序 或批处理文件—解决方法
+二、adb常用命令操作
+
+
+
+adb命令
+命令解释
+
+
+
+
+adb ..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">app测试之常用adb命令汇总</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="1-配置adb环境输入adb-version显示版本号">1、配置adb环境，输入adb --version显示版本号</h2>
+<p><img src="https://img-blog.csdnimg.cn/2020062409564770.png" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>若弹出：</strong><br>
+<img src="https://img-blog.csdnimg.cn/202006241000300.png" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>请参照下文配置环境变量：</strong></p>
+<h1 id="adb不是内部或外部命令也不是可运行的程序-或批处理文件解决方法"><a href="https://www.cnblogs.com/plsmile/p/11172693.html">adb不是内部或外部命令，也不是可运行的程序 或批处理文件—解决方法</a></h1>
+<h2 id="二-adb常用命令操作">二、adb常用命令操作</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">adb命令</th>
+<th style="text-align:left">命令解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">adb start-server</td>
+<td style="text-align:left">启动adb服务</td>
+</tr>
+<tr>
+<td style="text-align:left">adb kill-server</td>
+<td style="text-align:left">关闭adb服务</td>
+</tr>
+<tr>
+<td style="text-align:left">adb devices</td>
+<td style="text-align:left">查看当前连接的设备</td>
+</tr>
+<tr>
+<td style="text-align:left">adb -s &lt;device_name&gt; shell</td>
+<td style="text-align:left">进入指定的设备</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三-adb常用查看手机信息命令">三、adb常用查看手机信息命令</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ADB命令查看手机相关信息</th>
+<th style="text-align:left">命令解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">adb get-serialno</td>
+<td style="text-align:left">获取手机的序列号</td>
+</tr>
+<tr>
+<td style="text-align:left">adb shell wm size</td>
+<td style="text-align:left">查看手机屏幕分辨率</td>
+</tr>
+<tr>
+<td style="text-align:left">adb shell cat /proc/cpuinfo</td>
+<td style="text-align:left">显示手机的cpu信息</td>
+</tr>
+<tr>
+<td style="text-align:left">adb shell getprop ro.product.model</td>
+<td style="text-align:left">查看手机的设备型号</td>
+</tr>
+<tr>
+<td style="text-align:left">adb shell cat /sys/class/net/wlan0/address</td>
+<td style="text-align:left">获取手机的mac地址</td>
+</tr>
+<tr>
+<td style="text-align:left">adb shell pm list packages</td>
+<td style="text-align:left">显示手机里面所有应用的包名</td>
+</tr>
+</tbody>
+</table>
+<h2 id="四-adb命令启动app应用">四、adb命令启动app应用</h2>
+<blockquote>
+<p><strong>&lt;package_name&gt;代表应用的包名，&lt;package_name&gt;.&lt;activity_name&gt;代表这个包的启动入口。</strong></p>
+</blockquote>
+<p><strong>adb shell am start -n package_name1/ package_name2.activity_name</strong></p>
+<pre><code class="language-python"># APK包名和入口名获取方式：cmd执行命令：
+# ① aapt dump badging apk文件 ，点击回车【需在aapt目录下执行】
+# ② adb shell dumpsys activity top|findstr &quot;ACTIVITY&quot;【apk启动后立刻执行】
+# ③ adb shell &quot;dumpsys activity | grep mFocusedActivity&quot;
+</code></pre>
+<h2 id="五-adb操作手机与电脑文件互传">五、adb操作手机与电脑文件互传</h2>
+<p><strong>首先连接手机使用命令：adb shell<br>
+通过 ls 命令展示手机文件目录</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">adb命令</th>
+<th style="text-align:left">命令解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">adb pull +文件绝对路径</td>
+<td style="text-align:left">将文件拷贝到电脑上</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="六-如果5037端口被占用">六、如果5037端口被占用</h2>
+<p>可以使用如下命令释放端口</p>
+<pre><code class="language-python"> 
+C:\Users\Shuqing&gt; netstat -ano | findstr &quot;5037&quot;
+  TCP    127.0.0.1:5037         0.0.0.0:0              LISTENING       11072
+  TCP    127.0.0.1:5037         127.0.0.1:59519        TIME_WAIT       0
+ 
+taskkill -f -pid XXX
+ 
+
+
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/python-zhi-mou-pao-pai-xu/">
+                  <h3 class="post-title">
+                    python之冒泡排序
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

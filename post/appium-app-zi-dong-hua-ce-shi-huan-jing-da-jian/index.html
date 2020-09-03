@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Appium---APP自动化测试环境搭建 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="本文是基于Python+Appium进行详细描述APP自动化测试环境搭建。
+原文链接：Appium App自动化测试环境搭建
+网盘链接：
+链接：https://pan.baidu.com/s/1xRwB7RTW8kGdfv5dJhLp-Q
+..." />
+    <meta name="keywords" content="App自动化" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Appium---APP自动化测试环境搭建</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="本文是基于pythonappium进行详细描述app自动化测试环境搭建">本文是基于Python+Appium进行详细描述APP自动化测试环境搭建。</h2>
+<h2 id="原文链接appium-app自动化测试环境搭建">原文链接：<a href="http://www.bcbxhome.com/bcbx/forum.php?mod=viewthread&amp;tid=9&amp;extra=page=1">Appium App自动化测试环境搭建</a></h2>
+<h2 id="网盘链接">网盘链接：</h2>
+<p><strong>链接：https://pan.baidu.com/s/1xRwB7RTW8kGdfv5dJhLp-Q<br>
+提取码：dbiy</strong></p>
+<h2 id="一-安装python">一、安装Python</h2>
+<p><strong>python下载地址：可以去python官网：https://www.python.org/下载对应机器的安装包。以下版本可以任意选择进行下载。</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200710100149307.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>双击已下载的python安装包，出现如下图所示的界面，点击运行，</strong><br>
+<img src="https://img-blog.csdnimg.cn/2020071010020948.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>然后下一步下一步进行默认安装即可，安装成功后会有对应的路径：</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200710100229519.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>添加环境变量后，输入python就会直接进入python的环境中，现在开始演示手动添加到环境变量：<br>
+首先，点击计算机-&gt;属性-&gt;高级系统设置</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200710100239409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>打开path后显示如下:</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200710100251792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>点击新建-》输入python的安装路径（C:\Users\Administrator\AppData\Local\Programs\Python\Python36）</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200710100300729.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>然后点击确定，进行保存！<br>
+接下来进行验证python是否安装成功：在cmd命令下输入python，效果如下：</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200710100310256.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p><strong>此时恭喜你，Python环境已经搭建完成！！！</strong></p>
+<h2 id="二-jdk环境变量配置">二、JDK环境变量配置</h2>
+<p><strong>1. jdk下载地址：</strong><br>
+<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a><br>
+下载并进行安装。<br>
+<img src="https://img-blog.csdnimg.cn/20200710100619105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<ul>
+<li>
+<p><strong>配置</strong></p>
+<pre><code>   安装完成后我的电脑系统变量新建用户变量，变量名：JAVA_HOME ，变量值：C:\Program Files\Java\jdk1.8.0_40 （java的安装路径）。并在系统变量path中加入%JAVA_HOME%\bin。
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200710100445266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+</li>
+<li>
+<p><strong>验证JDK环境是否OK</strong></p>
+<p>打开cmd输入java -version进行验证，如下图表示ok。<br>
+<img src="https://img-blog.csdnimg.cn/20200710100724473.png" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li>
+<p><strong>3、SDK环境变量配置</strong></p>
+</li>
+<li>
+<p>下载地址：<a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a>  ，一般需要翻墙，<br>
+国内可以通过下载地址：<a href="http://www.androiddevtools.cn/">http://www.androiddevtools.cn/ </a></p>
+</li>
+<li>
+<p><strong>配置环境变量</strong><br>
+新建系统变量，变量名: ANDROID_HOME，变量值：D:\xuehai\tools\sdk(根据你电脑sdk实际的位置确定)。并在系统变量path中加入%ANDROID_HOME%\platform-          tools;%ANDROID_HOME%\tools  。<br>
+<img src="https://img-blog.csdnimg.cn/20200710100859284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li>
+<p><strong>验证环境变量配置是否OK</strong></p>
+<p>cmd中输入adb进行验证，如下图表示ok<br>
+<img src="https://img-blog.csdnimg.cn/20200710100910483.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+</ul>
+<h2 id="四-下载nodejs-并配置环境变量">四、 下载nodejs 并配置环境变量</h2>
+<ol>
+<li>
+<p>下载地址：  <a href="http://www.nodejs.org/">http://www.nodejs.org/</a></p>
+</li>
+<li>
+<p>网盘链接，有需自提：<br>
+<strong>链接：https://pan.baidu.com/s/1KcUUrVLeUMS4v4jV1sWdLg<br>
+提取码：ioc7</strong></p>
+</li>
+<li>
+<p>环境配置：<br>
+将node安装路径D:\Program Files\nodejs（具体根据你安装的路径决定）添加到环境变量Path中。</p>
+</li>
+<li>
+<p>验证环境变量：<br>
+打开cmd输入node -v或者npm -v，如下图即正常：<br>
+<img src="https://img-blog.csdnimg.cn/20200710101040825.png" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+</ol>
+<h2 id="五-下载安装appium">五、下载安装Appium</h2>
+<p>下载离线包安装，地址：appium.io 有对应的downloads地址。<br>
+安装后如下图：<br>
+<img src="https://img-blog.csdnimg.cn/20200710101052866.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<h2 id="六-安装其他依赖库-在cmd下输入如下命令">六、安装其他依赖库 在cmd下输入如下命令：</h2>
+<pre><code class="language-python">pip install  selenium
+pip install  Appium-Python-Client  
+</code></pre>
+<h2 id="七-appium第一个程序运行">七、Appium第一个程序运行</h2>
+<pre><code>   1、电脑插上手机真机或者电脑安装手机模拟器
+   2、手机真机或者模拟器开启调试模式，设置开发者选项-&gt;USB调试开启
+   3、cmd中输入adb devices 查看手机是否和电脑正常连接
+   4、启动appium server
+   5、pycharm编写第一个appium 代码demo
+</code></pre>
+<pre><code class="language-python">from appium import webdriver
+import time
+
+
+# 定义一个变量：desired_caps 字典
+desired_caps = {}
+# 测试手机平台
+desired_caps['platformName'] = 'Android'
+# 测试手机平台版本号
+desired_caps['platformVersion'] = '5.1'
+# 设备名称（自定义，可写死，但不能为空）
+desired_caps['deviceName'] = '逍遥模拟器'
+# 测试app的安装包名（包名唯一）
+# 获取方式：cmd执行命令：
+# ① aapt dump badging apk文件 ，点击回车【需在aapt目录下执行】
+# ② adb shell dumpsys activity top|findstr &quot;ACTIVITY&quot;【apk启动后立刻执行】
+desired_caps['appPackage'] = '你的包名'
+desired_caps['appActivity'] = '你的apk的入口名'
+desired_caps['noReset'] = True
+desired_caps['fullReset'] = False
+# 初始化driver ，将上面的参数传入[真机：4723]
+driver = webdriver.Remote('http://localhost:4723/wd/hub',desired_caps)
+# 隐式等待40s
+driver.implicitly_wait(40)
+print('登陆成功')
+
+</code></pre>
+<h2 id="流程">流程：</h2>
+<pre><code class="language-python">1）首先打开模拟器或者插上一个真机
+2）adb devices 验证设备是否可以和模拟器正常通信​               
+3）adb install 安装apk​               
+4）启动appium server​              
+5）运行脚本
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/FhyQf6u3c/" class="tag">
+                    App自动化
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/jenkins-xue-xi-bi-ji-gou-jian-hong-fa-qi-ri-cheng-biao-shi-yong-fang-fa-san/">
+                  <h3 class="post-title">
+                    Jenkins学习笔记--构建触发器日程表使用方法（三）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

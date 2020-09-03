@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Postman+Nodejs+Newman输出接口测试报告 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="1、先安装node.js
+官网下载地址：https://nodejs.org/en/download/
+附上我的百度云网盘链接：
+链接：https://pan.baidu.com/s/1lVzY2ZNbCbliLoFR8VHbXA  提取码..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Postman+Nodejs+Newman输出接口测试报告</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="1-先安装nodejs">1、先安装node.js</h2>
+<p>官网下载地址：<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
+<p>附上我的百度云网盘链接：<br>
+<strong>链接：https://pan.baidu.com/s/1lVzY2ZNbCbliLoFR8VHbXA  提取码：w3lk</strong></p>
+<p>【下载完成后就傻瓜式安装，建议默认C盘就行】</p>
+<hr>
+<h2 id="2-winrcmd打开命令行安装cnpm">2、Win+R，cmd打开命令行，安装cnpm</h2>
+<blockquote>
+<p>npm install -g cnpm --registry=https://registry.npm.taobao.org</p>
+</blockquote>
+<hr>
+<h2 id="3-安装newman">3、安装newman</h2>
+<blockquote>
+<p>cnpm install newman --global</p>
+</blockquote>
+<hr>
+<h2 id="4-检查是否安装成功">4、检查是否安装成功</h2>
+<blockquote>
+<p>newman -v</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/2020060723091881.png" alt="安装成功" loading="lazy"><br>
+出现以上版本号提示，表示安装成功；</p>
+<hr>
+<h2 id="5-安装reporter">5、安装reporter</h2>
+<blockquote>
+<p>cnpm install -g newman-reporter-html</p>
+</blockquote>
+<hr>
+<h2 id="6-使用newman命令行执行测试">6、使用newman命令行执行测试</h2>
+<p><strong>- 导出集合为json脚本</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200607231803347.gif" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>-  导出环境为json文件</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200607232007968.gif" alt="在这里插入图片描述" loading="lazy"><br>
+<strong>-  执行命令</strong></p>
+<blockquote>
+<p>newman run 脚本 -e 环境文件 -n 循环次数 -r html --reporter-html-export 报告名称</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200607232440307.gif" alt="在这里插入图片描述" loading="lazy"></figure>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/qin-ce-pip-ming-ling-ti-shi-unknow-or-unsupported-command-install-jie-jue-fang-fa/">
+                  <h3 class="post-title">
+                    亲测：pip命令提示unknow or unsupported command install解决方法
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

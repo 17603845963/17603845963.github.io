@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Jenkins学习笔记--构建触发器日程表使用方法（三） | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599136067058">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+一、进入项目，点击【配置】
+二、定时构建
+三、定时构建语法实例：
+
+实例详解1：每一分钟执行一次构建项目
+实例详解2：每小时的第5分钟和第15分钟执行项目构建
+实例详解3：在上午8点到11点的第5分钟和第15分钟执行项目构建
+实例详解4：..." />
+    <meta name="keywords" content="Jenkins" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599136067058" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Jenkins学习笔记--构建触发器日程表使用方法（三）</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <p><ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-%E8%BF%9B%E5%85%A5%E9%A1%B9%E7%9B%AE%E7%82%B9%E5%87%BB%E9%85%8D%E7%BD%AE">一、进入项目，点击【配置】</a></li>
+<li><a href="#%E4%BA%8C-%E5%AE%9A%E6%97%B6%E6%9E%84%E5%BB%BA">二、定时构建</a></li>
+<li><a href="#%E4%B8%89-%E5%AE%9A%E6%97%B6%E6%9E%84%E5%BB%BA%E8%AF%AD%E6%B3%95%E5%AE%9E%E4%BE%8B">三、定时构建语法实例：</a>
+<ul>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A31%E6%AF%8F%E4%B8%80%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE">实例详解1：每一分钟执行一次构建项目</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A32%E6%AF%8F%E5%B0%8F%E6%97%B6%E7%9A%84%E7%AC%AC5%E5%88%86%E9%92%9F%E5%92%8C%E7%AC%AC15%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA">实例详解2：每小时的第5分钟和第15分钟执行项目构建</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A33%E5%9C%A8%E4%B8%8A%E5%8D%888%E7%82%B9%E5%88%B011%E7%82%B9%E7%9A%84%E7%AC%AC5%E5%88%86%E9%92%9F%E5%92%8C%E7%AC%AC15%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA">实例详解3：在上午8点到11点的第5分钟和第15分钟执行项目构建</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A34%E6%AF%8F%E9%9A%94%E4%B8%A4%E5%A4%A9%E7%9A%84%E4%B8%8A%E5%8D%888%E7%82%B9%E5%88%B011%E7%82%B9%E7%9A%84%E7%AC%AC5%E5%88%86%E9%92%9F%E5%92%8C%E7%AC%AC15%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA">实例详解4：每隔两天的上午8点到11点的第5分钟和第15分钟执行项目构建</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A35%E6%AF%8F%E5%91%A8%E4%B8%80%E4%B8%8A%E5%8D%888%E7%82%B9%E5%88%B011%E7%82%B9%E7%9A%84%E7%AC%AC5%E5%88%86%E9%92%9F%E5%92%8C%E7%AC%AC15%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA">实例详解5：每周一上午8点到11点的第5分钟和第15分钟执行项目构建</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A36%E6%AF%8F%E6%99%9A%E7%9A%842130%E9%87%8D%E5%90%AFsmb">实例详解6：每晚的21：30重启smb</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A37%E6%AF%8F%E6%9C%881-10-22%E6%97%A5%E7%9A%841045-%E9%87%8D%E5%90%AFsmb">实例详解7：每月1、10、22日的10：45 重启smb</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A38%E6%AF%8F%E5%91%A8%E5%85%AD-%E5%91%A8%E6%97%A5%E7%9A%84445%E9%87%8D%E5%90%AFsmb">实例详解8：每周六、周日的4：45重启smb</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A39%E6%AF%8F%E6%99%9A%E7%9A%841800-2100%E6%AF%8F%E9%9A%9430%E5%88%86%E9%92%9F%E9%87%8D%E5%90%AF%E4%B8%80%E6%AC%A1smb">实例详解9：每晚的18：00 -- 21：00每隔30分钟重启一次smb</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A310%E6%AF%8F%E5%91%A8%E6%97%A5%E6%99%9A%E4%B8%8A2300%E9%87%8D%E5%90%AF%E4%B8%80%E6%AC%A1smb">实例详解10：每周日晚上23：00重启一次smb</a></li>
+</ul>
+</li>
+</ul>
+(定时构建项目)</p>
+<h1 id="一-进入项目点击配置">一、进入项目，点击【配置】</h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200713223642861.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="二-定时构建">二、定时构建</h1>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200713224113306.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="三-定时构建语法实例">三、定时构建语法实例：</h1>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200713231045891.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="实例详解1每一分钟执行一次构建项目">实例详解1：每一分钟执行一次构建项目</h2>
+<pre><code class="language-powershell">* 	*	*	*	*
+</code></pre>
+<h2 id="实例详解2每小时的第5分钟和第15分钟执行项目构建">实例详解2：每小时的第5分钟和第15分钟执行项目构建</h2>
+<pre><code class="language-powershell">5,15	*	*	*	*
+</code></pre>
+<h2 id="实例详解3在上午8点到11点的第5分钟和第15分钟执行项目构建">实例详解3：在上午8点到11点的第5分钟和第15分钟执行项目构建</h2>
+<pre><code class="language-powershell">5,15	8-10	*	*	*
+</code></pre>
+<h2 id="实例详解4每隔两天的上午8点到11点的第5分钟和第15分钟执行项目构建">实例详解4：每隔两天的上午8点到11点的第5分钟和第15分钟执行项目构建</h2>
+<pre><code class="language-powershell">5,15	8-10	*/2	*	*
+</code></pre>
+<h2 id="实例详解5每周一上午8点到11点的第5分钟和第15分钟执行项目构建">实例详解5：每周一上午8点到11点的第5分钟和第15分钟执行项目构建</h2>
+<pre><code class="language-powershell">5,15	8-10	*	*	1
+</code></pre>
+<h2 id="实例详解6每晚的2130重启smb">实例详解6：每晚的21：30重启smb</h2>
+<pre><code class="language-powershell">30	21	*	*	* /etc/init.d/smb restart
+</code></pre>
+<h2 id="实例详解7每月1-10-22日的1045-重启smb">实例详解7：每月1、10、22日的10：45 重启smb</h2>
+<pre><code class="language-powershell">45	10	1，10，22	*	* /etc/init.d/smb restart
+</code></pre>
+<h2 id="实例详解8每周六-周日的445重启smb">实例详解8：每周六、周日的4：45重启smb</h2>
+<pre><code class="language-powershell">45	4	*	*	0，6 /etc/init.d/smb restart
+</code></pre>
+<h2 id="实例详解9每晚的1800-2100每隔30分钟重启一次smb">实例详解9：每晚的18：00 -- 21：00每隔30分钟重启一次smb</h2>
+<pre><code class="language-powershell">0，30	18-21	*	*	* /etc/init.d/smb restart
+</code></pre>
+<h2 id="实例详解10每周日晚上2300重启一次smb">实例详解10：每周日晚上23：00重启一次smb</h2>
+<pre><code class="language-powershell">0	23	*	*	0 /etc/init.d/smb restart
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/tchrhqHw2/" class="tag">
+                    Jenkins
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/jenkins-xue-xi-bi-ji-ce-shi-bao-gao-you-jian-fa-song-er/">
+                  <h3 class="post-title">
+                    Jenkins学习笔记--测试报告邮件发送（二）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
