@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>python基础之 OS 模块的常见使用方法+ open() 配合使用 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599133791348">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="os模块有许多方法让我们通过代码实现创建，删除和更改目录
+具体罗列如下：
+
+
+一、 os.getcwd():
+getcwd() 方法显示当前的工作路径，只具体到路径，不具体到文件。
+【 实际过程中用得较少 】
+
+
+
+二、os.path.re..." />
+    <meta name="keywords" content="python基础" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599133791348" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">python基础之 OS 模块的常见使用方法+ open() 配合使用</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="os模块有许多方法让我们通过代码实现创建删除和更改目录">os模块有许多方法让我们通过代码实现创建，删除和更改目录</h1>
+<h1 id="具体罗列如下">具体罗列如下：</h1>
+<hr>
+<hr>
+<h2 id="一-osgetcwd">一、 os.getcwd():</h2>
+<h3 id="getcwd-方法显示当前的工作路径只具体到路径不具体到文件">getcwd() 方法显示当前的工作路径，只具体到路径，不具体到文件。</h3>
+<h3 id="实际过程中用得较少">【 实际过程中用得较少 】</h3>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200823114616493.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h2 id="二-ospathrealpath_-_-file-_-_-用得非常多">二、os.path.realpath(_ _ <em>file</em> _ _)  用得非常多</h2>
+<h3 id="显示文件的绝对路径">【 显示文件的绝对路径 】</h3>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200823115300279.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h2 id="三-ospathdirnamefile">三、os.path.dirname(<strong>file</strong>)</h2>
+<h3 id="显示文件所在文件夹的路径">显示文件所在文件夹的路径</h3>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200823115749941.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h2 id="四-ospathjoin-a-b-路径拼接">四、os.path.join ( a , b ) 路径拼接</h2>
+<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20200823120613154.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h2 id="五-osmkdir-绝对路径-创建指定路径的文件夹">五、os.mkdir ( 绝对路径 )：  创建指定路径的文件夹</h2>
+<h2 id="注多级创建的时候前面必须要存在-一级级的创建">【 注：多级创建的时候前面必须要存在。一级—级的创建 】</h2>
+<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/20200823121611679.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h2 id="六-osrmdir-绝对路径-删除指定路径的文件夹">六、os.rmdir ( 绝对路径 ) ： 删除指定路径的文件夹</h2>
+<h2 id="注多级删除的时候前面必须要存在一级级的删除">【 注：多级删除的时候前面必须要存在，一级—级的删除 】</h2>
+<figure data-type="image" tabindex="6"><img src="https://img-blog.csdnimg.cn/20200823122432975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h2 id="七-oslistdir-获取当前路径下的目录列表">七、os.listdir ( ) : 获取当前路径下的目录列表</h2>
+<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/20200823123220449.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h2 id="八-判断是否为文件文件夹">八、判断是否为文件\文件夹</h2>
+<ul>
+<li>
+<h1 id="ospathisdir-判断当前文件是否是目录返回布尔值">os.path.isdir : 判断当前文件是否是目录,返回布尔值</h1>
+</li>
+<li>
+<h1 id="ospathisfile-判断当前文件是否是文件返回布尔值">os.path.isfile : 判断当前文件是否是文件,返回布尔值</h1>
+</li>
+</ul>
+<figure data-type="image" tabindex="8"><img src="https://img-blog.csdnimg.cn/20200823123939238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h2 id="九-ospathexists-判断路径是否存在">九、os.path.exists ：判断路径是否存在</h2>
+<figure data-type="image" tabindex="9"><img src="https://img-blog.csdnimg.cn/20200823124620131.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h1 id="os-模块-open-配合使用">OS 模块 +  open( )  配合使用</h1>
+<pre><code class="language-python">import os
+
+# 获取当前文件所在的文件夹路径
+a = os.path.dirname(os.path.abspath(__file__))
+
+# 将路径拼接文件名
+b = os.path.join(a,'new.txt')
+
+# 使用 open() 打开该路径的文件，读取方式为 utf-8
+c = open(b,encoding='utf-8')
+
+# 使用 read() 方法读取文件内容
+print(c.read())
+
+# 关闭文件
+c.close()
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/python/" class="tag">
+                    python基础
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/python-ji-chu-zhi-open-cao-zuo-wen-jian-du-xie/">
+                  <h3 class="post-title">
+                    python基础之 open ( ) 操作文件读写
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>python基础之 zip( ) 实现行列转化 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599133791348">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="现在有一个列表如下：
+user_info = [[&quot;name&quot;,&quot;age&quot;,&quot;gender&quot;,&quot;food&quot;],
+             [&quot;张三&q..." />
+    <meta name="keywords" content="python基础" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599133791348" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">python基础之 zip( ) 实现行列转化</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="现在有一个列表如下">现在有一个列表如下：</h2>
+<pre><code class="language-python">user_info = [[&quot;name&quot;,&quot;age&quot;,&quot;gender&quot;,&quot;food&quot;],
+             [&quot;张三&quot;,&quot;15&quot;,&quot;男&quot;,&quot;吃零食&quot;],
+             [&quot;李四&quot;,&quot;25&quot;,&quot;女&quot;,&quot;吃烧烤&quot;],
+             [&quot;王五&quot;,&quot;30&quot;,&quot;男&quot;,&quot;吃米饭&quot;]]
+</code></pre>
+<h2 id="需要将其转化为如下格式">需要将其转化为如下格式：</h2>
+<pre><code class="language-python">new_info = [{&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:&quot;15&quot;,&quot;gender&quot;:&quot;男&quot;,&quot;food&quot;:&quot;吃零食&quot;},
+            {&quot;name&quot;:&quot;李四&quot;,&quot;age&quot;:&quot;25&quot;,&quot;gender&quot;:&quot;女&quot;,&quot;food&quot;:&quot;吃烧烤&quot;},
+            {&quot;name&quot;:&quot;王五&quot;,&quot;age&quot;:&quot;30&quot;,&quot;gender&quot;:&quot;男&quot;,&quot;food&quot;:&quot;吃米饭&quot;}]
+</code></pre>
+<hr>
+<h1 id="代码设计思路">代码设计思路：</h1>
+<ul>
+<li>
+<h3 id="通过下标提取第零个元素作为-key">通过下标提取第零个元素作为 key</h3>
+</li>
+<li>
+<h3 id="用过下标提取之后所有的元素循环遍历作为-对应的-value">用过下标提取之后所有的元素循环遍历作为 对应的 value</h3>
+</li>
+<li>
+<h3 id="通过-zip-进行对应行列转化">通过 zip() 进行对应行列转化</h3>
+</li>
+<li>
+<h3 id="通过dict-将结果转化为字典格式">通过dict() 将结果转化为字典格式</h3>
+</li>
+<li>
+<h3 id="使用空列表接收所有数据">使用空列表接收所有数据</h3>
+</li>
+</ul>
+<hr>
+<h2 id="代码实现">代码实现：</h2>
+<pre><code class="language-python">
+# 定义一个使用方法
+def zip_use(user_info):
+    # 先准备一个空列表
+    res = []
+    # 将需要的 key值根据下标提取出来
+    title = user_info[0]
+    # 将需要的 value值根据下标提取出来并循环遍历
+    info = user_info[1:]
+    
+    for i in info:
+        # 通过zip进行行列转化，并通过dict转化为字典格式
+        new_res = dict(zip(title,i))
+        # 每次循环完成，空列表添加一条数据
+        res.append(new_res)
+    # 返回循环结束后的列表
+    return res
+
+'''通过调用 zip_use 方法，打印结果'''
+print(zip_use(user_info))
+
+</code></pre>
+<h2 id="打印结果">打印结果：</h2>
+<pre><code class="language-python">C:\Users\86176\AppData\Local\Programs\Python\Python36\python.exe D:/PyCharm_Community/class/study/zip行列转化.py
+[{'name': '张三', 'age': '15', 'gender': '男', 'food': '吃零食'}, {'name': '李四', 'age': '25', 'gender': '女', 'food': '吃烧烤'}, {'name': '王五', 'age': '30', 'gender': '男', 'food': '吃米饭'}]
+
+Process finished with exit code 0
+
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/python/" class="tag">
+                    python基础
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/python-ji-chu-zhi-os-mo-kuai-de-chang-jian-shi-yong-fang-fa-open-pei-he-shi-yong/">
+                  <h3 class="post-title">
+                    python基础之 OS 模块的常见使用方法+ open() 配合使用
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

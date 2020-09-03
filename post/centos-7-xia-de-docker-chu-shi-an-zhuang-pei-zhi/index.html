@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>CentOS 7 下的 Docker初识+安装配置 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599133791348">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="Docker - 配置国内加速器加速镜像下载
+
+Docker 能做什么？
+
+
+搭建测试环境
+
+
+搭建各类基础服务
+
+
+搭建测试执行环境
+
+
+
+CentOS 7 下的 Docker 的安装【最新版】
+★ ★ ★ 下载安装运行就三条命令 ★ ★..." />
+    <meta name="keywords" content="Linux,Docker" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599133791348" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">CentOS 7 下的 Docker初识+安装配置</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="docker-配置国内加速器加速镜像下载"><a href="https://www.cnblogs.com/atuotuo/p/6264800.html">Docker - 配置国内加速器加速镜像下载</a></h1>
+<hr>
+<h1 id="docker-能做什么">Docker 能做什么？</h1>
+<ul>
+<li>
+<h1 id="搭建测试环境">搭建测试环境</h1>
+</li>
+<li>
+<h1 id="搭建各类基础服务">搭建各类基础服务</h1>
+</li>
+<li>
+<h1 id="搭建测试执行环境">搭建测试执行环境</h1>
+</li>
+</ul>
+<hr>
+<h1 id="centos-7-下的-docker-的安装最新版">CentOS 7 下的 Docker 的安装【最新版】</h1>
+<h1 id="下载安装运行就三条命令">★ ★ ★ 下载安装运行就三条命令 ★ ★ ★</h1>
+<pre><code class="language-python">'''更新现有的yum包 :''' 
+sudo yam update
+'''执行docker安装脚本'''
+curl -sSL https://get.docker.com/ | sh
+'''启动docker服务'''
+sudo service docker start
+</code></pre>
+<hr>
+<h1 id="docker的基本使用命令">Docker的基本使用命令</h1>
+<hr>
+<h3 id="镜像管理命令">镜像管理命令 :</h3>
+<hr>
+<blockquote>
+<ol>
+<li>
+<p>docker pull {image_name} (拉取镜像)</p>
+</li>
+<li>
+<p>docker push {image_name} (推送镜像)</p>
+</li>
+<li>
+<p>docker images (查看当前机器的所有镜像)</p>
+</li>
+<li>
+<p>docker rmi {image_name} (删除当前机器的一个镜像)</p>
+</li>
+<li>
+<p>docker tag {source_images_name:tag your_image_name:tag}为一个镜像打tag</p>
+</li>
+<li>
+<p>docker save busybox &gt; busybox.tar</p>
+</li>
+<li>
+<p>docker load &lt; busybox.tar.gz</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="容器管理命令">容器管理命令</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">docker run --name={your_name} --d {image_name}</td>
+<td style="text-align:left">(运行容器)</td>
+</tr>
+<tr>
+<td style="text-align:left">docker ps -s -a</td>
+<td style="text-align:left">{查看当前所有容器}</td>
+</tr>
+<tr>
+<td style="text-align:left">docker stop {container_name}</td>
+<td style="text-align:left">(停止容器)</td>
+</tr>
+<tr>
+<td style="text-align:left">docker kill (container_name)</td>
+<td style="text-align:left">{杀死容器}</td>
+</tr>
+<tr>
+<td style="text-align:left">docker rm -f {container_name}</td>
+<td style="text-align:left">(容器如果运行中，-f强制删除容器；容器不在运行，可不加-f)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="查信息相关命令">查信息相关命令</h3>
+<hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">docker logs -f</td>
+<td style="text-align:left">{容器名称} (查看容器日志)</td>
+</tr>
+<tr>
+<td style="text-align:left">docker info</td>
+<td style="text-align:left">(查看docker服务的信息)</td>
+</tr>
+<tr>
+<td style="text-align:left">docker inspect</td>
+<td style="text-align:left">{容器名称} (查看容器的元数据)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="与容器交互的命令">与容器交互的命令</h3>
+<hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">docker exec -it  {容器名称} bash</td>
+<td style="text-align:left">进入容器，exec的意思是在容器中运行一个命令。如果是bash 并且指定了-it就会打开容器的shell交互</td>
+</tr>
+<tr>
+<td style="text-align:left">docker cp {container:name}:{container_path} {host_path}</td>
+<td style="text-align:left">把宿主机上的一个文件copy到容器中</td>
+</tr>
+</tbody>
+</table>
+<h3 id="容器运行命令的一些参数-docker-run">容器运行命令的一些参数 （docker run）</h3>
+<hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">docker run  --name</td>
+<td style="text-align:left">指定容器名称</td>
+</tr>
+<tr>
+<td style="text-align:left">docker run  -d</td>
+<td style="text-align:left">后台运行</td>
+</tr>
+<tr>
+<td style="text-align:left">docker run      -port</td>
+<td style="text-align:left">指定端口映射规则</td>
+</tr>
+<tr>
+<td style="text-align:left">docker run   --network</td>
+<td style="text-align:left">指定容器运行的网路模式</td>
+</tr>
+<tr>
+<td style="text-align:left">docker run   -v</td>
+<td style="text-align:left">指定需要挂载的数据卷</td>
+</tr>
+<tr>
+<td style="text-align:left">docker run    -env</td>
+<td style="text-align:left">指定需要传递给容器的环境变量</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/OmS0Cvnsp/" class="tag">
+                    Linux
+                  </a>
+                
+                  <a href="https://17603845963.github.io/tag/kMYuz48BZ/" class="tag">
+                    Docker
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/metersphere-de-bu-shu-an-zhuang/">
+                  <h3 class="post-title">
+                    MeterSphere的部署安装
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

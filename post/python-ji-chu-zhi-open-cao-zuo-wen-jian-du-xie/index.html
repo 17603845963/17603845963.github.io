@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>python基础之 open ( ) 操作文件读写 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599133791348">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="open(文件路径，编辑模式，编码格式)
+
+
+
+代码
+释义
+
+
+
+
+open ( &lt;file.path&gt; ,mode='r',encoding='utf-8' )
+读取文件内容
+
+
+open ( &lt;file.path&gt..." />
+    <meta name="keywords" content="python基础" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599133791348" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">python基础之 open ( ) 操作文件读写</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="open文件路径编辑模式编码格式">open(文件路径，编辑模式，编码格式)</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">代码</th>
+<th style="text-align:left">释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">open ( &lt;file.path&gt; ,mode='r',encoding='utf-8' )</td>
+<td style="text-align:left">读取文件内容</td>
+</tr>
+<tr>
+<td style="text-align:left">open ( &lt;file.path&gt; ,mode='w',encoding='utf-8' )</td>
+<td style="text-align:left">覆盖写入内容</td>
+</tr>
+<tr>
+<td style="text-align:left">open ( &lt;file.path&gt; ,mode='a',encoding='utf-8' )</td>
+<td style="text-align:left">追加写入内容</td>
+</tr>
+<tr>
+<td style="text-align:left">open ( &lt;file.path&gt; ,mode='r+',encoding='utf-8' )</td>
+<td style="text-align:left">先读取再写入内容</td>
+</tr>
+<tr>
+<td style="text-align:left">open ( &lt;file.path&gt; ,mode='w+',encoding='utf-8' )</td>
+<td style="text-align:left">先写入内容再读取</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="一-显示文件内容">一、显示文件内容</h1>
+<ul>
+<li>
+<h1 id="open-filepath-moderencodingutf-8">open ( &lt;file.path&gt; ,mode=‘r’,encoding=‘utf-8’ )</h1>
+</li>
+</ul>
+<pre><code class="language-python">import os
+
+# 获取当前文件所在的文件夹路径
+a = os.path.dirname(os.path.abspath(__file__))
+
+# 将路径拼接存在的文件名
+b = os.path.join(a,'new.txt')
+
+# 使用 open() 打开该路径的文件，读取方式为 utf-8
+c = open(b,mode='r',encoding='utf-8')
+
+# 使用 read() 方法读取文件内容
+print(c.read())
+
+# 关闭文件
+c.close()
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200823161338807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h1 id="二-覆盖原文本内容并写入数据">二、覆盖原文本内容并写入数据</h1>
+<ul>
+<li>
+<h1 id="open-filepath-modewencodingutf-8">open ( &lt;file.path&gt; ,mode='w',encoding='utf-8')</h1>
+</li>
+</ul>
+<pre><code class="language-python">import os
+
+# 获取当前文件所在的文件夹路径
+a = os.path.dirname(os.path.abspath(__file__))
+
+# 将路径拼接存在的文件名
+b = os.path.join(a,'new.txt')
+
+# 使用 open() 打开该路径的文件，读取方式为 utf-8
+c = open(b,mode='w',encoding='utf-8')
+
+# 使用 read() 方法读取文件内容
+print(c.write(&quot;你是个好人，但我们不合适&quot;))
+
+# 关闭文件
+c.close()
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200823161755797.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<h1 id="三-原文本的基础上追加写入数据">三、原文本的基础上追加写入数据</h1>
+<ul>
+<li>
+<h1 id="open-filepath-modeaencodingutf-8">open ( &lt;file.path&gt; ,mode='a',encoding='utf-8')</h1>
+</li>
+</ul>
+<pre><code class="language-python">import os
+
+# 获取当前文件所在的文件夹路径
+a = os.path.dirname(os.path.abspath(__file__))
+
+# 将路径拼接存在的文件名
+b = os.path.join(a,'new.txt')
+
+# 使用 open() 打开该路径的文件，读取方式为 utf-8
+c = open(b,mode='a',encoding='utf-8')
+
+# 使用 read() 方法读取文件内容
+print(c.write(&quot;\n别问，爱过，可以的话我们做朋友&quot;))
+
+# 关闭文件
+c.close()
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/202008231622317.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/python/" class="tag">
+                    python基础
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/jmetergrafanainfluxdb-xing-neng-jian-kong-ping-tai-da-jian/">
+                  <h3 class="post-title">
+                    jmeter+grafana+influxdb性能监控平台搭建
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

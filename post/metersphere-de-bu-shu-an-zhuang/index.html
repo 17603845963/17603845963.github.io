@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>MeterSphere的部署安装 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599133791348">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="MeterSphere 是一站式的开源企业级持续测试平台，
+涵盖测试跟踪、接口测试、性能测试、团队协作等功能，
+兼容JMeter 等开源标准，
+有效助力开发和测试团队充分利用云弹性进行高度可扩展的自动化测试，
+加速高质量软件的交付。
+Met..." />
+    <meta name="keywords" content="MeterSphere" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599133791348" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">MeterSphere的部署安装</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="metersphere-是一站式的开源企业级持续测试平台">MeterSphere 是一站式的开源企业级持续测试平台，</h1>
+<h1 id="涵盖测试跟踪-接口测试-性能测试-团队协作等功能">涵盖测试跟踪、接口测试、性能测试、团队协作等功能，</h1>
+<h1 id="兼容jmeter-等开源标准">兼容JMeter 等开源标准，</h1>
+<h1 id="有效助力开发和测试团队充分利用云弹性进行高度可扩展的自动化测试">有效助力开发和测试团队充分利用云弹性进行高度可扩展的自动化测试，</h1>
+<h1 id="加速高质量软件的交付">加速高质量软件的交付。</h1>
+<h1 id="metersphere-学习介绍文档"><a href="https://metersphere.io/docs/">MeterSphere 学习介绍文档</a></h1>
+<hr>
+<ul>
+<li>
+<h3 id="操作系统-任何支持-docker-的-linux-x64">操作系统: 任何支持 Docker 的 Linux x64</h3>
+</li>
+<li>
+<h3 id="cpu内存-2核4g最小">CPU/内存: 2核4G（最小）</h3>
+</li>
+<li>
+<h3 id="磁盘空间-20g">磁盘空间: 20G</h3>
+</li>
+<li>
+<h3 id="可访问互联网">可访问互联网</h3>
+</li>
+</ul>
+<hr>
+<h1 id="一-界面展示">一 、界面展示：</h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200812105019645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<h1 id="二-部署安装">二、部署安装</h1>
+<ul>
+<li>
+<h3 id="执行安装脚本">执行安装脚本</h3>
+</li>
+<li>
+<h3 id="以-root-用户-ssh-登录目标服务器-执行如下命令">以 root 用户 ssh 登录目标服务器, 执行如下命令</h3>
+<blockquote>
+<p>curl -sSL https://github.com/metersphere/metersphere/releases/latest/download/quick_start.sh | sh</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="三-登录">三、登录</h1>
+<ul>
+<li>
+<h3 id="安装成功后通过浏览器访问如下页面登录-metersphere">安装成功后，通过浏览器访问如下页面登录 MeterSphere</h3>
+<strong>地址: http://目标服务器IP地址:8081<br>
+用户名: admin<br>
+密码: metersphere</strong></li>
+</ul>
+<h3 id="您可以使用命令-msctl-status-检查服务运行情况">您可以使用命令 'msctl status' 检查服务运行情况.</h3>
+<hr>
+<h1 id="四-功能">四、功能</h1>
+<p><img src="https://img-blog.csdnimg.cn/20200812105419959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200812105438617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200812105454609.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200812105510346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/IxPFsJ5WL/" class="tag">
+                    MeterSphere
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/jmeter-time-han-shu-sheng-cheng-shi-jian-chuo/">
+                  <h3 class="post-title">
+                    Jmeter --- time函数生成时间戳
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
