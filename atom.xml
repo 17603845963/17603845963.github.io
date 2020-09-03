@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://17603845963.github.io</id>
     <title>井 sir 的私人博客</title>
-    <updated>2020-09-03T11:53:30.892Z</updated>
+    <updated>2020-09-03T12:01:21.234Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://17603845963.github.io"/>
     <link rel="self" href="https://17603845963.github.io/atom.xml"/>
@@ -10,6 +10,173 @@
     <logo>https://17603845963.github.io/images/avatar.png</logo>
     <icon>https://17603845963.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 井 sir 的私人博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Jmeter—处理Unicode编码转为中文]]></title>
+        <id>https://17603845963.github.io/post/jmeter-chu-li-unicode-bian-ma-zhuan-wei-zhong-wen/</id>
+        <link href="https://17603845963.github.io/post/jmeter-chu-li-unicode-bian-ma-zhuan-wei-zhong-wen/">
+        </link>
+        <updated>2020-09-03T11:54:17.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="原文链接jmeter处理unicode编码转为中文"><a href="https://blog.csdn.net/weixin_42675206/article/details/81064257">原文链接：Jmeter—处理Unicode编码转为中文</a></h1>
+<p>1.添加一个后置处理器（BeanShell PostProcessor）</p>
+<p>2.编写转译方法</p>
+<p>3.保存，运行<br>
+<img src="https://img-blog.csdnimg.cn/20200719204320804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+源码如下：</p>
+<pre><code class="language-python">代码如下：
+
+String s2=new String(prev.getResponseData(),&quot;UTF-8&quot;);
+//---------------一下步骤为转码过程---------------
+        char aChar;
+        int len= s2.length();
+        StringBuffer outBuffer=new StringBuffer(len);
+        for(int x =0; x &lt;len;){
+            aChar= s2.charAt(x++);
+            if(aChar=='\\'){
+                aChar= s2.charAt(x++);
+                if(aChar=='u'){
+                    int value =0;
+                    for(int i=0;i&lt;4;i++){
+                        aChar= s2.charAt(x++);
+                        switch(aChar){
+                            case'0':
+                            case'1':
+                            case'2':
+                            case'3':
+                            case'4':
+                            case'5':
+                            case'6':
+                            case'7':
+                            case'8':
+                            case'9':
+                                value=(value &lt;&lt;4)+aChar-'0';
+                                break;
+                            case'a':
+                            case'b':
+                            case'c':
+                            case'd':
+                            case'e':
+                            case'f':
+                                value=(value &lt;&lt;4)+10+aChar-'a';
+                                break;
+                            case'A':
+                            case'B':
+                            case'C':
+                            case'D':
+                            case'E':
+                            case'F':
+                                value=(value &lt;&lt;4)+10+aChar-'A';
+                                break;
+                            default:
+                                throw new IllegalArgumentException(
+                                        &quot;Malformed   \\uxxxx  encoding.&quot;);}}
+                    outBuffer.append((char) value);}else{
+                    if(aChar=='t')
+                        aChar='\t';
+                    else if(aChar=='r')
+                    aChar='\r';
+                    else if(aChar=='n')
+                    aChar='\n';
+                    else if(aChar=='f')
+                    aChar='\f';
+                    outBuffer.append(aChar);}}else
+                outBuffer.append(aChar);}
+//-----------------以上内容为转码过程---------------------------
+//将转成中文的响应结果在查看结果树中显示
+
+        prev.setResponseData(outBuffer.toString());
+</code></pre>
+<p>————————————————<br>
+版权声明：本文为CSDN博主「Nathan_jyx」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
+原文链接：https://blog.csdn.net/weixin_42675206/article/details/81064257</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[jmeter之压测Mysql数据库（前期配置+操作详解）]]></title>
+        <id>https://17603845963.github.io/post/jmeter-zhi-ya-ce-mysql-shu-ju-ku-qian-qi-pei-zhi-cao-zuo-xiang-jie/</id>
+        <link href="https://17603845963.github.io/post/jmeter-zhi-ya-ce-mysql-shu-ju-ku-qian-qi-pei-zhi-cao-zuo-xiang-jie/">
+        </link>
+        <updated>2020-09-03T11:53:49.000Z</updated>
+        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
+<li><a href="#1-jdbc%E5%8E%8B%E6%B5%8Bmysql%E7%9B%B8%E5%85%B3%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">1. jdbc压测mysql相关准备工作</a><br>
+*
+<ul>
+<li><a href="#1-thread-group-add-sampler-jdbc-request">1、Thread Group -&gt; add -&gt; sampler -&gt; jdbc request</a></li>
+<li><a href="#2-jdbc-request-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BB%B6-jdbc-connection-configuration">2. JDBC Request &gt; 配置元件 &gt; JDBC Connection Configuration</a></li>
+<li><a href="#3%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85mysql%E5%B9%B6%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93">3.配置数据库【本地安装mysql并新建一个数据库】</a></li>
+</ul>
+</li>
+<li><a href="#2-jar%E5%8C%85%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E4%B8%8B%E5%88%AB%E6%8E%8F%E9%92%B1%E4%B8%8B%E8%BD%BD%E5%95%A6">2. jar包添加【自己下，别掏钱下载啦】</a><br>
+*
+<ul>
+<li><a href="#%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E4%B8%AD%E6%B7%BB%E5%8A%A0-mysql-connector-java5138jar-%E6%96%87%E4%BB%B6">测试计划中添加 mysql-connector-java/5.1.38.jar 文件</a></li>
+</ul>
+</li>
+<li><a href="#3-%E9%85%8D%E7%BD%AE%E8%AE%B2%E8%A7%A3">3. 配置讲解</a><br>
+*
+<ul>
+<li><a href="#1-jdbc-request-%E9%85%8D%E7%BD%AE">1. JDBC Request 配置</a></li>
+<li><a href="#2-jdbc-connection-configuration%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE">2. JDBC Connection Configuration【数据库连接配置】</a></li>
+</ul>
+</li>
+<li><a href="#4-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%8B%E6%B5%8B%E8%B0%83%E8%AF%95">4、Mysql 数据库压测调试</a><br>
+*
+<ul>
+<li><a href="#1-jdbc-request-sql-query-%E4%B8%AD%E8%BE%93%E5%85%A5%E7%AE%80%E5%8D%95%E7%9A%84sql%E8%AF%AD%E5%8F%A5">1、JDBC Request &gt; SQL Query 中输入简单的SQL语句</a></li>
+<li><a href="#2-%E8%B0%83%E8%AF%95%E7%BB%93%E6%9E%9C">2、调试结果</a></li>
+</ul>
+</li>
+<li><a href="#5-jdbc-request-%E5%8F%82%E6%95%B0%E8%AE%B2%E8%A7%A3">5、JDBC Request 参数讲解：</a><br>
+*
+<ul>
+<li><a href="#1-%E9%A2%84%E7%BC%96%E8%AF%91-select-%E8%AF%AD%E5%8F%A5%E6%9F%A5%E8%AF%A2%E8%AF%A6%E8%A7%A3">1、预编译 select 语句查询详解</a></li>
+</ul>
+</li>
+</ul>
+(Jmeter压测实战之JDBC request压测Mysql)</p>
+<h1 id="1-jdbc压测mysql相关准备工作">1. jdbc压测mysql相关准备工作</h1>
+<h3 id="1-thread-group-add-sampler-jdbc-request">1、Thread Group -&gt; add -&gt; sampler -&gt; jdbc request</h3>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200721235644618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="2-jdbc-request-配置元件-jdbc-connection-configuration">2. JDBC Request &gt; 配置元件 &gt; JDBC Connection Configuration</h3>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200721235904507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="3配置数据库本地安装mysql并新建一个数据库">3.配置数据库【本地安装mysql并新建一个数据库】</h3>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200722001049855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h1 id="2-jar包添加自己下别掏钱下载啦">2. jar包添加【自己下，别掏钱下载啦】</h1>
+<p><strong>点击跳转下载地址</strong>：<a href="https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.38"><strong>mysql-connector-java/5.1.38</strong></a><br>
+<img src="https://img-blog.csdnimg.cn/20200722002832243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<h3 id="测试计划中添加-mysql-connector-java5138jar-文件">测试计划中添加 mysql-connector-java/5.1.38.jar 文件</h3>
+<p><strong>这步操作结束后，JDBC Connection Configuration数据库连接配置中才可以选择驱动</strong></p>
+<ul>
+<li><strong>JDBC Driver class &gt;  com.mysql.jdbc.Driver</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200722004232967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<hr>
+<hr>
+<h1 id="3-配置讲解">3. 配置讲解</h1>
+<h3 id="1-jdbc-request-配置">1. JDBC Request 配置</h3>
+<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20200722003932690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="2-jdbc-connection-configuration数据库连接配置">2. JDBC Connection Configuration【数据库连接配置】</h3>
+<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/20200722010348711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<ul>
+<li><strong>续上图</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200722010534462.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h1 id="4-mysql-数据库压测调试">4、Mysql 数据库压测调试</h1>
+<p>配置工作完成后，就可以进行简单的调试</p>
+<h3 id="1-jdbc-request-sql-query-中输入简单的sql语句">1、JDBC Request &gt; SQL Query 中输入简单的SQL语句</h3>
+<figure data-type="image" tabindex="6"><img src="https://img-blog.csdnimg.cn/20200722010831936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="2-调试结果">2、调试结果</h3>
+<p><img src="https://img-blog.csdnimg.cn/20200722011204407.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200722011223350.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<h1 id="5-jdbc-request-参数讲解">5、JDBC Request 参数讲解：</h1>
+<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/20200722013540327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="1-预编译-select-语句查询详解">1、预编译 select 语句查询详解</h3>
+<p><img src="https://img-blog.csdnimg.cn/20200724102212177.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200724102727421.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Pycharm正式版安装教程]]></title>
         <id>https://17603845963.github.io/post/pycharm-zheng-shi-ban-an-zhuang-jiao-cheng/</id>
@@ -733,155 +900,6 @@ sudo service docker start
 <figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200817175800473.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
 </li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python基础之 zip( ) 实现行列转化]]></title>
-        <id>https://17603845963.github.io/post/python-ji-chu-zhi-zip-shi-xian-xing-lie-zhuan-hua/</id>
-        <link href="https://17603845963.github.io/post/python-ji-chu-zhi-zip-shi-xian-xing-lie-zhuan-hua/">
-        </link>
-        <updated>2020-09-03T11:47:18.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="现在有一个列表如下">现在有一个列表如下：</h2>
-<pre><code class="language-python">user_info = [[&quot;name&quot;,&quot;age&quot;,&quot;gender&quot;,&quot;food&quot;],
-             [&quot;张三&quot;,&quot;15&quot;,&quot;男&quot;,&quot;吃零食&quot;],
-             [&quot;李四&quot;,&quot;25&quot;,&quot;女&quot;,&quot;吃烧烤&quot;],
-             [&quot;王五&quot;,&quot;30&quot;,&quot;男&quot;,&quot;吃米饭&quot;]]
-</code></pre>
-<h2 id="需要将其转化为如下格式">需要将其转化为如下格式：</h2>
-<pre><code class="language-python">new_info = [{&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:&quot;15&quot;,&quot;gender&quot;:&quot;男&quot;,&quot;food&quot;:&quot;吃零食&quot;},
-            {&quot;name&quot;:&quot;李四&quot;,&quot;age&quot;:&quot;25&quot;,&quot;gender&quot;:&quot;女&quot;,&quot;food&quot;:&quot;吃烧烤&quot;},
-            {&quot;name&quot;:&quot;王五&quot;,&quot;age&quot;:&quot;30&quot;,&quot;gender&quot;:&quot;男&quot;,&quot;food&quot;:&quot;吃米饭&quot;}]
-</code></pre>
-<hr>
-<h1 id="代码设计思路">代码设计思路：</h1>
-<ul>
-<li>
-<h3 id="通过下标提取第零个元素作为-key">通过下标提取第零个元素作为 key</h3>
-</li>
-<li>
-<h3 id="用过下标提取之后所有的元素循环遍历作为-对应的-value">用过下标提取之后所有的元素循环遍历作为 对应的 value</h3>
-</li>
-<li>
-<h3 id="通过-zip-进行对应行列转化">通过 zip() 进行对应行列转化</h3>
-</li>
-<li>
-<h3 id="通过dict-将结果转化为字典格式">通过dict() 将结果转化为字典格式</h3>
-</li>
-<li>
-<h3 id="使用空列表接收所有数据">使用空列表接收所有数据</h3>
-</li>
-</ul>
-<hr>
-<h2 id="代码实现">代码实现：</h2>
-<pre><code class="language-python">
-# 定义一个使用方法
-def zip_use(user_info):
-    # 先准备一个空列表
-    res = []
-    # 将需要的 key值根据下标提取出来
-    title = user_info[0]
-    # 将需要的 value值根据下标提取出来并循环遍历
-    info = user_info[1:]
-    
-    for i in info:
-        # 通过zip进行行列转化，并通过dict转化为字典格式
-        new_res = dict(zip(title,i))
-        # 每次循环完成，空列表添加一条数据
-        res.append(new_res)
-    # 返回循环结束后的列表
-    return res
-
-'''通过调用 zip_use 方法，打印结果'''
-print(zip_use(user_info))
-
-</code></pre>
-<h2 id="打印结果">打印结果：</h2>
-<pre><code class="language-python">C:\Users\86176\AppData\Local\Programs\Python\Python36\python.exe D:/PyCharm_Community/class/study/zip行列转化.py
-[{'name': '张三', 'age': '15', 'gender': '男', 'food': '吃零食'}, {'name': '李四', 'age': '25', 'gender': '女', 'food': '吃烧烤'}, {'name': '王五', 'age': '30', 'gender': '男', 'food': '吃米饭'}]
-
-Process finished with exit code 0
-
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python基础之 OS 模块的常见使用方法+ open() 配合使用]]></title>
-        <id>https://17603845963.github.io/post/python-ji-chu-zhi-os-mo-kuai-de-chang-jian-shi-yong-fang-fa-open-pei-he-shi-yong/</id>
-        <link href="https://17603845963.github.io/post/python-ji-chu-zhi-os-mo-kuai-de-chang-jian-shi-yong-fang-fa-open-pei-he-shi-yong/">
-        </link>
-        <updated>2020-09-03T11:46:49.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="os模块有许多方法让我们通过代码实现创建删除和更改目录">os模块有许多方法让我们通过代码实现创建，删除和更改目录</h1>
-<h1 id="具体罗列如下">具体罗列如下：</h1>
-<hr>
-<hr>
-<h2 id="一-osgetcwd">一、 os.getcwd():</h2>
-<h3 id="getcwd-方法显示当前的工作路径只具体到路径不具体到文件">getcwd() 方法显示当前的工作路径，只具体到路径，不具体到文件。</h3>
-<h3 id="实际过程中用得较少">【 实际过程中用得较少 】</h3>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200823114616493.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<hr>
-<h2 id="二-ospathrealpath_-_-file-_-_-用得非常多">二、os.path.realpath(_ _ <em>file</em> _ _)  用得非常多</h2>
-<h3 id="显示文件的绝对路径">【 显示文件的绝对路径 】</h3>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200823115300279.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<hr>
-<h2 id="三-ospathdirnamefile">三、os.path.dirname(<strong>file</strong>)</h2>
-<h3 id="显示文件所在文件夹的路径">显示文件所在文件夹的路径</h3>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200823115749941.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<hr>
-<h2 id="四-ospathjoin-a-b-路径拼接">四、os.path.join ( a , b ) 路径拼接</h2>
-<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20200823120613154.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<hr>
-<h2 id="五-osmkdir-绝对路径-创建指定路径的文件夹">五、os.mkdir ( 绝对路径 )：  创建指定路径的文件夹</h2>
-<h2 id="注多级创建的时候前面必须要存在-一级级的创建">【 注：多级创建的时候前面必须要存在。一级—级的创建 】</h2>
-<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/20200823121611679.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<hr>
-<h2 id="六-osrmdir-绝对路径-删除指定路径的文件夹">六、os.rmdir ( 绝对路径 ) ： 删除指定路径的文件夹</h2>
-<h2 id="注多级删除的时候前面必须要存在一级级的删除">【 注：多级删除的时候前面必须要存在，一级—级的删除 】</h2>
-<figure data-type="image" tabindex="6"><img src="https://img-blog.csdnimg.cn/20200823122432975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<hr>
-<h2 id="七-oslistdir-获取当前路径下的目录列表">七、os.listdir ( ) : 获取当前路径下的目录列表</h2>
-<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/20200823123220449.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<hr>
-<h2 id="八-判断是否为文件文件夹">八、判断是否为文件\文件夹</h2>
-<ul>
-<li>
-<h1 id="ospathisdir-判断当前文件是否是目录返回布尔值">os.path.isdir : 判断当前文件是否是目录,返回布尔值</h1>
-</li>
-<li>
-<h1 id="ospathisfile-判断当前文件是否是文件返回布尔值">os.path.isfile : 判断当前文件是否是文件,返回布尔值</h1>
-</li>
-</ul>
-<figure data-type="image" tabindex="8"><img src="https://img-blog.csdnimg.cn/20200823123939238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<hr>
-<h2 id="九-ospathexists-判断路径是否存在">九、os.path.exists ：判断路径是否存在</h2>
-<figure data-type="image" tabindex="9"><img src="https://img-blog.csdnimg.cn/20200823124620131.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<hr>
-<h1 id="os-模块-open-配合使用">OS 模块 +  open( )  配合使用</h1>
-<pre><code class="language-python">import os
-
-# 获取当前文件所在的文件夹路径
-a = os.path.dirname(os.path.abspath(__file__))
-
-# 将路径拼接文件名
-b = os.path.join(a,'new.txt')
-
-# 使用 open() 打开该路径的文件，读取方式为 utf-8
-c = open(b,encoding='utf-8')
-
-# 使用 read() 方法读取文件内容
-print(c.read())
-
-# 关闭文件
-c.close()
-</code></pre>
 ]]></content>
     </entry>
 </feed>

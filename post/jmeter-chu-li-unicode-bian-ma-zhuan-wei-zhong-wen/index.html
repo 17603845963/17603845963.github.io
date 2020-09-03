@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Jmeter—处理Unicode编码转为中文 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599134478592">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="原文链接：Jmeter—处理Unicode编码转为中文
+1.添加一个后置处理器（BeanShell PostProcessor）
+2.编写转译方法
+3.保存，运行
+
+源码如下：
+代码如下：
+
+String s2=new String(pre..." />
+    <meta name="keywords" content="jmeter" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599134478592" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Jmeter—处理Unicode编码转为中文</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="原文链接jmeter处理unicode编码转为中文"><a href="https://blog.csdn.net/weixin_42675206/article/details/81064257">原文链接：Jmeter—处理Unicode编码转为中文</a></h1>
+<p>1.添加一个后置处理器（BeanShell PostProcessor）</p>
+<p>2.编写转译方法</p>
+<p>3.保存，运行<br>
+<img src="https://img-blog.csdnimg.cn/20200719204320804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+源码如下：</p>
+<pre><code class="language-python">代码如下：
+
+String s2=new String(prev.getResponseData(),&quot;UTF-8&quot;);
+//---------------一下步骤为转码过程---------------
+        char aChar;
+        int len= s2.length();
+        StringBuffer outBuffer=new StringBuffer(len);
+        for(int x =0; x &lt;len;){
+            aChar= s2.charAt(x++);
+            if(aChar=='\\'){
+                aChar= s2.charAt(x++);
+                if(aChar=='u'){
+                    int value =0;
+                    for(int i=0;i&lt;4;i++){
+                        aChar= s2.charAt(x++);
+                        switch(aChar){
+                            case'0':
+                            case'1':
+                            case'2':
+                            case'3':
+                            case'4':
+                            case'5':
+                            case'6':
+                            case'7':
+                            case'8':
+                            case'9':
+                                value=(value &lt;&lt;4)+aChar-'0';
+                                break;
+                            case'a':
+                            case'b':
+                            case'c':
+                            case'd':
+                            case'e':
+                            case'f':
+                                value=(value &lt;&lt;4)+10+aChar-'a';
+                                break;
+                            case'A':
+                            case'B':
+                            case'C':
+                            case'D':
+                            case'E':
+                            case'F':
+                                value=(value &lt;&lt;4)+10+aChar-'A';
+                                break;
+                            default:
+                                throw new IllegalArgumentException(
+                                        &quot;Malformed   \\uxxxx  encoding.&quot;);}}
+                    outBuffer.append((char) value);}else{
+                    if(aChar=='t')
+                        aChar='\t';
+                    else if(aChar=='r')
+                    aChar='\r';
+                    else if(aChar=='n')
+                    aChar='\n';
+                    else if(aChar=='f')
+                    aChar='\f';
+                    outBuffer.append(aChar);}}else
+                outBuffer.append(aChar);}
+//-----------------以上内容为转码过程---------------------------
+//将转成中文的响应结果在查看结果树中显示
+
+        prev.setResponseData(outBuffer.toString());
+</code></pre>
+<p>————————————————<br>
+版权声明：本文为CSDN博主「Nathan_jyx」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
+原文链接：https://blog.csdn.net/weixin_42675206/article/details/81064257</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/jmeter/" class="tag">
+                    jmeter
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/jmeter-zhi-ya-ce-mysql-shu-ju-ku-qian-qi-pei-zhi-cao-zuo-xiang-jie/">
+                  <h3 class="post-title">
+                    jmeter之压测Mysql数据库（前期配置+操作详解）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

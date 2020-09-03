@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>jmeter之压测Mysql数据库（前期配置+操作详解） | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599134478592">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+1. jdbc压测mysql相关准备工作
+*
+
+1、Thread Group -&gt; add -&gt; sampler -&gt; jdbc request
+2. JDBC Request &gt; 配置元件 &gt; JDBC C..." />
+    <meta name="keywords" content="性能测试,Mysql,jmeter" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599134478592" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">jmeter之压测Mysql数据库（前期配置+操作详解）</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <p><ul class="markdownIt-TOC">
+<li><a href="#1-jdbc%E5%8E%8B%E6%B5%8Bmysql%E7%9B%B8%E5%85%B3%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">1. jdbc压测mysql相关准备工作</a><br>
+*
+<ul>
+<li><a href="#1-thread-group-add-sampler-jdbc-request">1、Thread Group -&gt; add -&gt; sampler -&gt; jdbc request</a></li>
+<li><a href="#2-jdbc-request-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BB%B6-jdbc-connection-configuration">2. JDBC Request &gt; 配置元件 &gt; JDBC Connection Configuration</a></li>
+<li><a href="#3%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85mysql%E5%B9%B6%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93">3.配置数据库【本地安装mysql并新建一个数据库】</a></li>
+</ul>
+</li>
+<li><a href="#2-jar%E5%8C%85%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E4%B8%8B%E5%88%AB%E6%8E%8F%E9%92%B1%E4%B8%8B%E8%BD%BD%E5%95%A6">2. jar包添加【自己下，别掏钱下载啦】</a><br>
+*
+<ul>
+<li><a href="#%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E4%B8%AD%E6%B7%BB%E5%8A%A0-mysql-connector-java5138jar-%E6%96%87%E4%BB%B6">测试计划中添加 mysql-connector-java/5.1.38.jar 文件</a></li>
+</ul>
+</li>
+<li><a href="#3-%E9%85%8D%E7%BD%AE%E8%AE%B2%E8%A7%A3">3. 配置讲解</a><br>
+*
+<ul>
+<li><a href="#1-jdbc-request-%E9%85%8D%E7%BD%AE">1. JDBC Request 配置</a></li>
+<li><a href="#2-jdbc-connection-configuration%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE">2. JDBC Connection Configuration【数据库连接配置】</a></li>
+</ul>
+</li>
+<li><a href="#4-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%8B%E6%B5%8B%E8%B0%83%E8%AF%95">4、Mysql 数据库压测调试</a><br>
+*
+<ul>
+<li><a href="#1-jdbc-request-sql-query-%E4%B8%AD%E8%BE%93%E5%85%A5%E7%AE%80%E5%8D%95%E7%9A%84sql%E8%AF%AD%E5%8F%A5">1、JDBC Request &gt; SQL Query 中输入简单的SQL语句</a></li>
+<li><a href="#2-%E8%B0%83%E8%AF%95%E7%BB%93%E6%9E%9C">2、调试结果</a></li>
+</ul>
+</li>
+<li><a href="#5-jdbc-request-%E5%8F%82%E6%95%B0%E8%AE%B2%E8%A7%A3">5、JDBC Request 参数讲解：</a><br>
+*
+<ul>
+<li><a href="#1-%E9%A2%84%E7%BC%96%E8%AF%91-select-%E8%AF%AD%E5%8F%A5%E6%9F%A5%E8%AF%A2%E8%AF%A6%E8%A7%A3">1、预编译 select 语句查询详解</a></li>
+</ul>
+</li>
+</ul>
+(Jmeter压测实战之JDBC request压测Mysql)</p>
+<h1 id="1-jdbc压测mysql相关准备工作">1. jdbc压测mysql相关准备工作</h1>
+<h3 id="1-thread-group-add-sampler-jdbc-request">1、Thread Group -&gt; add -&gt; sampler -&gt; jdbc request</h3>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200721235644618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="2-jdbc-request-配置元件-jdbc-connection-configuration">2. JDBC Request &gt; 配置元件 &gt; JDBC Connection Configuration</h3>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200721235904507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="3配置数据库本地安装mysql并新建一个数据库">3.配置数据库【本地安装mysql并新建一个数据库】</h3>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200722001049855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h1 id="2-jar包添加自己下别掏钱下载啦">2. jar包添加【自己下，别掏钱下载啦】</h1>
+<p><strong>点击跳转下载地址</strong>：<a href="https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.38"><strong>mysql-connector-java/5.1.38</strong></a><br>
+<img src="https://img-blog.csdnimg.cn/20200722002832243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<h3 id="测试计划中添加-mysql-connector-java5138jar-文件">测试计划中添加 mysql-connector-java/5.1.38.jar 文件</h3>
+<p><strong>这步操作结束后，JDBC Connection Configuration数据库连接配置中才可以选择驱动</strong></p>
+<ul>
+<li><strong>JDBC Driver class &gt;  com.mysql.jdbc.Driver</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200722004232967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<hr>
+<hr>
+<h1 id="3-配置讲解">3. 配置讲解</h1>
+<h3 id="1-jdbc-request-配置">1. JDBC Request 配置</h3>
+<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20200722003932690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="2-jdbc-connection-configuration数据库连接配置">2. JDBC Connection Configuration【数据库连接配置】</h3>
+<figure data-type="image" tabindex="5"><img src="https://img-blog.csdnimg.cn/20200722010348711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<ul>
+<li><strong>续上图</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200722010534462.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h1 id="4-mysql-数据库压测调试">4、Mysql 数据库压测调试</h1>
+<p>配置工作完成后，就可以进行简单的调试</p>
+<h3 id="1-jdbc-request-sql-query-中输入简单的sql语句">1、JDBC Request &gt; SQL Query 中输入简单的SQL语句</h3>
+<figure data-type="image" tabindex="6"><img src="https://img-blog.csdnimg.cn/20200722010831936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="2-调试结果">2、调试结果</h3>
+<p><img src="https://img-blog.csdnimg.cn/20200722011204407.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200722011223350.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<h1 id="5-jdbc-request-参数讲解">5、JDBC Request 参数讲解：</h1>
+<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/20200722013540327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="1-预编译-select-语句查询详解">1、预编译 select 语句查询详解</h3>
+<p><img src="https://img-blog.csdnimg.cn/20200724102212177.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200724102727421.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/FoioXiB_e/" class="tag">
+                    性能测试
+                  </a>
+                
+                  <a href="https://17603845963.github.io/tag/lf--_c-3a/" class="tag">
+                    Mysql
+                  </a>
+                
+                  <a href="https://17603845963.github.io/tag/jmeter/" class="tag">
+                    jmeter
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/pycharm-zheng-shi-ban-an-zhuang-jiao-cheng/">
+                  <h3 class="post-title">
+                    Pycharm正式版安装教程
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
