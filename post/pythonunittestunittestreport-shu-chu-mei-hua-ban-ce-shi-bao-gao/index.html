@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>python+UnitTest+UnitTestReport输出美化版测试报告 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599134006910">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="最近在研究 HTMLTestRunner ，
+无意间在 GitHub 发现了一套新的 UnitTest 测试报告生成模块
+附上GitHub地址：UnitTesTReport 测试报告生成器
+发现这是一位腾讯课堂--柠檬版的讲师（不愧是柠檬班..." />
+    <meta name="keywords" content="Api自动化,Web自动化,App自动化" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599134006910" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">python+UnitTest+UnitTestReport输出美化版测试报告</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="最近在研究-htmltestrunner">最近在研究 HTMLTestRunner ，</h1>
+<h1 id="无意间在-github-发现了一套新的-unittest-测试报告生成模块">无意间在 GitHub 发现了一套新的 UnitTest 测试报告生成模块</h1>
+<h1 id="附上github地址unittestreport-测试报告生成器">附上GitHub地址：<a href="https://github.com/musen123/UnitTestReport">UnitTesTReport 测试报告生成器</a></h1>
+<h1 id="发现这是一位腾讯课堂-柠檬版的讲师不愧是柠檬班">发现这是一位腾讯课堂--柠檬版的讲师（不愧是柠檬班，🐂🍺）</h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200801165903366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="废话不多说下面开始实操图解">废话不多说，下面开始实操+图解</h1>
+<hr>
+<h1 id="一-新建一个-test001py-文件">一、新建一个 test001.py 文件</h1>
+<pre><code class="language-python">import unittest
+
+
+class TestMethod(unittest.TestCase):
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+    '''第一条用例'''
+    def test_001(self):
+        pass
+
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+<h1 id="二-同目录下新建一个-testsuitepy-文件">二、同目录下新建一个 testsuite.py 文件</h1>
+<pre><code class="language-python"># 导入 unittest 类
+import unittest
+# 从unittestreport模块导入 TestRunner 类
+from unittestreport import TestRunner
+# 导入测试用例类
+from testcases.test001 import TestMethod
+
+# 先用suite套件存储用例【存储测试用例的容器】
+suite = unittest.TestSuite()
+# 创建一个加载器,寻找所有的用例【方法】
+loader = unittest.TestLoader()
+# 加载所有的用例
+suite.addTest(loader.loadTestsFromTestCase(TestMethod))
+
+# 新版生成测试报告代码
+runner = TestRunner(suite,
+                    filename=&quot;test001.html&quot;,
+                    report_dir=r&quot;D:\PyCharm_Community\testcases&quot;,
+                    title='测试报告',
+                    tester='X X X',
+                    desc=&quot;X X X 的测试执行结果&quot;,
+                    templates=1)
+runner.run()
+</code></pre>
+<h1 id="三-运行-testsuitepy文件打开生成的测试报告html页面">三、运行 testsuite.py文件，打开生成的测试报告Html页面</h1>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200801170856844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/mEQt7ZTJY/" class="tag">
+                    Api自动化
+                  </a>
+                
+                  <a href="https://17603845963.github.io/tag/qGZi_kwO8/" class="tag">
+                    Web自动化
+                  </a>
+                
+                  <a href="https://17603845963.github.io/tag/FhyQf6u3c/" class="tag">
+                    App自动化
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/centos-7-xia-de-docker-chu-shi-an-zhuang-pei-zhi/">
+                  <h3 class="post-title">
+                    CentOS 7 下的 Docker初识+安装配置
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

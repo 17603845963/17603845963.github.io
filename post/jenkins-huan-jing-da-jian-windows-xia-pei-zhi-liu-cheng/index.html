@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Jenkins环境搭建（Windows下配置流程） | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599134006910">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="Jenkins 是什么？
+Jenkins是一个用java语言开发的开源的持续集成框架，使开发和运维从繁杂和重复的操作中解脱出来，专注于更为重要的业务逻辑实现上，其主要功能是监视重复工作的执行，有点类似于windows系统中的定时任务，不过J..." />
+    <meta name="keywords" content="Jenkins" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599134006910" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Jenkins环境搭建（Windows下配置流程）</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="jenkins-是什么">Jenkins 是什么？</h1>
+<p><strong>Jenkins是一个用java语言开发的开源的持续集成框架，使开发和运维从繁杂和重复的操作中解脱出来，专注于更为重要的业务逻辑实现上，其主要功能是监视重复工作的执行，有点类似于windows系统中的定时任务，不过Jenkins的功能更加强大，里面集成了很多插件，也可以自己写插件集成进去。Jenkins是开源CI&amp;CD软件领导者， 提供超过1000个插件来支持构建、部署、自动化， 满足任何项目的需要。</strong></p>
+<hr>
+<h1 id="前置条件需配置jdk环境">前置条件：需配置JDK环境 ！！！</h1>
+<ul>
+<li>
+<h1 id="windows环境下jdk安装操作步骤"><a href="https://blog.csdn.net/weixin_43184774/article/details/106140147">Windows环境下JDK安装操作步骤</a></h1>
+</li>
+</ul>
+<h1 id="windows系统下安装jenkins">windows系统下安装Jenkins</h1>
+<ul>
+<li>
+<h1 id="jenkins安装包下载地址httpswwwjenkinsiozhdownload"><a href="https://www.jenkins.io/zh/download/">jenkins安装包下载地址：https://www.jenkins.io/zh/download/</a></h1>
+</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200803111034315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<ul>
+<li>
+<h1 id="点击下载后的-msi-文件双击进行安装">点击下载后的 msi 文件，双击进行安装<img src="https://img-blog.csdnimg.cn/20200803094058856.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h1>
+</li>
+<li>
+<h1 id="点击-next">点击 Next</h1>
+</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200803094135974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="一张张放图太麻烦了-汇总了一下">一张张放图太麻烦了 汇总了一下</h1>
+<p><img src="https://img-blog.csdnimg.cn/20200803122448480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20200803122931886.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<h1 id="第九步安装结束后在浏览器输入">第九步安装结束后，在浏览器输入：</h1>
+<h1 id="主机ip自定义的端口号1270017878-或者-localhost7878">主机ip+自定义的端口号：127.0.0.1:7878 或者 localhost:7878</h1>
+<ul>
+<li>
+<h1 id="首次登录需要粘贴管理员密码在提示的目录下寻找">★★★★★ 首次登录需要粘贴管理员密码【在提示的目录下寻找】</h1>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200803130816895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200803131508345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<ul>
+<li>
+<h1 id="至此jenkins环境就搭建好了学习部署自己的脚本叭">至此，jenkins环境就搭建好了！！！学习部署自己的脚本叭</h1>
+</li>
+</ul>
+<h1 id="jenkins学习-部署自己的第一个脚本一"><a href="https://blog.csdn.net/J_____Q/article/details/107324408">Jenkins学习--部署自己的第一个脚本（一）</a></h1>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/tchrhqHw2/" class="tag">
+                    Jenkins
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/pythonunittestunittestreport-shu-chu-mei-hua-ban-ce-shi-bao-gao/">
+                  <h3 class="post-title">
+                    python+UnitTest+UnitTestReport输出美化版测试报告
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

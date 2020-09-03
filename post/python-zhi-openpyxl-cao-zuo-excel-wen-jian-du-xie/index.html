@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>python之openpyxl操作Excel文件读写 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599134006910">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="一、安装 Openpyxl 模块
+File &gt; Settings &gt; Project Interpreter
+二、桌面生成 Excel 文件，写入一些数据并复制到PyCharm中
+注：【openpyxl 只支持 .xlsx 格式..." />
+    <meta name="keywords" content="python基础" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599134006910" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">python之openpyxl操作Excel文件读写</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="一-安装-openpyxl-模块">一、安装 Openpyxl 模块</h1>
+<h3 id="file-settings-project-interpreter">File &gt; Settings &gt; Project Interpreter<img src="https://img-blog.csdnimg.cn/20200802014708962.gif" alt="在这里插入图片描述" loading="lazy"></h3>
+<h1 id="二-桌面生成-excel-文件写入一些数据并复制到pycharm中">二、桌面生成 Excel 文件，写入一些数据并复制到PyCharm中</h1>
+<h1 id="注openpyxl-只支持-xlsx-格式的-excel-文件">注：【openpyxl 只支持 .xlsx 格式的 Excel 文件】</h1>
+<p><img src="https://img-blog.csdnimg.cn/20200802020203978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200802020833985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200802021515824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<h1 id="三-pycharm-中使用-openpyxl-读取文件数据">三、pycharm 中使用 openpyxl 读取文件数据</h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200802021953456.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
+# -*- coding: utf-8 -*-                                         
+#  @Time   : 2020/08/02
+#  @File    : openpyxl_study.py
+# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
+# 导入 openpyxl 模块
+import openpyxl
+
+# 1、将指定 excel 文件加载到一个工作簿对象中
+wb = openpyxl.load_workbook(&quot;jzq.xlsx&quot;)
+# 2、选择文件中的表单【sheet表名】
+sheet = wb['login']
+# 3、根据行号和列号读取数据【第一行第一列的数据】
+res = sheet.cell(row=1,column=1)
+# 4、打印取到的数据值
+print(res.value)
+
+</code></pre>
+<h1 id="四-pycharm-中使用-openpyxl-操作-excel-写入数据">四、pycharm 中使用 openpyxl 操作 Excel 写入数据</h1>
+<pre><code class="language-python">
+# 导入 openpyxl 模块
+import openpyxl
+
+# 1、将指定 excel 文件加载到一个工作簿对象中
+wb = openpyxl.load_workbook(&quot;jzq.xlsx&quot;)
+# 2、选择文件中的表单【sheet表名】
+sheet = wb['login']
+# 3、根据行号、列号输入value值
+sheet.cell(row=1,column=1,value=&quot;张三&quot;)
+# 4、保存为文件
+wb.save(&quot;jzq.xlsx&quot;)
+
+</code></pre>
+<h4 id="执行后的结果">执行后的结果：</h4>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200802080637115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h4 id="如果出现以下报错信息-请注意">如果出现以下报错信息 ，请注意 ：</h4>
+<h2 id="在写入数据时文件不可处于打开状态">【在写入数据时，文件不可处于打开状态 ！！！】</h2>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200802080804822.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="五-读取文件所有单元格的数据内容">五、读取文件所有单元格的数据内容</h1>
+<pre><code class="language-python"># 导入 openpyxl 模块
+import openpyxl
+
+'''读取文件所有单元格的数据'''
+# 1、将指定 excel 文件加载到一个工作簿对象中
+wb = openpyxl.load_workbook(&quot;jzq.xlsx&quot;)
+# 2、选择文件中的表单【sheet表名】
+sheet = wb['login']
+# 3、使用 .rows 方法把所有的表单对象存储在列表中
+# type为列表嵌套元组再嵌套单元格
+res = list(sheet.rows)
+# 遍历每一行的内容
+for cases in res :
+    # 遍历每一行的所有单元格
+    for cells in cases :
+        # 获取每个单元格的 value 值
+        print(cells.value,end=&quot;   &quot;)
+    print()
+    
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20200802084316329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="六-openpyxl-读取-组装用例数据">六、 Openpyxl 读取、组装用例数据</h1>
+<ul>
+<li>
+<h3 id="新建一个-xlsx-文件">新建一个 .xlsx 文件<img src="https://img-blog.csdnimg.cn/20200802103014477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h3>
+</li>
+<li>
+<h3 id="复制文件至pycharm中并新建一个读取组装数据的-py文件">复制文件至pycharm中，并新建一个读取组装数据的 py文件<img src="https://img-blog.csdnimg.cn/20200802103544364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h3>
+</li>
+</ul>
+<pre><code class="language-python"># 导入 openpyxl 模块
+import openpyxl
+
+'''用例数据读取组装成列表嵌套字典的格式'''
+# 1、将指定 excel 文件加载到一个工作簿对象中
+wb = openpyxl.load_workbook(&quot;jzq_openpyxl.xlsx&quot;)
+# 2、选择文件中的表单【sheet表名】
+sheet = wb['login']
+res = list(sheet.rows)
+
+'''获取第一行的单元格'''
+title = []
+# 遍历第一行单元格所有数据并添加到列表中
+for tag in res[0]:
+    title.append(tag.value)
+case_data = []
+'''遍历除了第一行以外的所有行'''
+for row in res[1:]:
+    data = []
+    # 遍历每一行的所有单元格子
+    for c in row:
+        # 将每个单元格的 value 值添加列表 res_text 中
+        data.append(c.value)
+# 使用zip将title和excepted打包成dict属性
+    case = dict(zip(title,data))
+    case_data.append(case )
+print(case_data)
+
+    
+</code></pre>
+<h1 id="七-提供一个封装好的openpyxl类方法直接调用即可在-excel-表中-读取-写入数据">七、提供一个封装好的openpyxl类方法，直接调用即可在 excel 表中 读取 / 写入数据</h1>
+<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
+# -*- coding: utf-8 -*-                                         
+#  @Time   : 2020/08/02
+#  @File    : Excel_R&amp;W_demo.py
+# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
+import openpyxl
+
+class Excel:
+    def __init__(self,workbook_name,sheet_name):
+        self.workbook_name = workbook_name
+        self.sheet_name = sheet_name
+
+    def read_excel(self):
+        # 1、将指定 excel 文件加载到一个工作簿对象中
+        wb = openpyxl.load_workbook(self.workbook_name)
+        # 2、选择文件中的表单【sheet表名】
+        sheet = wb[self.sheet_name]
+        res = list(sheet.rows)
+
+        '''获取第一行的单元格'''
+        title = []
+        # 遍历第一行单元格所有数据并添加到列表中
+        for tag in res[0]:
+            title.append(tag.value)
+        case_data = []
+        '''遍历除了第一行以外的所有行'''
+        for row in res[1:]:
+            data = []
+            # 遍历每一行的所有单元格子
+            for c in row:
+                # 将每个单元格的 value 值添加列表 res_text 中
+                data.append(c.value)
+                # 使用zip将title和excepted打包成dict属性
+            case = dict(zip(title, data))
+            case_data.append(case)
+        return case_data
+
+
+    def write_excel(self,row,column,value):
+        # 1、将指定 excel 文件加载到一个工作簿对象中
+        wb = openpyxl.load_workbook(self.workbook_name)
+        # 2、选择文件中的表单【sheet表名】
+        sheet = wb[self.sheet_name]
+        # 3、根据行号、列号输入value值
+        sheet.cell(row=1,column=1,value=&quot;张三&quot;)
+        # 4、保存为文件
+        wb.save(self.workbook_name)
+
+
+if __name__ == '__main__':
+    excel = Excel(&quot;jzq_openpyxl.xlsx&quot;,&quot;login&quot;)
+    res = excel.read_excel()
+    print(res)
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/python/" class="tag">
+                    python基础
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/jenkins-huan-jing-da-jian-windows-xia-pei-zhi-liu-cheng/">
+                  <h3 class="post-title">
+                    Jenkins环境搭建（Windows下配置流程）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

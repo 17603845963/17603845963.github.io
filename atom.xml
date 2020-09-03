@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://17603845963.github.io</id>
     <title>井 sir 的私人博客</title>
-    <updated>2020-09-03T11:49:55.282Z</updated>
+    <updated>2020-09-03T11:53:30.892Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://17603845963.github.io"/>
     <link rel="self" href="https://17603845963.github.io/atom.xml"/>
@@ -10,6 +10,467 @@
     <logo>https://17603845963.github.io/images/avatar.png</logo>
     <icon>https://17603845963.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 井 sir 的私人博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Pycharm正式版安装教程]]></title>
+        <id>https://17603845963.github.io/post/pycharm-zheng-shi-ban-an-zhuang-jiao-cheng/</id>
+        <link href="https://17603845963.github.io/post/pycharm-zheng-shi-ban-an-zhuang-jiao-cheng/">
+        </link>
+        <updated>2020-09-03T11:53:07.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="pycharm正式版">Pycharm正式版</h1>
+<h2 id="帮你们准备好了网盘链接下载后解压本地任意文件夹">帮你们准备好了网盘链接，下载后解压本地任意文件夹</h2>
+<p><strong>链接：https://pan.baidu.com/s/1dp0BJy2QR0bvDMORLi50Sw<br>
+提取码：bxkq</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200722094409157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<hr>
+<h1 id="一-安装-python">一、安装 Python</h1>
+<h2 id="1-安装时选择安装界面的-add-python-37-to-path-进行勾选避免再次配置环境变量">1、<strong>安装时选择安装界面的“ Add Python 3.7 to PATH ”进行勾选，避免再次配置环境变量</strong></h2>
+<p><strong>32位、64位自行选择</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200722093646972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<h2 id="2-验证python环境配置">2、验证Python环境配置</h2>
+<ol>
+<li>win +R 输入 cmd ，打开命令行窗口</li>
+<li>输入 python 显示版本号即为配置成功<br>
+<img src="https://img-blog.csdnimg.cn/20200722170922391.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ol>
+<hr>
+<hr>
+<h1 id="二-安装pycharm">二、安装Pycharm</h1>
+<h2 id="1-双击解压好的-pycharm-professional-173372788exe-文件进行安装">1、双击解压好的 pycharm-professional-173.3727.88.exe 文件进行安装</h2>
+<h2 id="2-将该解压的-jar-文件放到pycharm安装目录的bin目录下">2、将该解压的 .jar 文件放到pycharm安装目录的bin目录下</h2>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200722094538266.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="3-在-bin-目录找到-pycharm64exevmoptions-文件并打开">3、在 bin 目录找到 pycharm64.exe.vmoptions 文件并打开</h2>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200722095844364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="4-在最后一行添加如下内容点击保存两个文件都要修改">4、在最后一行添加如下内容，点击保存【两个文件都要修改】</h2>
+<pre><code class="language-python">'''这个是我的安装路径，参考格式替换成自己的'''
+-javaagent:D:\Program Files\JetBrains\PyCharm 2017.3\bin\JetbrainsCrack-2.6.10-release-enc.jar
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200722100007968.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="5-启动-pycharm-程序">5、启动 pycharm 程序</h2>
+<ul>
+<li>
+<h3 id="pycharm打开help-register">pycharm打开→Help → Register</h3>
+<img src="https://img-blog.csdnimg.cn/20200722100335667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy">
+<ul>
+<li>
+<h3 id="选择注册码激活粘贴网盘链接的激活完点击确定按钮">选择注册码激活，粘贴网盘链接的激活完，点击确定按钮</h3>
+</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/20200722100507236.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+<li>
+<h3 id="点击-help-about-查看破解状态">点击 Help &gt;  About 查看破解状态</h3>
+<img src="https://img-blog.csdnimg.cn/202007221009203.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+<li>
+<h3 id="再次重启pycharm破解完成可以愉快的-printhello-world">再次重启Pycharm，破解完成，可以愉快的 print(&quot;Hello world&quot;)</h3>
+<img src="https://img-blog.csdnimg.cn/20200722101141179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[python用例和数据的分离处理之DDT数据驱动测试]]></title>
+        <id>https://17603845963.github.io/post/python-yong-li-he-shu-ju-de-fen-chi-chu-li-zhi-ddt-shu-ju-qu-dong-ce-shi/</id>
+        <link href="https://17603845963.github.io/post/python-yong-li-he-shu-ju-de-fen-chi-chu-li-zhi-ddt-shu-ju-qu-dong-ce-shi/">
+        </link>
+        <updated>2020-09-03T11:52:41.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="ddt-data-driver-test-数据驱动测试">DDT 【data driver test 数据驱动测试】</h1>
+<hr>
+<h1 id="一-先安装-ddt-模块">一、先安装 ddt 模块：</h1>
+<ul>
+<li>
+<h3 id="方法一可以直接-cmd-命令行敲-pip-install-ddt-pip行不通试试-pip3-pipexe-安装">方法一：可以直接 cmd 命令行敲： <strong>pip install ddt</strong> 【pip行不通试试 pip3 / pip.exe 安装】</h3>
+</li>
+<li>
+<h3 id="方法二按照下面的gif图片在pycharm直接安装">方法二：按照下面的GIF图片，在pycharm直接安装<img src="https://img-blog.csdnimg.cn/20200801213821214.gif" alt="在这里插入图片描述" loading="lazy"></h3>
+</li>
+</ul>
+<h1 id="二-ddt-简单使用">二、ddt 简单使用</h1>
+<ul>
+<li>
+<h3 id="先导入-ddt-模块-import-ddt">先导入 ddt 模块： import ddt</h3>
+</li>
+<li>
+<h3 id="class类上方输入-ddtddt-装饰器固定语法无需深究">class类上方输入： @ddt.ddt  【装饰器，固定语法，无需深究】</h3>
+</li>
+<li>
+<h3 id="函数方法上方输入-ddtdata">函数方法上方输入： @ddt.data( )</h3>
+</li>
+<li>
+<h3 id="括号传参传几个参数就生成几条测试用例">↑ ↑ ↑ 【括号传参，传几个参数就生成几条测试用例】</h3>
+</li>
+</ul>
+<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
+# -*- coding: utf-8 -*-                                         
+#  @Time   : 2020/08/01
+#  @File    : ddt_test.py
+# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
+import unittest
+# 先导入 ddt 模块
+import ddt
+
+
+# 固定语法，无需深究
+@ddt.ddt
+class TestMethod(unittest.TestCase):
+    # @ddt.data(括号中写参数，有几个参数，就生成多少条测试用例)
+    @ddt.data(1,2,3,4)
+    # case为形参，用于接收数据
+    def test_001(self,case):
+        print(&quot;测试用例,第{}条&quot;.format(case))
+
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+<h2 id="main方法输入测试结果"><strong>main方法输入测试结果：</strong><img src="https://img-blog.csdnimg.cn/20200801233334667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h2>
+<h1 id="三-ddt-在用例中的使用">三、ddt 在用例中的使用</h1>
+<h3 id="1-封装一个类方法">1. 封装一个类方法</h3>
+<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
+# -*- coding: utf-8 -*-                                         
+#  @Time   : 2020/08/01
+#  @File    : D:\PyCharm_Community\DDT\test_login.py
+# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
+
+'''封装一个类方法'''
+import requests
+
+
+class Login():
+    def __init__(self,userName,password):
+        self.userName = userName
+        self.password = password
+
+    def login(self):
+        url = 'http://182.92.197.48:8088/api/user/login'
+        json = {&quot;userName&quot;: self.userName, &quot;password&quot;: self.password, &quot;remember&quot;: False}
+        header = {&quot;user-Agent&quot;: &quot;Mozilla/5.0&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}
+        res = requests.post(url, headers=header, json=json)
+        print(res.json())
+        return res.json()
+
+
+Login(&quot;xzsks001&quot;,&quot;123456&quot;).login()
+</code></pre>
+<h3 id="2-准备变量参数数据-使用-ddt-分离数据">2. 准备变量参数数据 , 使用 ddt 分离数据</h3>
+<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
+# -*- coding: utf-8 -*-                                         
+#  @Time   : 2020/08/01
+#  @File    : D:\PyCharm_Community\DDT\ddt_test.py
+# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
+import unittest
+# 导入 ddt 模块
+import ddt
+from DDT.test_login import Login
+
+data_info = [   {&quot;params&quot;:(&quot;xzsks001&quot;,&quot;123456&quot;),&quot;excepted&quot;:{'code': 1, 'message': '成功'}},
+                {&quot;params&quot;:(&quot;xzsks&quot;,&quot;123456&quot;),&quot;excepted&quot;:{'code': 402, 'message': '用户名或密码错误', 'response': None}},
+                {&quot;params&quot;:(&quot;zhangsan&quot;,&quot;123&quot;),&quot;excepted&quot;:{'code': 402, 'message': '用户名或密码错误', 'response': None}}]
+
+
+# 固定语法，无需深究
+@ddt.ddt
+class TestMethod(unittest.TestCase):
+    # @ddt.data(括号中写参数，有几个参数，就生成多少条测试用例)
+    @ddt.data(*data_info)
+    # case为形参，用于接收数据，dict类型
+    def test_001(self,case):
+        # 预期结果为 case的excepted的属性值
+        excepted = case[&quot;excepted&quot;]
+        # 传入参数为 case的params的属性值
+        params = case[&quot;params&quot;]
+        # 调用被测函数，传入参数，获取实际结果
+        result = Login(*params).login()
+        # 比对预期与实际结果是否一致
+        self.assertEqual(excepted,result)
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+<h3 id="3执行结果生成测试报告">3.执行结果，生成测试报告</h3>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200802005350164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[python之openpyxl操作Excel文件读写]]></title>
+        <id>https://17603845963.github.io/post/python-zhi-openpyxl-cao-zuo-excel-wen-jian-du-xie/</id>
+        <link href="https://17603845963.github.io/post/python-zhi-openpyxl-cao-zuo-excel-wen-jian-du-xie/">
+        </link>
+        <updated>2020-09-03T11:52:04.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="一-安装-openpyxl-模块">一、安装 Openpyxl 模块</h1>
+<h3 id="file-settings-project-interpreter">File &gt; Settings &gt; Project Interpreter<img src="https://img-blog.csdnimg.cn/20200802014708962.gif" alt="在这里插入图片描述" loading="lazy"></h3>
+<h1 id="二-桌面生成-excel-文件写入一些数据并复制到pycharm中">二、桌面生成 Excel 文件，写入一些数据并复制到PyCharm中</h1>
+<h1 id="注openpyxl-只支持-xlsx-格式的-excel-文件">注：【openpyxl 只支持 .xlsx 格式的 Excel 文件】</h1>
+<p><img src="https://img-blog.csdnimg.cn/20200802020203978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200802020833985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200802021515824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<h1 id="三-pycharm-中使用-openpyxl-读取文件数据">三、pycharm 中使用 openpyxl 读取文件数据</h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200802021953456.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
+# -*- coding: utf-8 -*-                                         
+#  @Time   : 2020/08/02
+#  @File    : openpyxl_study.py
+# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
+# 导入 openpyxl 模块
+import openpyxl
+
+# 1、将指定 excel 文件加载到一个工作簿对象中
+wb = openpyxl.load_workbook(&quot;jzq.xlsx&quot;)
+# 2、选择文件中的表单【sheet表名】
+sheet = wb['login']
+# 3、根据行号和列号读取数据【第一行第一列的数据】
+res = sheet.cell(row=1,column=1)
+# 4、打印取到的数据值
+print(res.value)
+
+</code></pre>
+<h1 id="四-pycharm-中使用-openpyxl-操作-excel-写入数据">四、pycharm 中使用 openpyxl 操作 Excel 写入数据</h1>
+<pre><code class="language-python">
+# 导入 openpyxl 模块
+import openpyxl
+
+# 1、将指定 excel 文件加载到一个工作簿对象中
+wb = openpyxl.load_workbook(&quot;jzq.xlsx&quot;)
+# 2、选择文件中的表单【sheet表名】
+sheet = wb['login']
+# 3、根据行号、列号输入value值
+sheet.cell(row=1,column=1,value=&quot;张三&quot;)
+# 4、保存为文件
+wb.save(&quot;jzq.xlsx&quot;)
+
+</code></pre>
+<h4 id="执行后的结果">执行后的结果：</h4>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200802080637115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h4 id="如果出现以下报错信息-请注意">如果出现以下报错信息 ，请注意 ：</h4>
+<h2 id="在写入数据时文件不可处于打开状态">【在写入数据时，文件不可处于打开状态 ！！！】</h2>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200802080804822.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="五-读取文件所有单元格的数据内容">五、读取文件所有单元格的数据内容</h1>
+<pre><code class="language-python"># 导入 openpyxl 模块
+import openpyxl
+
+'''读取文件所有单元格的数据'''
+# 1、将指定 excel 文件加载到一个工作簿对象中
+wb = openpyxl.load_workbook(&quot;jzq.xlsx&quot;)
+# 2、选择文件中的表单【sheet表名】
+sheet = wb['login']
+# 3、使用 .rows 方法把所有的表单对象存储在列表中
+# type为列表嵌套元组再嵌套单元格
+res = list(sheet.rows)
+# 遍历每一行的内容
+for cases in res :
+    # 遍历每一行的所有单元格
+    for cells in cases :
+        # 获取每个单元格的 value 值
+        print(cells.value,end=&quot;   &quot;)
+    print()
+    
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/20200802084316329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="六-openpyxl-读取-组装用例数据">六、 Openpyxl 读取、组装用例数据</h1>
+<ul>
+<li>
+<h3 id="新建一个-xlsx-文件">新建一个 .xlsx 文件<img src="https://img-blog.csdnimg.cn/20200802103014477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h3>
+</li>
+<li>
+<h3 id="复制文件至pycharm中并新建一个读取组装数据的-py文件">复制文件至pycharm中，并新建一个读取组装数据的 py文件<img src="https://img-blog.csdnimg.cn/20200802103544364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h3>
+</li>
+</ul>
+<pre><code class="language-python"># 导入 openpyxl 模块
+import openpyxl
+
+'''用例数据读取组装成列表嵌套字典的格式'''
+# 1、将指定 excel 文件加载到一个工作簿对象中
+wb = openpyxl.load_workbook(&quot;jzq_openpyxl.xlsx&quot;)
+# 2、选择文件中的表单【sheet表名】
+sheet = wb['login']
+res = list(sheet.rows)
+
+'''获取第一行的单元格'''
+title = []
+# 遍历第一行单元格所有数据并添加到列表中
+for tag in res[0]:
+    title.append(tag.value)
+case_data = []
+'''遍历除了第一行以外的所有行'''
+for row in res[1:]:
+    data = []
+    # 遍历每一行的所有单元格子
+    for c in row:
+        # 将每个单元格的 value 值添加列表 res_text 中
+        data.append(c.value)
+# 使用zip将title和excepted打包成dict属性
+    case = dict(zip(title,data))
+    case_data.append(case )
+print(case_data)
+
+    
+</code></pre>
+<h1 id="七-提供一个封装好的openpyxl类方法直接调用即可在-excel-表中-读取-写入数据">七、提供一个封装好的openpyxl类方法，直接调用即可在 excel 表中 读取 / 写入数据</h1>
+<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
+# -*- coding: utf-8 -*-                                         
+#  @Time   : 2020/08/02
+#  @File    : Excel_R&amp;W_demo.py
+# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
+import openpyxl
+
+class Excel:
+    def __init__(self,workbook_name,sheet_name):
+        self.workbook_name = workbook_name
+        self.sheet_name = sheet_name
+
+    def read_excel(self):
+        # 1、将指定 excel 文件加载到一个工作簿对象中
+        wb = openpyxl.load_workbook(self.workbook_name)
+        # 2、选择文件中的表单【sheet表名】
+        sheet = wb[self.sheet_name]
+        res = list(sheet.rows)
+
+        '''获取第一行的单元格'''
+        title = []
+        # 遍历第一行单元格所有数据并添加到列表中
+        for tag in res[0]:
+            title.append(tag.value)
+        case_data = []
+        '''遍历除了第一行以外的所有行'''
+        for row in res[1:]:
+            data = []
+            # 遍历每一行的所有单元格子
+            for c in row:
+                # 将每个单元格的 value 值添加列表 res_text 中
+                data.append(c.value)
+                # 使用zip将title和excepted打包成dict属性
+            case = dict(zip(title, data))
+            case_data.append(case)
+        return case_data
+
+
+    def write_excel(self,row,column,value):
+        # 1、将指定 excel 文件加载到一个工作簿对象中
+        wb = openpyxl.load_workbook(self.workbook_name)
+        # 2、选择文件中的表单【sheet表名】
+        sheet = wb[self.sheet_name]
+        # 3、根据行号、列号输入value值
+        sheet.cell(row=1,column=1,value=&quot;张三&quot;)
+        # 4、保存为文件
+        wb.save(self.workbook_name)
+
+
+if __name__ == '__main__':
+    excel = Excel(&quot;jzq_openpyxl.xlsx&quot;,&quot;login&quot;)
+    res = excel.read_excel()
+    print(res)
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Jenkins环境搭建（Windows下配置流程）]]></title>
+        <id>https://17603845963.github.io/post/jenkins-huan-jing-da-jian-windows-xia-pei-zhi-liu-cheng/</id>
+        <link href="https://17603845963.github.io/post/jenkins-huan-jing-da-jian-windows-xia-pei-zhi-liu-cheng/">
+        </link>
+        <updated>2020-09-03T11:50:45.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="jenkins-是什么">Jenkins 是什么？</h1>
+<p><strong>Jenkins是一个用java语言开发的开源的持续集成框架，使开发和运维从繁杂和重复的操作中解脱出来，专注于更为重要的业务逻辑实现上，其主要功能是监视重复工作的执行，有点类似于windows系统中的定时任务，不过Jenkins的功能更加强大，里面集成了很多插件，也可以自己写插件集成进去。Jenkins是开源CI&amp;CD软件领导者， 提供超过1000个插件来支持构建、部署、自动化， 满足任何项目的需要。</strong></p>
+<hr>
+<h1 id="前置条件需配置jdk环境">前置条件：需配置JDK环境 ！！！</h1>
+<ul>
+<li>
+<h1 id="windows环境下jdk安装操作步骤"><a href="https://blog.csdn.net/weixin_43184774/article/details/106140147">Windows环境下JDK安装操作步骤</a></h1>
+</li>
+</ul>
+<h1 id="windows系统下安装jenkins">windows系统下安装Jenkins</h1>
+<ul>
+<li>
+<h1 id="jenkins安装包下载地址httpswwwjenkinsiozhdownload"><a href="https://www.jenkins.io/zh/download/">jenkins安装包下载地址：https://www.jenkins.io/zh/download/</a></h1>
+</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200803111034315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<ul>
+<li>
+<h1 id="点击下载后的-msi-文件双击进行安装">点击下载后的 msi 文件，双击进行安装<img src="https://img-blog.csdnimg.cn/20200803094058856.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h1>
+</li>
+<li>
+<h1 id="点击-next">点击 Next</h1>
+</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200803094135974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="一张张放图太麻烦了-汇总了一下">一张张放图太麻烦了 汇总了一下</h1>
+<p><img src="https://img-blog.csdnimg.cn/20200803122448480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20200803122931886.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<h1 id="第九步安装结束后在浏览器输入">第九步安装结束后，在浏览器输入：</h1>
+<h1 id="主机ip自定义的端口号1270017878-或者-localhost7878">主机ip+自定义的端口号：127.0.0.1:7878 或者 localhost:7878</h1>
+<ul>
+<li>
+<h1 id="首次登录需要粘贴管理员密码在提示的目录下寻找">★★★★★ 首次登录需要粘贴管理员密码【在提示的目录下寻找】</h1>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200803130816895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200803131508345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<ul>
+<li>
+<h1 id="至此jenkins环境就搭建好了学习部署自己的脚本叭">至此，jenkins环境就搭建好了！！！学习部署自己的脚本叭</h1>
+</li>
+</ul>
+<h1 id="jenkins学习-部署自己的第一个脚本一"><a href="https://blog.csdn.net/J_____Q/article/details/107324408">Jenkins学习--部署自己的第一个脚本（一）</a></h1>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[python+UnitTest+UnitTestReport输出美化版测试报告]]></title>
+        <id>https://17603845963.github.io/post/pythonunittestunittestreport-shu-chu-mei-hua-ban-ce-shi-bao-gao/</id>
+        <link href="https://17603845963.github.io/post/pythonunittestunittestreport-shu-chu-mei-hua-ban-ce-shi-bao-gao/">
+        </link>
+        <updated>2020-09-03T11:50:12.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="最近在研究-htmltestrunner">最近在研究 HTMLTestRunner ，</h1>
+<h1 id="无意间在-github-发现了一套新的-unittest-测试报告生成模块">无意间在 GitHub 发现了一套新的 UnitTest 测试报告生成模块</h1>
+<h1 id="附上github地址unittestreport-测试报告生成器">附上GitHub地址：<a href="https://github.com/musen123/UnitTestReport">UnitTesTReport 测试报告生成器</a></h1>
+<h1 id="发现这是一位腾讯课堂-柠檬版的讲师不愧是柠檬班">发现这是一位腾讯课堂--柠檬版的讲师（不愧是柠檬班，🐂🍺）</h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200801165903366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="废话不多说下面开始实操图解">废话不多说，下面开始实操+图解</h1>
+<hr>
+<h1 id="一-新建一个-test001py-文件">一、新建一个 test001.py 文件</h1>
+<pre><code class="language-python">import unittest
+
+
+class TestMethod(unittest.TestCase):
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+    '''第一条用例'''
+    def test_001(self):
+        pass
+
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+<h1 id="二-同目录下新建一个-testsuitepy-文件">二、同目录下新建一个 testsuite.py 文件</h1>
+<pre><code class="language-python"># 导入 unittest 类
+import unittest
+# 从unittestreport模块导入 TestRunner 类
+from unittestreport import TestRunner
+# 导入测试用例类
+from testcases.test001 import TestMethod
+
+# 先用suite套件存储用例【存储测试用例的容器】
+suite = unittest.TestSuite()
+# 创建一个加载器,寻找所有的用例【方法】
+loader = unittest.TestLoader()
+# 加载所有的用例
+suite.addTest(loader.loadTestsFromTestCase(TestMethod))
+
+# 新版生成测试报告代码
+runner = TestRunner(suite,
+                    filename=&quot;test001.html&quot;,
+                    report_dir=r&quot;D:\PyCharm_Community\testcases&quot;,
+                    title='测试报告',
+                    tester='X X X',
+                    desc=&quot;X X X 的测试执行结果&quot;,
+                    templates=1)
+runner.run()
+</code></pre>
+<h1 id="三-运行-testsuitepy文件打开生成的测试报告html页面">三、运行 testsuite.py文件，打开生成的测试报告Html页面</h1>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200801170856844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[CentOS 7 下的 Docker初识+安装配置]]></title>
         <id>https://17603845963.github.io/post/centos-7-xia-de-docker-chu-shi-an-zhuang-pei-zhi/</id>
@@ -421,435 +882,6 @@ print(c.read())
 # 关闭文件
 c.close()
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python基础之 open ( ) 操作文件读写]]></title>
-        <id>https://17603845963.github.io/post/python-ji-chu-zhi-open-cao-zuo-wen-jian-du-xie/</id>
-        <link href="https://17603845963.github.io/post/python-ji-chu-zhi-open-cao-zuo-wen-jian-du-xie/">
-        </link>
-        <updated>2020-09-03T11:46:27.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="open文件路径编辑模式编码格式">open(文件路径，编辑模式，编码格式)</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">代码</th>
-<th style="text-align:left">释义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">open ( &lt;file.path&gt; ,mode='r',encoding='utf-8' )</td>
-<td style="text-align:left">读取文件内容</td>
-</tr>
-<tr>
-<td style="text-align:left">open ( &lt;file.path&gt; ,mode='w',encoding='utf-8' )</td>
-<td style="text-align:left">覆盖写入内容</td>
-</tr>
-<tr>
-<td style="text-align:left">open ( &lt;file.path&gt; ,mode='a',encoding='utf-8' )</td>
-<td style="text-align:left">追加写入内容</td>
-</tr>
-<tr>
-<td style="text-align:left">open ( &lt;file.path&gt; ,mode='r+',encoding='utf-8' )</td>
-<td style="text-align:left">先读取再写入内容</td>
-</tr>
-<tr>
-<td style="text-align:left">open ( &lt;file.path&gt; ,mode='w+',encoding='utf-8' )</td>
-<td style="text-align:left">先写入内容再读取</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h1 id="一-显示文件内容">一、显示文件内容</h1>
-<ul>
-<li>
-<h1 id="open-filepath-moderencodingutf-8">open ( &lt;file.path&gt; ,mode=‘r’,encoding=‘utf-8’ )</h1>
-</li>
-</ul>
-<pre><code class="language-python">import os
-
-# 获取当前文件所在的文件夹路径
-a = os.path.dirname(os.path.abspath(__file__))
-
-# 将路径拼接存在的文件名
-b = os.path.join(a,'new.txt')
-
-# 使用 open() 打开该路径的文件，读取方式为 utf-8
-c = open(b,mode='r',encoding='utf-8')
-
-# 使用 read() 方法读取文件内容
-print(c.read())
-
-# 关闭文件
-c.close()
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200823161338807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<hr>
-<h1 id="二-覆盖原文本内容并写入数据">二、覆盖原文本内容并写入数据</h1>
-<ul>
-<li>
-<h1 id="open-filepath-modewencodingutf-8">open ( &lt;file.path&gt; ,mode='w',encoding='utf-8')</h1>
-</li>
-</ul>
-<pre><code class="language-python">import os
-
-# 获取当前文件所在的文件夹路径
-a = os.path.dirname(os.path.abspath(__file__))
-
-# 将路径拼接存在的文件名
-b = os.path.join(a,'new.txt')
-
-# 使用 open() 打开该路径的文件，读取方式为 utf-8
-c = open(b,mode='w',encoding='utf-8')
-
-# 使用 read() 方法读取文件内容
-print(c.write(&quot;你是个好人，但我们不合适&quot;))
-
-# 关闭文件
-c.close()
-</code></pre>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200823161755797.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<h1 id="三-原文本的基础上追加写入数据">三、原文本的基础上追加写入数据</h1>
-<ul>
-<li>
-<h1 id="open-filepath-modeaencodingutf-8">open ( &lt;file.path&gt; ,mode='a',encoding='utf-8')</h1>
-</li>
-</ul>
-<pre><code class="language-python">import os
-
-# 获取当前文件所在的文件夹路径
-a = os.path.dirname(os.path.abspath(__file__))
-
-# 将路径拼接存在的文件名
-b = os.path.join(a,'new.txt')
-
-# 使用 open() 打开该路径的文件，读取方式为 utf-8
-c = open(b,mode='a',encoding='utf-8')
-
-# 使用 read() 方法读取文件内容
-print(c.write(&quot;\n别问，爱过，可以的话我们做朋友&quot;))
-
-# 关闭文件
-c.close()
-</code></pre>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/202008231622317.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[jmeter+grafana+influxdb性能监控平台搭建]]></title>
-        <id>https://17603845963.github.io/post/jmetergrafanainfluxdb-xing-neng-jian-kong-ping-tai-da-jian/</id>
-        <link href="https://17603845963.github.io/post/jmetergrafanainfluxdb-xing-neng-jian-kong-ping-tai-da-jian/">
-        </link>
-        <updated>2020-09-03T11:45:13.000Z</updated>
-        <content type="html"><![CDATA[<table>
-<thead>
-<tr>
-<th style="text-align:left">性能监控平台搭建</th>
-<th style="text-align:left">参考文章</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Docker安装参考文档</td>
-<td style="text-align:left"><a href="https://yeasy.gitbooks.io/docker_practice/content/install/">https://yeasy.gitbooks.io/docker_practice/content/install/</a></td>
-</tr>
-<tr>
-<td style="text-align:left">Docker获取镜像</td>
-<td style="text-align:left"><a href="https://yeasy.gitbooks.io/docker_practice/content/image/pull.html">  https://yeasy.gitbooks.io/docker_practice/content/image/pull.html </a></td>
-</tr>
-<tr>
-<td style="text-align:left">Docker启动容器</td>
-<td style="text-align:left"><a href="https://yeasy.gitbooks.io/docker_practice/content/container/run.html"> https://yeasy.gitbooks.io/docker_practice/content/container/run.html   </a></td>
-</tr>
-<tr>
-<td style="text-align:left">Docker进入容器</td>
-<td style="text-align:left"><a href="https://yeasy.gitbooks.io/docker_practice/content/container/attach_exec.html">  https://yeasy.gitbooks.io/docker_practice/content/container/attach_exec.html </a></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>
-<h1 id="jmeter原生测试报告与监控平台的对比">jmeter原生测试报告与监控平台的对比</h1>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>jmeter原生测试报告</th>
-<th>性能监控平台</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>不具备实时性</td>
-<td>实时展示jmeter压测数据</td>
-</tr>
-<tr>
-<td>报告中的数据是测试时间段内的平均值</td>
-<td>数据范围可选</td>
-</tr>
-<tr>
-<td>界面显示较丑</td>
-<td>界面展示友好</td>
-</tr>
-</tbody>
-</table>
-<h1 id="性能监控平台组成">性能监控平台组成</h1>
-<ul>
-<li>JMeter：压测工具，产生压测数据</li>
-<li>InfluxDB:开源时序数据库，特别适合用于处理和分析资源监控数据,用于存储压测数据</li>
-<li>Grafana :度量分析与可视化图标展示工具,可以支持不用种类的<br>
-数据源，用于将存储于InfluxDB中的数据以图表的形式展示出来</li>
-</ul>
-<h1 id="安装配置-influxdb">安装配置 InfluxDB</h1>
-<p>① 安装 Docker</p>
-<pre><code class="language-python">'''一、确认 Docker 安装是否成功'''
-docker images
-'''二、 查看是否有同名容器在运行：'''
-docker ps -a
-</code></pre>
-<p>② 下载 influxDB 镜像：</p>
-<pre><code class="language-python">docker pull influxdb
-</code></pre>
-<p>③ 启动 influxdb 容器<br>
-④ 将新influxDB容器命名为jmeter_ influxdb, 执行docker创建容器命令</p>
-<pre><code class="language-python">docker run -d -p 8086:8086 -p 8083:8083 --name=jmeterdb influxdb
-</code></pre>
-<p><img src="https://img-blog.csdnimg.cn/20200808233838707.png" alt="在这里插入图片描述" loading="lazy"><br>
-⑤ 执行如下命令进入容器内部</p>
-<pre><code class="language-python">docker exec -it jmeterdb bash
-</code></pre>
-<p>⑥ 在容器内部创建jmeter数据库,用于收集JMeter发送的压测数据<br>
-⑦ 执行influx命令进入命令台</p>
-<pre><code class="language-python">influx
-</code></pre>
-<p>⑧ 执行类sq|语句创建jmeter数据库:</p>
-<pre><code class="language-python">create database jmeter;
-</code></pre>
-<p>⑨ 创建完jmeter数据库之后执行如下命令验证数据库已经创建成功:</p>
-<pre><code class="language-python">show databases;
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200808232400969.png" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<h1 id="jmeter-配置">Jmeter 配置</h1>
-<ol>
-<li>
-<p>在JMeter中添加Backend Listener组件,用于收集数据并发送给 influxdb<br>
-<img src="https://img-blog.csdnimg.cn/20200808234804117.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-<li>
-<p>在 Backend Listener implementation 中选择 InfluxdbBackendListenerClient<br>
-(注意:必须使用 jmeter 5.0 以上版本,否则需要单独装插件才可以看到这个组件)</p>
-</li>
-<li>
-<p>在 influxdbURL 中将实际的 influxdb hostname 填写进去</p>
-</li>
-<li>
-<p>在 application 中填写 order</p>
-</li>
-<li>
-<p>在 measurement 中填写 jmeter</p>
-</li>
-<li>
-<p>在 testTitle 中填写 Order Testing</p>
-</li>
-<li>
-<p>其余配置保持不变<br>
-<img src="https://img-blog.csdnimg.cn/20200809000137629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-<li>
-<p>运行 JMeter  ,然后在 influxdb 中检验是否已经能够接受到数据</p>
-<blockquote>
-<p><strong>docker exec -it jmeterdb bash</strong><br>
-<strong>influx</strong></p>
-</blockquote>
-</li>
-<li>
-<p>在 influxdb 命令台中使用查询语句, 检查是否已经能够收到数据</p>
-<blockquote>
-<p>use jmeter<br>
-select * from jmeter<br>
-<img src="https://img-blog.csdnimg.cn/20200809003533175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-</blockquote>
-</li>
-</ol>
-<hr>
-<h1 id="grafana-配置">Grafana 配置</h1>
-<p>【已下载过的无需重复下载，查看方式：docker images】<br>
-一、下载镜像</p>
-<blockquote>
-<p>docker pull grafana/grafana</p>
-</blockquote>
-<p>二、启动镜像:</p>
-<blockquote>
-<p><strong>docker run -d -p 3000:3000 --name=jmeterGraf grafana/grafana</strong><br>
-【如果启动后，外部浏览器无法访问，请关闭防火墙：systemctl stop firewalld】</p>
-</blockquote>
-<p>三、 外部浏览器访问 Grafana 首页</p>
-<blockquote>
-<p>&lt;本机 ip 地址&gt; : 3000</p>
-</blockquote>
-<ul>
-<li>首页登录，默认登陆账号/密码：admin / admin</li>
-<li>跳过修改密码 【也可以自行修改】</li>
-<li>选择数据源</li>
-<li>选择 InfluxDB<br>
-<img src="https://img-blog.csdnimg.cn/20200809014746886.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
-</ul>
-<p>四、InfluxDB 配置</p>
-<p><img src="https://img-blog.csdnimg.cn/2020080901350079.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200809015237255.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<h2 id="grafana的官方提供了很多社区或者官方设置的漂亮的dashboard地址如下">grafana的官方提供了很多社区或者官方设置的漂亮的dashboard，地址如下：</h2>
-<h3 id="httpsgrafanacomgrafanadashboards"><a href="https://grafana.com/grafana/dashboards">https://grafana.com/grafana/dashboards</a></h3>
-<p><img src="https://img-blog.csdnimg.cn/20200809020731123.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200809020831918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200809021314956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200809021818882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/2020080902185087.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<h1 id="再来讲讲性能监控平台三巨头的工作原理">再来讲讲性能监控平台三巨头的工作原理</h1>
-<ul>
-<li>
-<h2 id="在-influxdb-启动完成之后">在 InfluxDB 启动完成之后；</h2>
-</li>
-<li>
-<h2 id="配置-jmeter-的后端监听器把数据发送到-influxdb-上">配置 jmeter 的后端监听器，把数据发送到 InfluxDB 上；</h2>
-</li>
-<li>
-<h2 id="然后配置-grafana-去读取-influxdb-的数据并展示成图形化界面">然后配置 Grafana 去读取 InfluxDB 的数据并展示成图形化界面</h2>
-</li>
-</ul>
-<hr>
-<hr>
-<h1 id="整体流程演示重点来了">整体流程演示【重点来了！！！】：</h1>
-<p>【修改一点小配置】</p>
-<h3 id="1-配置-grafana-页面自动刷新时间">1. 配置 Grafana 页面自动刷新时间<img src="https://img-blog.csdnimg.cn/20200809023534846.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h3>
-<h3 id="2-调整请求并发数和执行时长演示就不放很大的线程数了">2. 调整请求并发数和执行时长【演示就不放很大的线程数了】</h3>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200809023902960.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
-<h3 id="3开始执行emmm-截图贴博客忘记设置5s页面自动刷新了问题不大">3.开始执行【emmm 截图贴博客忘记设置5s页面自动刷新了，问题不大】</h3>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200809024744360.gif" alt="在这里插入图片描述" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[使用谷歌浏览器把网页保存为PNG图片]]></title>
-        <id>https://17603845963.github.io/post/shi-yong-gu-ge-liu-lan-qi-ba-wang-ye-bao-cun-wei-png-tu-pian/</id>
-        <link href="https://17603845963.github.io/post/shi-yong-gu-ge-liu-lan-qi-ba-wang-ye-bao-cun-wei-png-tu-pian/">
-        </link>
-        <updated>2020-09-03T11:44:35.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="chrome保存整个网页为图片">Chrome保存整个网页为图片</h1>
-<h2 id="适合平时学习以及资料保存">【适合平时学习以及资料保存】</h2>
-<hr>
-<ul>
-<li>
-<h1 id="操作步骤">操作步骤：</h1>
-<h2 id="1右键检查">1.右键检查</h2>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200901104208742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<h2 id="2快捷键ctrlshiftp">2.快捷键Ctrl+Shift+P</h2>
-<h2 id="3输入full">3.输入full</h2>
-<h2 id="4选择capture-full-size-screenshot">4.选择Capture full size screenshot</h2>
-<p><img src="https://img-blog.csdnimg.cn/20200901104807998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200901104947277.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mysql数据库concat（）函数实现字符串拼接]]></title>
-        <id>https://17603845963.github.io/post/mysql-shu-ju-ku-concathan-shu-shi-xian-zi-fu-chuan-pin-jie/</id>
-        <link href="https://17603845963.github.io/post/mysql-shu-ju-ku-concathan-shu-shi-xian-zi-fu-chuan-pin-jie/">
-        </link>
-        <updated>2020-09-03T11:44:02.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>
-<h1 id="concat语法">concat（）语法：</h1>
-<blockquote>
-<p><strong>CONCAT ( str1 , str2 , … )</strong></p>
-</blockquote>
-</li>
-</ul>
-<h3 id="返回结果">返回结果：</h3>
-<ul>
-<li>
-<h4 id="返回结果为连接参数产生的字符串">返回结果为连接参数产生的字符串</h4>
-</li>
-<li>
-<h4 id="如有任何一个参数为null-则返回值为-null">如有任何一个参数为NULL ，则返回值为 NULL</h4>
-</li>
-</ul>
-<hr>
-<hr>
-<h1 id="1-如图现在需将password字段开头批量增加一位">1、如图，现在需将password字段开头批量增加一位</h1>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200901184912831.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<h1 id="2-使用代码">2、使用代码：</h1>
-<pre><code class="language-bash">update user_table set password = CONCAT('1', password) WHERE password LIKE '12345%'
-</code></pre>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200901185516394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<h1 id="3-运行成功查看结果">3、运行成功，查看结果</h1>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200901185811552.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<hr>
-<h1 id="功能拓展">功能拓展</h1>
-<ul>
-<li>
-<h3 id="字符串前后拼接无限添加">字符串前后拼接【无限添加】</h3>
-</li>
-<li>
-<h1 id="concata-password-b-cargs">concat（'a' ，'password'  ，'b' ，‘c’，*args ）</h1>
-</li>
-</ul>
-<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/2020090119203648.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Gridea+Github搭建属于自己的博客Page build warning解决方法]]></title>
-        <id>https://17603845963.github.io/post/grideagithub-da-jian-shu-yu-zi-ji-de-bo-ke-page-build-warning-jie-jue-fang-fa/</id>
-        <link href="https://17603845963.github.io/post/grideagithub-da-jian-shu-yu-zi-ji-de-bo-ke-page-build-warning-jie-jue-fang-fa/">
-        </link>
-        <updated>2020-09-03T11:43:34.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="可以先听一下我的解决办法后面我会说一种我没尝试过的方法">【可以先听一下我的解决办法，后面我会说一种我没尝试过的方法】</h1>
-<hr>
-<hr>
-<hr>
-<h2 id="我的解决方法就是">我的解决方法就是：</h2>
-<ul>
-<li>
-<h1 id="1-删除github账户卸载gridea软件">1、删除Github账户+卸载Gridea软件</h1>
-</li>
-<li>
-<h1 id="2-再重新来一遍哭了">2、再重新来一遍【哭了】</h1>
-</li>
-</ul>
-<h2 id="这里还有一个坑我是粉碎文件而不是一步步卸载导致-gridea-软件重新安装失败最后查下来原因是-注册表没有处理干净">这里还有一个坑！！！我是粉碎文件而不是一步步卸载导致 Gridea 软件重新安装失败，最后查下来原因是： '' 注册表没有处理干净 ''</h2>
-<h1 id="注册表清理工具wise-registry-cleaner">注册表清理工具：<a href="https://www.wisecleaner.com.cn/wise-registry-cleaner.html">Wise Registry Cleaner</a></h1>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200903144757204.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<h3 id="清理了之后就可以重装-gridea-了">清理了之后就可以重装 Gridea 了</h3>
-<hr>
-<hr>
-<hr>
-<h1 id="方法二猜测应该可行我可能做了多余的操作">方法二：猜测应该可行，我可能做了多余的操作</h1>
-<ul>
-<li>
-<h1 id="1-直接卸载-gridea">1、直接卸载 Gridea</h1>
-</li>
-<li>
-<h1 id="2-清理注册表信息配置">2、清理注册表信息配置</h1>
-</li>
-<li>
-<h1 id="3-重新安装-gridea">3、重新安装 Gridea</h1>
-</li>
-<li>
-<h1 id="4-git仓库-settings-github-pages">4、Git仓库 &gt; Settings &gt; GitHub Pages</h1>
-</li>
-<li>
-<h1 id="5-清理浏览器缓存防止重定向">5、清理浏览器缓存防止重定向</h1>
-</li>
-<li>
-<h1 id="6-重新打开并同步-gridea">6、重新打开并同步 Gridea</h1>
-<img src="https://img-blog.csdnimg.cn/20200903152430744.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/2020090315395611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
-</ul>
 ]]></content>
     </entry>
 </feed>

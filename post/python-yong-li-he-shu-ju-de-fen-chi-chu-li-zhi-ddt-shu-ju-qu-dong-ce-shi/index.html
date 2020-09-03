@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>python用例和数据的分离处理之DDT数据驱动测试 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599134006910">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="DDT 【data driver test 数据驱动测试】
+
+一、先安装 ddt 模块：
+
+
+方法一：可以直接 cmd 命令行敲： pip install ddt 【pip行不通试试 pip3 / pip.exe 安装】
+
+
+方法二：按照下..." />
+    <meta name="keywords" content="python基础" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599134006910" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">python用例和数据的分离处理之DDT数据驱动测试</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="ddt-data-driver-test-数据驱动测试">DDT 【data driver test 数据驱动测试】</h1>
+<hr>
+<h1 id="一-先安装-ddt-模块">一、先安装 ddt 模块：</h1>
+<ul>
+<li>
+<h3 id="方法一可以直接-cmd-命令行敲-pip-install-ddt-pip行不通试试-pip3-pipexe-安装">方法一：可以直接 cmd 命令行敲： <strong>pip install ddt</strong> 【pip行不通试试 pip3 / pip.exe 安装】</h3>
+</li>
+<li>
+<h3 id="方法二按照下面的gif图片在pycharm直接安装">方法二：按照下面的GIF图片，在pycharm直接安装<img src="https://img-blog.csdnimg.cn/20200801213821214.gif" alt="在这里插入图片描述" loading="lazy"></h3>
+</li>
+</ul>
+<h1 id="二-ddt-简单使用">二、ddt 简单使用</h1>
+<ul>
+<li>
+<h3 id="先导入-ddt-模块-import-ddt">先导入 ddt 模块： import ddt</h3>
+</li>
+<li>
+<h3 id="class类上方输入-ddtddt-装饰器固定语法无需深究">class类上方输入： @ddt.ddt  【装饰器，固定语法，无需深究】</h3>
+</li>
+<li>
+<h3 id="函数方法上方输入-ddtdata">函数方法上方输入： @ddt.data( )</h3>
+</li>
+<li>
+<h3 id="括号传参传几个参数就生成几条测试用例">↑ ↑ ↑ 【括号传参，传几个参数就生成几条测试用例】</h3>
+</li>
+</ul>
+<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
+# -*- coding: utf-8 -*-                                         
+#  @Time   : 2020/08/01
+#  @File    : ddt_test.py
+# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
+import unittest
+# 先导入 ddt 模块
+import ddt
+
+
+# 固定语法，无需深究
+@ddt.ddt
+class TestMethod(unittest.TestCase):
+    # @ddt.data(括号中写参数，有几个参数，就生成多少条测试用例)
+    @ddt.data(1,2,3,4)
+    # case为形参，用于接收数据
+    def test_001(self,case):
+        print(&quot;测试用例,第{}条&quot;.format(case))
+
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+<h2 id="main方法输入测试结果"><strong>main方法输入测试结果：</strong><img src="https://img-blog.csdnimg.cn/20200801233334667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></h2>
+<h1 id="三-ddt-在用例中的使用">三、ddt 在用例中的使用</h1>
+<h3 id="1-封装一个类方法">1. 封装一个类方法</h3>
+<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
+# -*- coding: utf-8 -*-                                         
+#  @Time   : 2020/08/01
+#  @File    : D:\PyCharm_Community\DDT\test_login.py
+# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
+
+'''封装一个类方法'''
+import requests
+
+
+class Login():
+    def __init__(self,userName,password):
+        self.userName = userName
+        self.password = password
+
+    def login(self):
+        url = 'http://182.92.197.48:8088/api/user/login'
+        json = {&quot;userName&quot;: self.userName, &quot;password&quot;: self.password, &quot;remember&quot;: False}
+        header = {&quot;user-Agent&quot;: &quot;Mozilla/5.0&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}
+        res = requests.post(url, headers=header, json=json)
+        print(res.json())
+        return res.json()
+
+
+Login(&quot;xzsks001&quot;,&quot;123456&quot;).login()
+</code></pre>
+<h3 id="2-准备变量参数数据-使用-ddt-分离数据">2. 准备变量参数数据 , 使用 ddt 分离数据</h3>
+<pre><code class="language-python"># -*- -*- -*-  -*-  -*-  -*-  -*-  -*-  
+# -*- coding: utf-8 -*-                                         
+#  @Time   : 2020/08/01
+#  @File    : D:\PyCharm_Community\DDT\ddt_test.py
+# -*- -*- -*-  -*-  -*-  -*-  -*-  -*-
+import unittest
+# 导入 ddt 模块
+import ddt
+from DDT.test_login import Login
+
+data_info = [   {&quot;params&quot;:(&quot;xzsks001&quot;,&quot;123456&quot;),&quot;excepted&quot;:{'code': 1, 'message': '成功'}},
+                {&quot;params&quot;:(&quot;xzsks&quot;,&quot;123456&quot;),&quot;excepted&quot;:{'code': 402, 'message': '用户名或密码错误', 'response': None}},
+                {&quot;params&quot;:(&quot;zhangsan&quot;,&quot;123&quot;),&quot;excepted&quot;:{'code': 402, 'message': '用户名或密码错误', 'response': None}}]
+
+
+# 固定语法，无需深究
+@ddt.ddt
+class TestMethod(unittest.TestCase):
+    # @ddt.data(括号中写参数，有几个参数，就生成多少条测试用例)
+    @ddt.data(*data_info)
+    # case为形参，用于接收数据，dict类型
+    def test_001(self,case):
+        # 预期结果为 case的excepted的属性值
+        excepted = case[&quot;excepted&quot;]
+        # 传入参数为 case的params的属性值
+        params = case[&quot;params&quot;]
+        # 调用被测函数，传入参数，获取实际结果
+        result = Login(*params).login()
+        # 比对预期与实际结果是否一致
+        self.assertEqual(excepted,result)
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+<h3 id="3执行结果生成测试报告">3.执行结果，生成测试报告</h3>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200802005350164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/python/" class="tag">
+                    python基础
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/python-zhi-openpyxl-cao-zuo-excel-wen-jian-du-xie/">
+                  <h3 class="post-title">
+                    python之openpyxl操作Excel文件读写
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
