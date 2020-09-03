@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Appium--app自动化常用Api | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599133392009">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+一、动作事件
+二、属性获取
+三、swipe事件
+四、TouchAction类详解
+五、keyevent手机按键事件
+六、屏幕截图
+七、输入框输入中文【需切换appium输入法】
+八、每次执行代码后卸载重装APP
+九、toast事件
+
+(A..." />
+    <meta name="keywords" content="App自动化" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599133392009" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Appium--app自动化常用Api</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <p><ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-%E5%8A%A8%E4%BD%9C%E4%BA%8B%E4%BB%B6">一、动作事件</a></li>
+<li><a href="#%E4%BA%8C-%E5%B1%9E%E6%80%A7%E8%8E%B7%E5%8F%96">二、属性获取</a></li>
+<li><a href="#%E4%B8%89-swipe%E4%BA%8B%E4%BB%B6">三、swipe事件</a></li>
+<li><a href="#%E5%9B%9B-touchaction%E7%B1%BB%E8%AF%A6%E8%A7%A3">四、TouchAction类详解</a></li>
+<li><a href="#%E4%BA%94-keyevent%E6%89%8B%E6%9C%BA%E6%8C%89%E9%94%AE%E4%BA%8B%E4%BB%B6">五、keyevent手机按键事件</a></li>
+<li><a href="#%E5%85%AD-%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE">六、屏幕截图</a></li>
+<li><a href="#%E4%B8%83-%E8%BE%93%E5%85%A5%E6%A1%86%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E9%9C%80%E5%88%87%E6%8D%A2appium%E8%BE%93%E5%85%A5%E6%B3%95">七、输入框输入中文【需切换appium输入法】</a></li>
+<li><a href="#%E5%85%AB-%E6%AF%8F%E6%AC%A1%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%90%8E%E5%8D%B8%E8%BD%BD%E9%87%8D%E8%A3%85app">八、每次执行代码后卸载重装APP</a></li>
+<li><a href="#%E4%B9%9D-toast%E4%BA%8B%E4%BB%B6">九、toast事件</a></li>
+</ul>
+(Appium--app自动化常用Api汇总)</p>
+<h1 id="一-动作事件">一、动作事件</h1>
+<pre><code class="language-python"># 先定位元素
+ele = driver.find_element_by_id('ccn.xiaochuankeji.tieba:id/title')
+# 点击事件
+ele.click()
+# 文本输入事件
+ele.sendkeys()
+# 清空文本数据
+ele.clear()
+
+</code></pre>
+<hr>
+<h1 id="二-属性获取">二、属性获取</h1>
+<pre><code class="language-python"># 获取当前设备的屏幕分辨率[页面滑动会使用相关]
+height = driver.get_window_size()['height'] # 获取屏幕高度
+width = driver.get_window_size()['width'] # 获取屏幕的宽度
+print('该手机的屏幕分辨率为：{}*{}'.format(height,width))
+
+# 先定位元素
+ele = driver.find_element_by_id('ccn.xiaochuankeji.tieba:id/title')
+# 获取控件文本信息
+text = ele.text
+# 获取当前窗口的Activity名
+activity = driver.current_activity
+# 获取控件的属性值
+attibute = ele.get_attribute('className')
+# 判断控件是否可用
+ele.is_enabled()
+# 判断控件是否显示
+ele.is_displayed()
+</code></pre>
+<hr>
+<h1 id="三-swipe事件">三、swipe事件</h1>
+<pre><code class="language-python">'''
+# 页面滑动
+driver.swipe(startX,startY,endX,endY,time)
+在持续时间内，完成起始坐标--终止坐标的移动操作
+'''
+# 【起始、终止坐标不变】实现控件点击操作
+driver.swipe(500,200,500,200,100)
+# 实现【短时】点击操作
+driver.swipe(500,1000,500,200,100)
+# 实现点击长按操作
+driver.swipe(500,1000,500,200,3000)
+
+'''
+适应于各个分辨率手机的swipe操作事件
+'''
+# 获取当前设备的屏幕分辨率
+height = driver.get_window_size()['height'] # 获取屏幕高度
+width = driver.get_window_size()['width'] # 获取屏幕的宽度
+# 通过控件：bounds属性值/分辨率=百分比
+driver.swipe(width*0.5,height*0.8,width*0.5,height*0.5)
+</code></pre>
+<hr>
+<h1 id="四-touchaction类详解">四、TouchAction类详解</h1>
+<pre><code class="language-python"># 先导入TouchAction类【触摸事件】
+from appium.webdriver.common.touch_action import TouchAction
+# 使用.tap()方法点击，再使用perform()方法释放动作
+
+# 控件点击
+ele = driver.find_element_by_id('ccn.xiaochuankeji.tieba:id/title')
+TouchAction(driver).tap(ele).perform()
+
+# 坐标点击
+TouchAction(driver).tap(x=200,y=500).perform()
+
+# press + release 实现点击事件
+TouchAction(driver).press(x=500,y=300).release().perform()
+# long_press + release 实现长按点击事件
+TouchAction(driver).long_press(x=500,y=300,duration=3000).release().perform()
+</code></pre>
+<hr>
+<h1 id="五-keyevent手机按键事件">五、keyevent手机按键事件</h1>
+<pre><code class="language-python">'''
+五、keyevent手机按键事件
+参考博客：https://blog.csdn.net/midux/article/details/80064054
+常用手机按键编号：
+返回键：4
+搜索键：84
+回车键：66
+退格键：67
+'''
+driver.keyevent(4)
+driver.keyevent(66)
+</code></pre>
+<hr>
+<h1 id="六-屏幕截图">六、屏幕截图</h1>
+<pre><code class="language-python">driver.get_screenshot_as_file(&quot;E:/new_file/app.png&quot;)
+</code></pre>
+<hr>
+<h1 id="七-输入框输入中文需切换appium输入法">七、输入框输入中文【需切换appium输入法】</h1>
+<pre><code class="language-python"># 给模拟器加各appium自带输入法
+desired_caps['unicodeKeyboard'] = 'True'
+# 重置当前输入法
+desired_caps['resetKeyboard'] = 'True'
+</code></pre>
+<hr>
+<h1 id="八-每次执行代码后卸载重装app">八、每次执行代码后卸载重装APP</h1>
+<pre><code class="language-python">'''
+使用此项需定义PATH
+'''
+PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__), p))
+# 每一次执行完app，卸载app，清除所有的数据【如：已登录状态】
+desired_caps['fullReset'] = True
+# 每一次卸载后去文件绝对路径找到apk文件进行安装
+desired_caps['app'] = PATH('E:/newapp/app.apk')
+</code></pre>
+<hr>
+<h1 id="九-toast事件">九、toast事件</h1>
+<pre><code class="language-python"># 导入显式等待模块
+import time
+# 导入隐式等待模块
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
+# 如需要操作toast控件【一闪而过的，如：登陆成功提示】
+desired_caps['automationName'] = 'Uiautomator2'
+# 最大等待时间为10秒，每0.5秒找一次，直到元素没有出现
+ele = WebDriverWait(driver,10,0.5).until_not(
+    EC.presence_of_element_located(('xpath','//*contains(@text,&quot;登陆成功&quot;)')))
+print(ele.text)
+</code></pre>
+<hr>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/FhyQf6u3c/" class="tag">
+                    App自动化
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/zui-xin-qin-ce-jmeter-dai-li-fu-wu-qi-zhua-qu-web-duan-he-app-duan-qing-qiu-bu-zou-xiang-jie/">
+                  <h3 class="post-title">
+                    最新亲测Jmeter代理服务器抓取Web端和APP端请求步骤详解
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

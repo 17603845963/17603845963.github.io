@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>最新亲测Jmeter代理服务器抓取Web端和APP端请求步骤详解 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599133392009">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="最近研究Jmeter做接口方面的测试工作，
+遇到代理服务器开启后无法抓取到请求的现象，
+而且Web页面也加载不出来
+网上的博客教程太坑啦，索性自己写一篇
+
+
+
+一、 Jmeter 需要的配置
+二、Web端设置代理
+*
+
+1. Chrome ..." />
+    <meta name="keywords" content="jmeter" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599133392009" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">最新亲测Jmeter代理服务器抓取Web端和APP端请求步骤详解</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <p><strong>最近研究Jmeter做接口方面的测试工作，<br>
+遇到代理服务器开启后无法抓取到请求的现象，<br>
+而且Web页面也加载不出来<br>
+网上的博客教程太坑啦，索性自己写一篇</strong><br>
+<ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%80-jmeter-%E9%9C%80%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE">一、 Jmeter 需要的配置</a></li>
+<li><a href="#%E4%BA%8C-web%E7%AB%AF%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">二、Web端设置代理</a><br>
+*
+<ul>
+<li><a href="#1-chrome-%E6%B5%8F%E8%A7%88%E5%99%A8">1. Chrome 浏览器</a></li>
+<li><a href="#2-%E7%81%AB%E7%8B%90%E6%B5%8F%E8%A7%88%E5%99%A8">2. 火狐浏览器</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-web%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E6%88%90%E5%8A%9Fjmeter%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8">三、Web浏览器代理设置成功，jmeter代理服务启动</a></li>
+<li><a href="#%E5%9B%9B-%E5%AE%89%E8%A3%85ca%E8%AF%81%E4%B9%A6">四、安装CA证书</a><br>
+*
+<ul>
+<li><a href="#1-%E6%89%BE%E5%88%B0%E6%96%87%E4%BB%B6%E5%A4%B9-bin-%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84-ca-%E8%AF%81%E4%B9%A6%E6%96%87%E4%BB%B6">1. 找到文件夹 bin 目录下的 CA 证书文件</a></li>
+<li><a href="#2-%E4%BB%A5chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%BA%E4%BE%8B">2. 以Chrome浏览器为例：</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94-jmeter%E4%BB%A3%E7%90%86%E6%8A%93%E5%8F%96app%E6%89%8B%E6%9C%BA%E7%AB%AF%E7%9A%84%E8%AF%B7%E6%B1%82">五、jmeter代理抓取APP手机端的请求</a><br>
+*
+<ul>
+<li><a href="#1-%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85-jmeter-%E7%9A%84ca%E8%AF%81%E4%B9%A6">1、手机安装 jmeter 的CA证书</a></li>
+<li><a href="#2-%E6%89%8B%E6%9C%BA%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE">2、手机代理设置</a>
+<ul>
+<li><a href="#%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E8%BF%9E%E6%8E%A5%E5%90%8C%E4%B8%80%E7%BD%91%E6%AE%B5%E7%9A%84%E7%BD%91%E7%BB%9C%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%8B%E8%AF%B4%E7%AC%AC%E4%B8%80%E9%81%8D">手机与电脑连接同一网段的网络！！！【重要的事说第一遍】</a></li>
+<li><a href="#%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E8%BF%9E%E6%8E%A5%E5%90%8C%E4%B8%80%E7%BD%91%E6%AE%B5%E7%9A%84%E7%BD%91%E7%BB%9C%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%8B%E8%AF%B4%E7%AC%AC%E4%BA%8C%E9%81%8D">手机与电脑连接同一网段的网络！！！【重要的事说第二遍】</a></li>
+<li><a href="#%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91%E8%BF%9E%E6%8E%A5%E5%90%8C%E4%B8%80%E7%BD%91%E6%AE%B5%E7%9A%84%E7%BD%91%E7%BB%9C%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%8B%E8%AF%B4%E7%AC%AC%E4%B8%89%E9%81%8D">手机与电脑连接同一网段的网络！！！【重要的事说第三遍】</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%A5%BD%E4%BA%86%E5%BC%80%E5%A7%8B%E6%84%89%E5%BF%AB%E7%9A%84%E6%8A%93%E5%8C%85%E5%90%A7">好了，开始愉快的抓包吧！！！</a></li>
+</ul>
+(Jmeter代理服务器抓取Web端和APP端请求步骤)</p>
+<hr>
+<h2 id="一-jmeter-需要的配置">一、 Jmeter 需要的配置</h2>
+<ul>
+<li>测试计划→添加→线程→线程组</li>
+<li>测试计划→添加→监听器→查看结果树</li>
+<li>测试计划→添加→非测试元件→HTTP代理服务器<br>
+HTTP代理服务器设置项：<br>
+1、端口号设置：如6666，不建议设置80/8080等常见端口号<br>
+2、目标控制器选择：测试计划&gt;线程组，这样请求就自动填入线程组中<img src="https://img-blog.csdnimg.cn/20200718002916701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h2 id="二-web端设置代理">二、Web端设置代理</h2>
+<h4 id="1-chrome-浏览器">1. Chrome 浏览器</h4>
+<p>URL 输入：chrome://settings/system<br>
+<img src="https://img-blog.csdnimg.cn/20200718003959524.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718004250624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<hr>
+<h4 id="2-火狐浏览器">2. 火狐浏览器</h4>
+<p><img src="https://img-blog.csdnimg.cn/20200718004556836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718004649761.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718004755640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<h2 id="三-web浏览器代理设置成功jmeter代理服务启动">三、Web浏览器代理设置成功，jmeter代理服务启动</h2>
+<p><img src="https://img-blog.csdnimg.cn/20200718005640707.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718005505382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<h2 id="四-安装ca证书">四、安装CA证书</h2>
+<p>当执行到这一步你的线程组没有抓到请求，那么恭喜你，你也掉进了和我一样的坑<br>
+【访问HTTPS需要导入证书，否则URL会显示：不安全等字样】</p>
+<p><strong>解决方法：</strong></p>
+<h4 id="1-找到文件夹-bin-目录下的-ca-证书文件">1. 找到文件夹 bin 目录下的 CA 证书文件</h4>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/2020071801012579.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<h4 id="2-以chrome浏览器为例">2. 以Chrome浏览器为例：</h4>
+<p>① URL 中输入：chrome://settings/?search=%E8%AF%81%E4%B9%A6<br>
+② 进入设置→搜索框输入：证书→回车后跳转页面<br>
+<img src="https://img-blog.csdnimg.cn/20200718010641951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718010844143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718010929752.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718011046556.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200718011330831.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718011430239.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/2020071801154273.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200718011451565.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<h2 id="五-jmeter代理抓取app手机端的请求">五、jmeter代理抓取APP手机端的请求</h2>
+<h4 id="1-手机安装-jmeter-的ca证书">1、手机安装 jmeter 的CA证书</h4>
+<ul>
+<li>jmeter 文件 bin 目录下的 ApacheJMeterTemporaryRootCA.crt 证书通过QQ发给自己的手机上<br>
+<img src="https://img-blog.csdnimg.cn/20200718014414180.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718014653432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+<li><strong>手机端点开文件→选择用其它应用打开→选择证书安装程序</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200718015740794.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718015944199.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718020029628.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+<li><strong>进入设置，搜索栏输入：用户凭据</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200718020326646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718020551797.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h4 id="2-手机代理设置">2、手机代理设置</h4>
+<h5 id="手机与电脑连接同一网段的网络重要的事说第一遍">手机与电脑连接同一网段的网络！！！【重要的事说第一遍】</h5>
+<h5 id="手机与电脑连接同一网段的网络重要的事说第二遍">手机与电脑连接同一网段的网络！！！【重要的事说第二遍】</h5>
+<h5 id="手机与电脑连接同一网段的网络重要的事说第三遍">手机与电脑连接同一网段的网络！！！【重要的事说第三遍】</h5>
+<ul>
+<li>手机连接WiFi，设置手动代理</li>
+<li>主机名：cmd 输入ipconfig 查看本机 ip 地址并输入</li>
+<li>端口号：与 jmeter 代理服务器设置的端口号保持一致【我的是6666】<br>
+<img src="https://img-blog.csdnimg.cn/2020071802100581.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718021736382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<hr>
+<hr>
+<h1 id="好了开始愉快的抓包吧">好了，开始愉快的抓包吧！！！</h1>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/jmeter/" class="tag">
+                    jmeter
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/fiddler-gong-ju-zhi-mo-ni-ruo-wang-ce-shi/">
+                  <h3 class="post-title">
+                    Fiddler工具之模拟弱网测试
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

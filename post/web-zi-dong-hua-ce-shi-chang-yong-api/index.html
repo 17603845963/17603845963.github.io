@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Web自动化测试常用Api | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599133392009">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="一、最简单的Web自动化脚本
+# 导入浏览器驱动
+from selenium import webdriver
+# 创建一个驱动
+driver = webdriver.Chrome()
+# 窗口最大化
+driver.maximize_win..." />
+    <meta name="keywords" content="Web自动化" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599133392009" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Web自动化测试常用Api</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="一-最简单的web自动化脚本">一、最简单的Web自动化脚本</h2>
+<pre><code class="language-python"># 导入浏览器驱动
+from selenium import webdriver
+# 创建一个驱动
+driver = webdriver.Chrome()
+# 窗口最大化
+driver.maximize_window()
+# 设置窗口大小
+driver.set_window_size(720,800)
+# 打开url
+driver.get(url='http://www.baidu.com')
+# 退出浏览器
+driver.quit()
+</code></pre>
+<h2 id="二-元素定位控件">二、元素定位控件</h2>
+<pre><code class="language-python"># 通过id定位元素
+driver.find_element_by_id()
+# 通过class_name定位元素
+driver.find_element_by_class_name()
+# 通过超链文本定位元素
+driver.find_element_by_link_text()
+# 通过部分超链文本定位元素
+driver.find_element_by_partial_link_text()
+# 通过标签名定位元素
+driver.find_element_by_tag_name()
+# 通过xpath定位元素
+driver.find_element_by_xpath()
+# 通过css定位元素
+driver.find_element_by_css_selector()
+</code></pre>
+<h2 id="三-元素定位后执行动作">三、元素定位后执行动作</h2>
+<pre><code class="language-python"># 定位元素并点击
+driver.find_element_by_id(&quot;id属性值&quot;).click()
+# 定位元素并输入文本
+driver.find_element_by_id(&quot;id属性值&quot;).send_keys()
+# 定位元素并清空文本值
+driver.find_element_by_id(&quot;id属性值&quot;).clear()
+# 打印定位元素获取其文本值
+print(driver.find_element_by_id(&quot;id属性值&quot;).text)
+# 打印定位元素获取其尺寸大小
+print(driver.find_element_by_id(&quot;id属性值&quot;).size)
+# 打印当前页面的标题（页面的书签名）
+print(driver.title)
+# 打印当前页面的URL信息
+print(driver.current_url)
+# 判断控件是否出现
+driver.find_element_by_xpath(&quot;&quot;).is_displayed()
+# 获取控件内输入的内容：
+driver.find_element_by_xpath(&quot;&quot;).get_attribute('value')
+
+</code></pre>
+<h2 id="四-弹窗事件">四、弹窗事件</h2>
+<pre><code class="language-python"># 页面弹窗Alert情景
+# 1、只有确定按钮
+# 2、有确定按钮和取消按钮
+# 3、有输入框、确定按钮和取消按钮
+
+# 光标移动到页面弹窗上，并输入内容：我同意
+driver.switch_to.alert.send_keys(&quot;我同意&quot;)
+# 打印弹窗内容文本信息
+print(driver.switch_to.alert.text)
+# 光标移动至页面弹窗，点击确定按钮
+driver.switch_to.alert.accept()
+# 光标移动至页面弹窗，点击取消按钮
+driver.switch_to.alert.dismiss()
+</code></pre>
+<h2 id="五-模拟鼠标事件">五、模拟鼠标事件</h2>
+<pre><code class="language-python"># 模拟鼠标事件需导入 ActionChains 模块
+from selenium.webdriver.common.action_chains import ActionChains
+
+# 初始化一个驱动
+driver = webdriver.Chrome()
+# 变量接收 定位到的元素
+ele = driver.find_element_by_id(&quot;xxxx&quot;)
+# 显示等待3秒（等待元素加载）
+time.sleep(3)
+
+# 【使用场景】触碰元素后操作子级模块
+# 模拟鼠标移动到 所定位到的元素
+ActionChains(driver).move_to_element(ele).perform()
+# 定位到子级控件进行操作
+driver.find_element_by_xpath(&quot;.xxxx&quot;).click()
+
+# 【使用场景】模拟鼠标在元素控件右击
+ActionChains().context_click(ele).perform()
+
+# 【使用场景】模拟鼠标在元素控件双击
+ActionChains().double_click().perform()
+
+</code></pre>
+<h2 id="六-模拟键盘操作事件">六、模拟键盘操作事件</h2>
+<pre><code class="language-python"># 模拟键盘操作事件
+from selenium.webdriver.common.keys import Keys
+
+# 单个键盘录入
+# 场景1：输入的 bilibili 需回退一格，键盘按下Backspace
+driver.find_element_by_id(&quot;kw&quot;).send_keys(Keys.BACK_SPACE)
+# 场景2：输入的 bilibili 后面增加空格，键盘按下 Space
+driver.find_element_by_id(&quot;kw&quot;).send_keys(Keys.SPACE)
+
+'''更多场景，ctrl+左击 Keys即可查询'''
+
+# 多键盘录入：如：ctrl+A ，ctrl+C ，ctrl+V
+driver.find_element_by_css_selector(&quot;.bg.s_ipt_wr.quickdelete-wrap input#kw&quot;).send_keys(Keys.CONTROL,&quot;a&quot;)
+driver.find_element_by_css_selector(&quot;.bg.s_ipt_wr.quickdelete-wrap input#kw&quot;).send_keys(Keys.CONTROL,&quot;c&quot;)
+driver.find_element_by_css_selector(&quot;.bg.s_ipt_wr.quickdelete-wrap input#kw&quot;).send_keys(Keys.CONTROL,&quot;v&quot;)
+</code></pre>
+<h2 id="七-三种等待时间">七、三种等待时间</h2>
+<pre><code class="language-python"># 导入显式等待模块
+import time
+# 导入隐式等待模块
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
+# 1、页面停留三秒
+time.sleep(3)
+# 2、最大等待时间10秒，如3秒找到元素则执行后续代码
+driver.implicitly_wait(10)
+# 3、最大等待时间为10秒，每0.5秒找一次，直到元素出现
+ele = WebDriverWait(driver,10,0.5).until(EC.presence_of_element_located((By.XPATH,'//xxx')))
+ele.send_keys(&quot;123456&quot;)
+# 3、最大等待时间为10秒，每0.5秒找一次，直到元素没有出现
+ele = WebDriverWait(driver,10,0.5).until_not(EC.presence_of_element_located((By.XPATH,'//xxx')))
+ele.send_keys(&quot;123456&quot;)
+
+</code></pre>
+<h2 id="八-多窗口切换事件">八、多窗口切换事件</h2>
+<pre><code class="language-python"># 打印所有窗口的句柄【返回值类型：list】
+print(driver.window_handles)
+# 打印当前窗口的句柄
+print(driver.current_window_handle)
+
+# 窗口切换 [list：下标是从 0 开始]
+driver.switch_to.window(driver.window_handles[1])
+# 如需关闭当前窗口，使用 .close（）
+driver.close()
+</code></pre>
+<h2 id="九-iframe-控件处理">九、iframe ：控件处理</h2>
+<pre><code class="language-python"># 有id、name属性值，如：id=x-urs
+driver.switch_to.frame(&quot;x-urs&quot;)
+
+# 通过xpath/css先定位到iframe，然后切换
+fra = driver.find_element_by_xpath(&quot;//div[@id='x-urs']&quot;)
+driver.switch_to.frame(fra)
+
+# 从子级iframe切换到父级iframe
+driver.switch_to.parent_frame()
+
+# 从任何层级的iframe切换到主文档
+driver.switch_to.default_content()
+</code></pre>
+<h2 id="十-select类处理下拉框代码">十、Select类处理下拉框代码：</h2>
+<pre><code class="language-python"># 导入Select类
+from selenium.webdriver.support.select import Select
+
+# Select类下选择下拉列表项
+# 定位下拉框，用变量s接收元素定位信息
+s = driver.find_element_by_id(&quot;xxxxx&quot;)
+
+# 通过下拉列表文本值选择
+Select(s).select_by_visible_text(&quot;下拉列表文本值&quot;)
+
+# 通过下拉列表value属性值选择
+Select(s).select_by_value(&quot;5&quot;)
+
+# 通过下拉列表index属性值选择【从0开始】
+Select(s).select_by_index(3)
+</code></pre>
+<h2 id="十一-时间选择框处理代码">十一、时间选择框处理代码：</h2>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200623183215401.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<pre><code class="language-python"># 时间选择框【yyyy-mm-dd格式】
+# 图片中的时间框有 input 标签
+
+# 定位到入住日期控件标签
+eleIn = driver.find_element_by_id(&quot;HD_CheckIn&quot;)
+# 清空
+eleIn.clear()
+# 传入对应格式的日期时间
+eleIn.send_keys('2020-01-01')
+
+# 定位到退房日期控件标签
+eleOut = driver.find_element_by_id(&quot;HD_CheckOut&quot;)
+# 清空
+eleOut.clear()
+# 传入对应格式的日期时间
+eleOut.send_keys('2020-01-02')
+</code></pre>
+<h3 id="ps如果上述操作无法使用sendkeys操纵可以使用第三方-js-取消弹窗特性">【 PS：如果上述操作无法使用sendkeys操纵，可以使用第三方 js 取消弹窗特性】</h3>
+<h1 id="具体代码操作请参考我的这篇文章">具体代码操作请参考我的这篇文章：</h1>
+<ul>
+<li>
+<h2 id=""><a href="https://blog.csdn.net/J_____Q/article/details/107194859"><strong>python+selenium：移除时间控件readonly属性，实现send_keys输入</strong></a></h2>
+</li>
+</ul>
+<hr>
+<h2 id="十二-截取并保存页面的截图">十二、截取并保存页面的截图</h2>
+<pre><code class="language-python"># 截取并保存页面的截图【建议png格式】
+driver.get_screenshot_as_file(&quot;D:/路径.png&quot;)
+</code></pre>
+<hr>
+<h2 id="十三-滚动条事件">十三、滚动条事件</h2>
+<pre><code class="language-python"># 滚动条拉到底部
+js = &quot;var q=document.documentElement.scrollTop=10000&quot;
+driver.execute_script(js)
+
+# 滚动条拉到最上面
+js = &quot;var q=document.documentElement.scrollTop=0&quot;
+driver.execute_script(js)
+
+# 滚动到页面的50%的位置
+driver.execute_script(&quot;window.scrollTo(0, document.body.scrollHeight*0.5)&quot;);
+
+#相对当前坐标移动到的坐标
+driver.execute_script(&quot;window.scrollBy(0, 900)&quot;);
+time.sleep(2)
+
+#移动到绝对坐标
+driver.execute_script(&quot;window.scrollTo(0, 1500)&quot;);
+
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/qGZi_kwO8/" class="tag">
+                    Web自动化
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/appium-app-zi-dong-hua-chang-yong-api/">
+                  <h3 class="post-title">
+                    Appium--app自动化常用Api
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

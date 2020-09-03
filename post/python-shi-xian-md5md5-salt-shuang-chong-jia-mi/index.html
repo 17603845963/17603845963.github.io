@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | 井 sir 的私人博客</title>
+<title>Python实现 md5(md5( )+salt) 双重加密 | 井 sir 的私人博客</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,7 +18,17 @@
 
 
 
-    <meta name="description" content="一位秀发茂密的测试工程师">
+    <meta name="description" content="此篇博客部分内容参考自：
+Python实现md5二次及多次加盐加密
+
+
+代码参考：
+from hashlib import md5
+
+#  post传入的参数
+params = &quot;123456&quot;  
+#  加密后需拼接的..." />
+    <meta name="keywords" content="python基础" />
   </head>
   <body>
     <div id="app" class="main">
@@ -88,80 +98,79 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">Python实现 md5(md5( )+salt) 双重加密</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="此篇博客部分内容参考自">此篇博客部分内容参考自：</h1>
+<h1 id=""><a href="https://blog.csdn.net/weixin_43486863/article/details/83273559?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159841441919195264503575%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id=159841441919195264503575&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v3~pc_rank_v3-1-83273559.pc_ecpm_v3_pc_rank_v3&amp;utm_term=python%E5%AE%9E%E7%8E%B0%E5%8F%8C%E9%87%8Dmd5%E5%8A%A0%E5%AF%86&amp;spm=1018.2118.3001.4187"><strong>Python实现md5二次及多次加盐加密</strong></a></h1>
+<hr>
+<hr>
+<h1 id="代码参考">代码参考：</h1>
+<pre><code class="language-python">from hashlib import md5
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+#  post传入的参数
+params = &quot;123456&quot;  
+#  加密后需拼接的 salt（有的叫access_key_secret）  
+salt = &quot;HNNJJjjmjfsdkmfkdd&quot;
+
+def q():
+	m = md5()
+	m.update(params.encode('utf8'))
+	sign1 = m.hexdigest()
+	return sign1
+
+def w():
+	m = md5()
+	m.update((q() + salt).encode('utf8'))
+	sign2 = m.hexdigest()
+	return sign2
+
+print(w())
+</code></pre>
+<hr>
+<hr>
+<hr>
+<h1 id="有的时候传入的参数有时间戳可参考">有的时候传入的参数有时间戳，可参考：</h1>
+<pre><code class="language-python">import time
+
+# 生成10位数的时间戳
+timestamp = int(round(time.time()))
+
+# 如果需要13位或者别的，可以自定义
+timestamp1 = int(round(time.time() * 1000))
+
+print(timestamp)
+print(timestamp1)
+</code></pre>
+<ul>
+<li>
+<h1 id="以下为打印结果">以下为打印结果：</h1>
+<pre><code class="language-python">C:\Users\86176\AppData\Local\Programs\Python\Python36\python.exe D:xxxx/test.py
+1598429366
+1598429365704
+
+Process finished with exit code 0
+</code></pre>
+</li>
+</ul>
+
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2020</h2>
-              
+              <div class="tag-container">
                 
-                  <article class="post">
-                    <a href="https://17603845963.github.io/post/web-zi-dong-hua-ce-shi-chang-yong-api/">
-                      <h2 class="post-title">
-                        Web自动化测试常用Api
-                      </h2>
-                    </a>
-                  </article>
+                  <a href="https://17603845963.github.io/tag/python/" class="tag">
+                    python基础
+                  </a>
                 
-              
-                
-                  <article class="post">
-                    <a href="https://17603845963.github.io/post/appium-app-zi-dong-hua-chang-yong-api/">
-                      <h2 class="post-title">
-                        Appium--app自动化常用Api
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://17603845963.github.io/post/zui-xin-qin-ce-jmeter-dai-li-fu-wu-qi-zhua-qu-web-duan-he-app-duan-qing-qiu-bu-zou-xiang-jie/">
-                      <h2 class="post-title">
-                        最新亲测Jmeter代理服务器抓取Web端和APP端请求步骤详解
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://17603845963.github.io/post/fiddler-gong-ju-zhi-mo-ni-ruo-wang-ce-shi/">
-                      <h2 class="post-title">
-                        Fiddler工具之模拟弱网测试
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://17603845963.github.io/post/jmeter-zhi-chang-yong-yuan-jian-yong-fa/">
-                      <h2 class="post-title">
-                        jmeter之常用元件用法
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://17603845963.github.io/post/python-shi-xian-md5md5-salt-shuang-chong-jia-mi/">
-                      <h2 class="post-title">
-                        Python实现 md5(md5( )+salt) 双重加密
-                      </h2>
-                    </a>
-                  </article>
-                
-              
+              </div>
             
+            
+
+            
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>
