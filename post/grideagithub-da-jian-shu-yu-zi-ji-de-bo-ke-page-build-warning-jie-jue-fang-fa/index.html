@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Gridea+Github搭建属于自己的博客Page build warning解决方法 | 井 sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599133573060">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="【可以先听一下我的解决办法，后面我会说一种我没尝试过的方法】
+
+
+
+我的解决方法就是：
+
+
+1、删除Github账户+卸载Gridea软件
+
+
+2、再重新来一遍【哭了】
+
+
+这里还有一个坑！！！我是粉碎文件而不是一步步卸载导致 Gridea..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599133573060" class="site-logo">
+        <h1 class="site-title">井 sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Gridea+Github搭建属于自己的博客Page build warning解决方法</h2>
+            <div class="post-date">2020-09-03</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="可以先听一下我的解决办法后面我会说一种我没尝试过的方法">【可以先听一下我的解决办法，后面我会说一种我没尝试过的方法】</h1>
+<hr>
+<hr>
+<hr>
+<h2 id="我的解决方法就是">我的解决方法就是：</h2>
+<ul>
+<li>
+<h1 id="1-删除github账户卸载gridea软件">1、删除Github账户+卸载Gridea软件</h1>
+</li>
+<li>
+<h1 id="2-再重新来一遍哭了">2、再重新来一遍【哭了】</h1>
+</li>
+</ul>
+<h2 id="这里还有一个坑我是粉碎文件而不是一步步卸载导致-gridea-软件重新安装失败最后查下来原因是-注册表没有处理干净">这里还有一个坑！！！我是粉碎文件而不是一步步卸载导致 Gridea 软件重新安装失败，最后查下来原因是： '' 注册表没有处理干净 ''</h2>
+<h1 id="注册表清理工具wise-registry-cleaner">注册表清理工具：<a href="https://www.wisecleaner.com.cn/wise-registry-cleaner.html">Wise Registry Cleaner</a></h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200903144757204.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<h3 id="清理了之后就可以重装-gridea-了">清理了之后就可以重装 Gridea 了</h3>
+<hr>
+<hr>
+<hr>
+<h1 id="方法二猜测应该可行我可能做了多余的操作">方法二：猜测应该可行，我可能做了多余的操作</h1>
+<ul>
+<li>
+<h1 id="1-直接卸载-gridea">1、直接卸载 Gridea</h1>
+</li>
+<li>
+<h1 id="2-清理注册表信息配置">2、清理注册表信息配置</h1>
+</li>
+<li>
+<h1 id="3-重新安装-gridea">3、重新安装 Gridea</h1>
+</li>
+<li>
+<h1 id="4-git仓库-settings-github-pages">4、Git仓库 &gt; Settings &gt; GitHub Pages</h1>
+</li>
+<li>
+<h1 id="5-清理浏览器缓存防止重定向">5、清理浏览器缓存防止重定向</h1>
+</li>
+<li>
+<h1 id="6-重新打开并同步-gridea">6、重新打开并同步 Gridea</h1>
+<img src="https://img-blog.csdnimg.cn/20200903152430744.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/2020090315395611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/web-zi-dong-hua-ce-shi-chang-yong-api/">
+                  <h3 class="post-title">
+                    Web自动化测试常用Api
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

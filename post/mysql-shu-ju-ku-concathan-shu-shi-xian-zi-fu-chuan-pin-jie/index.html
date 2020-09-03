@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Fiddler工具之模拟弱网测试 | 井 sir 的私人博客</title>
+<title>Mysql数据库concat（）函数实现字符串拼接 | 井 sir 的私人博客</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,11 +18,27 @@
 
 
 
-    <meta name="description" content="Fiddler 配置：
+    <meta name="description" content="
 
-Rules &gt; Performance &gt; Simulate Modem Speeds 开启弱网设置
-Rules &gt;  Customize Rules &gt; Fiddler ScriptEdi..." />
-    <meta name="keywords" content="Fiddler" />
+concat（）语法：
+
+CONCAT ( str1 , str2 , … )
+
+
+
+返回结果：
+
+
+返回结果为连接参数产生的字符串
+
+
+如有任何一个参数为NULL ，则返回值为 NULL
+
+
+
+
+1、如图，现在需将password字段..." />
+    <meta name="keywords" content="Mysql" />
   </head>
   <body>
     <div id="app" class="main">
@@ -93,43 +109,56 @@ Rules &gt;  Customize Rules &gt; Fiddler ScriptEdi..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Fiddler工具之模拟弱网测试</h2>
+            <h2 class="post-title">Mysql数据库concat（）函数实现字符串拼接</h2>
             <div class="post-date">2020-09-03</div>
             
             <div class="post-content" v-pre>
-              <h1 id="fiddler-配置">Fiddler 配置：</h1>
-<ul>
-<li>Rules &gt; Performance &gt; Simulate Modem Speeds 开启弱网设置</li>
-<li>Rules &gt;  Customize Rules &gt; Fiddler ScriptEditor</li>
-<li>ctrl + F &gt; 输入查询关键字：simulate &gt; 自定义数据上行下载延迟</li>
-<li>保存 Fiddler ScriptEditor 脚本修改项</li>
+              <ul>
 <li>
-<h3 id="注意-确保-simulate-modem-speeds-为勾选状态">【 注意 】确保 Simulate Modem Speeds 为勾选状态</h3>
-</li>
-<li>
-<h3 id="修改完毕后重启-fiddler">修改完毕后重启 Fiddler</h3>
+<h1 id="concat语法">concat（）语法：</h1>
+<blockquote>
+<p><strong>CONCAT ( str1 , str2 , … )</strong></p>
+</blockquote>
 </li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/20200718132640820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/2020071813333734.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200718133622222.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<pre><code class="language-python">if (m_SimulateModem) {
-    // Delay sends by 300ms per KB uploaded.
-// 表示每 1KB的数据上传就有300毫秒的延迟
-    oSession[&quot;request-trickle-delay&quot;] = &quot;400&quot;; 
-    // Delay receives by 150ms per KB downloaded.
-// 表示每 1KB的数据下载就有150毫秒的延迟
-    oSession[&quot;response-trickle-delay&quot;] = &quot;200&quot;; 
-}
+<h3 id="返回结果">返回结果：</h3>
+<ul>
+<li>
+<h4 id="返回结果为连接参数产生的字符串">返回结果为连接参数产生的字符串</h4>
+</li>
+<li>
+<h4 id="如有任何一个参数为null-则返回值为-null">如有任何一个参数为NULL ，则返回值为 NULL</h4>
+</li>
+</ul>
+<hr>
+<hr>
+<h1 id="1-如图现在需将password字段开头批量增加一位">1、如图，现在需将password字段开头批量增加一位</h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200901184912831.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="2-使用代码">2、使用代码：</h1>
+<pre><code class="language-bash">update user_table set password = CONCAT('1', password) WHERE password LIKE '12345%'
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200718134239913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200901185516394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="3-运行成功查看结果">3、运行成功，查看结果</h1>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200901185811552.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h1 id="功能拓展">功能拓展</h1>
+<ul>
+<li>
+<h3 id="字符串前后拼接无限添加">字符串前后拼接【无限添加】</h3>
+</li>
+<li>
+<h1 id="concata-password-b-cargs">concat（'a' ，'password'  ，'b' ，‘c’，*args ）</h1>
+</li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://img-blog.csdnimg.cn/2020090119203648.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://17603845963.github.io/tag/mvUJfFLF6/" class="tag">
-                    Fiddler
+                  <a href="https://17603845963.github.io/tag/lf--_c-3a/" class="tag">
+                    Mysql
                   </a>
                 
               </div>
@@ -137,9 +166,9 @@ Rules &gt;  Customize Rules &gt; Fiddler ScriptEdi..." />
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://17603845963.github.io/post/jmeter-zhi-chang-yong-yuan-jian-yong-fa/">
+                <a href="https://17603845963.github.io/post/grideagithub-da-jian-shu-yu-zi-ji-de-bo-ke-page-build-warning-jie-jue-fang-fa/">
                   <h3 class="post-title">
-                    jmeter之常用元件用法
+                    Gridea+Github搭建属于自己的博客Page build warning解决方法
                   </h3>
                 </a>
               </div>
