@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://17603845963.github.io</id>
     <title>井 sir 的私人博客</title>
-    <updated>2020-09-03T12:01:54.270Z</updated>
+    <updated>2020-09-03T12:04:56.345Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://17603845963.github.io"/>
     <link rel="self" href="https://17603845963.github.io/atom.xml"/>
@@ -10,6 +10,111 @@
     <logo>https://17603845963.github.io/images/avatar.png</logo>
     <icon>https://17603845963.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 井 sir 的私人博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Jmeter环境搭建]]></title>
+        <id>https://17603845963.github.io/post/jmeter-huan-jing-da-jian/</id>
+        <link href="https://17603845963.github.io/post/jmeter-huan-jing-da-jian/">
+        </link>
+        <updated>2020-09-03T12:03:33.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="一-搭建jmeter环境">一、搭建jmeter环境：</h2>
+<p><strong>链接：https://pan.baidu.com/s/1D2uvrrThEeuhVS26rofDXg<br>
+提取码：ekln</strong></p>
+<p>内附 jmeter 包和 JDK 安装包<br>
+<img src="https://img-blog.csdnimg.cn/20200718001737487.png" alt="在这里插入图片描述" loading="lazy"></p>
+<ul>
+<li>
+<h1 id="jdk环境搭建path-中添加exe-绝对路径">JDK环境搭建：【PATH 中添加.exe 绝对路径】</h1>
+<img src="https://img-blog.csdnimg.cn/20200717235955112.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+<li>
+<h1 id="cmd运行-java-version-显示如图所示结果即为配置成功">cmd运行 <strong>java -version</strong> 显示如图所示结果即为配置成功</h1>
+<img src="https://img-blog.csdnimg.cn/20200718000230913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h2 id="二-运行jmeter程序">二、运行Jmeter程序</h2>
+<ul>
+<li>jmeter 文件夹下载后剪切到自定义目录下，进入 bin目录<br>
+<img src="https://img-blog.csdnimg.cn/2020071800081735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h1 id="三-jmeter启动后页面展示">三、Jmeter启动后页面展示</h1>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/2020071800093995.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<h1 id="这里说明一下apachejmeterjar-文件双击无法启动-jmeter-就选择双击-jmeterbat-来启动但是这步操作会顺带启动一个-cmd-窗口稍带强迫症用户请参考我的这篇文章">这里说明一下，ApacheJMeter.jar 文件双击无法启动 jmeter ，就选择双击 jmeter.bat 来启动，但是这步操作会顺带启动一个 cmd 窗口，稍带强迫症用户请参考我的这篇文章：</h1>
+<h1 id="jmeter图标双击运行且不显示cmd对话框"><a href="https://blog.csdn.net/J_____Q/article/details/106176704">Jmeter图标双击运行且不显示cmd对话框</a></h1>
+<hr>
+<hr>
+<h1 id="下一篇写一下如何使用-jmeter-抓取web端与手机app端的请求接口网上的教程太坑了-有兴趣可以看看">下一篇写一下如何使用 jmeter 抓取Web端与手机APP端的请求接口，网上的教程太坑了 ，有兴趣可以看看</h1>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Fiddler工具之抓取IOS设备app的包]]></title>
+        <id>https://17603845963.github.io/post/fiddler-gong-ju-zhi-zhua-qu-ios-she-bei-app-de-bao/</id>
+        <link href="https://17603845963.github.io/post/fiddler-gong-ju-zhi-zhua-qu-ios-she-bei-app-de-bao/">
+        </link>
+        <updated>2020-09-03T12:03:00.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="一-fiddler-设置">一、Fiddler 设置</h1>
+<ul>
+<li>
+<h1 id="点击-tools-fiddler-options">点击 Tools &gt; Fiddler Options</h1>
+</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200718124336103.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<ul>
+<li>
+<h2 id="勾选-capture-https-connects">勾选 Capture HTTPS CONNECTS</h2>
+</li>
+<li>
+<h2 id="勾选-decrypt-https-traffic">勾选 Decrypt HTTPS traffic</h2>
+</li>
+<li>
+<h2 id="勾选-allow-remote-computers-to-connect">勾选 Allow  remote computers to connect</h2>
+</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200718124525455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200718124401422.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></figure>
+<ul>
+<li>
+<h1 id="重启-fiddler">重启 Fiddler</h1>
+</li>
+<li>
+<h1 id="确保防火墙允许-fiddler-进程可以远程连接">确保防火墙允许 Fiddler 进程可以远程连接</h1>
+<p>【直接关闭本机防火墙，此项即可无视】</p>
+</li>
+<li>
+<h1 id="ios设备连接到wifi">IOS设备连接到WIFI</h1>
+<p>ios设备必须和Fiddler所在主机处在相同网段<br>
+测试方法：<br>
+cmd &gt;ping 手机ip地址，收到正确回复则为主机与手机网路畅通<br>
+<img src="https://img-blog.csdnimg.cn/20200718125233818.png" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li>
+<h1 id="确保ios设备可以访问到http主机ip8888">确保ios设备可以访问到：http://主机IP:8888，</h1>
+<p><strong>该地址会返回Fiddler Echo Service 页面</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200718125553757.png" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718125713256.png" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718130945130.png" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/2020071813100958.png" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718131054897.png" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200718131251346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li>
+<h1 id="安装完成后信任证书">安装完成后信任证书</h1>
+</li>
+</ul>
+<p>设置 &gt; 通用 &gt; 关于本机 &gt; 证书信任设置，信任刚刚安装的 Fiddler 证书<br>
+<img src="https://img-blog.csdnimg.cn/20200718131737507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<hr>
+<hr>
+<h1 id="二-ios设备设置">二、iOS设备设置</h1>
+<ol>
+<li>设置 &gt; WiFi &gt; 打开已连接的WiFi</li>
+<li>点击配置代理 &gt; 手动</li>
+<li>设置 iOS 代理服务器地址为 Fiddler 所在主机的 ip 地址</li>
+<li>设置端口为 Fiddler 监听的端口：默认8888</li>
+<li>保存当前代理设置信息</li>
+<li>打开一个网页或者App，此时 Fiddler 已经可以捕获到 HTTP 请求了</li>
+<li><img src="https://img-blog.csdnimg.cn/20200718130618735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Jmeter—处理Unicode编码转为中文]]></title>
         <id>https://17603845963.github.io/post/jmeter-chu-li-unicode-bian-ma-zhuan-wei-zhong-wen/</id>
@@ -809,97 +914,6 @@ sudo service docker start
 </tr>
 </tbody>
 </table>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MeterSphere的部署安装]]></title>
-        <id>https://17603845963.github.io/post/metersphere-de-bu-shu-an-zhuang/</id>
-        <link href="https://17603845963.github.io/post/metersphere-de-bu-shu-an-zhuang/">
-        </link>
-        <updated>2020-09-03T11:48:41.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="metersphere-是一站式的开源企业级持续测试平台">MeterSphere 是一站式的开源企业级持续测试平台，</h1>
-<h1 id="涵盖测试跟踪-接口测试-性能测试-团队协作等功能">涵盖测试跟踪、接口测试、性能测试、团队协作等功能，</h1>
-<h1 id="兼容jmeter-等开源标准">兼容JMeter 等开源标准，</h1>
-<h1 id="有效助力开发和测试团队充分利用云弹性进行高度可扩展的自动化测试">有效助力开发和测试团队充分利用云弹性进行高度可扩展的自动化测试，</h1>
-<h1 id="加速高质量软件的交付">加速高质量软件的交付。</h1>
-<h1 id="metersphere-学习介绍文档"><a href="https://metersphere.io/docs/">MeterSphere 学习介绍文档</a></h1>
-<hr>
-<ul>
-<li>
-<h3 id="操作系统-任何支持-docker-的-linux-x64">操作系统: 任何支持 Docker 的 Linux x64</h3>
-</li>
-<li>
-<h3 id="cpu内存-2核4g最小">CPU/内存: 2核4G（最小）</h3>
-</li>
-<li>
-<h3 id="磁盘空间-20g">磁盘空间: 20G</h3>
-</li>
-<li>
-<h3 id="可访问互联网">可访问互联网</h3>
-</li>
-</ul>
-<hr>
-<h1 id="一-界面展示">一 、界面展示：</h1>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200812105019645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<hr>
-<h1 id="二-部署安装">二、部署安装</h1>
-<ul>
-<li>
-<h3 id="执行安装脚本">执行安装脚本</h3>
-</li>
-<li>
-<h3 id="以-root-用户-ssh-登录目标服务器-执行如下命令">以 root 用户 ssh 登录目标服务器, 执行如下命令</h3>
-<blockquote>
-<p>curl -sSL https://github.com/metersphere/metersphere/releases/latest/download/quick_start.sh | sh</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h1 id="三-登录">三、登录</h1>
-<ul>
-<li>
-<h3 id="安装成功后通过浏览器访问如下页面登录-metersphere">安装成功后，通过浏览器访问如下页面登录 MeterSphere</h3>
-<strong>地址: http://目标服务器IP地址:8081<br>
-用户名: admin<br>
-密码: metersphere</strong></li>
-</ul>
-<h3 id="您可以使用命令-msctl-status-检查服务运行情况">您可以使用命令 'msctl status' 检查服务运行情况.</h3>
-<hr>
-<h1 id="四-功能">四、功能</h1>
-<p><img src="https://img-blog.csdnimg.cn/20200812105419959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200812105438617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200812105454609.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
-<img src="https://img-blog.csdnimg.cn/20200812105510346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Jmeter --- time函数生成时间戳]]></title>
-        <id>https://17603845963.github.io/post/jmeter-time-han-shu-sheng-cheng-shi-jian-chuo/</id>
-        <link href="https://17603845963.github.io/post/jmeter-time-han-shu-sheng-cheng-shi-jian-chuo/">
-        </link>
-        <updated>2020-09-03T11:47:54.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="一-元件位置">一、元件位置</h1>
-<ul>
-<li>
-<h3 id="tools-函数助手对话框">Tools  →   函数助手对话框</h3>
-</li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200817174724841.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<h1 id="二-生成时间戳">二、生成时间戳</h1>
-<hr>
-<ul>
-<li>
-<h2 id="1-未作处理的时间戳">1、未作处理的时间戳</h2>
-<img src="https://img-blog.csdnimg.cn/20200817175532286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
-</ul>
-<hr>
-<hr>
-<ul>
-<li>
-<h2 id="2-除以1000得到少三位数的时间戳">2、除以1000，得到少三位数的时间戳</h2>
-<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20200817175800473.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-</li>
-</ul>
 ]]></content>
     </entry>
 </feed>
