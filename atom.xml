@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://17603845963.github.io</id>
     <title>井 Sir 的私人博客</title>
-    <updated>2020-09-04T09:50:55.009Z</updated>
+    <updated>2020-09-04T12:15:00.372Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://17603845963.github.io"/>
     <link rel="self" href="https://17603845963.github.io/atom.xml"/>
@@ -10,6 +10,47 @@
     <logo>https://17603845963.github.io/images/avatar.png</logo>
     <icon>https://17603845963.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 井 Sir 的私人博客</rights>
+    <entry>
+        <title type="html"><![CDATA[推荐给自学软件测试(python)的B站宝藏视频]]></title>
+        <id>https://17603845963.github.io/post/tui-jian-gei-zi-xue-ruan-jian-ce-shi-pythonde-b-zhan-bao-cang-shi-pin/</id>
+        <link href="https://17603845963.github.io/post/tui-jian-gei-zi-xue-ruan-jian-ce-shi-pythonde-b-zhan-bao-cang-shi-pin/">
+        </link>
+        <updated>2020-09-04T11:58:13.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="️-bv19t411m7uu">❤️ BV19t411m7uU</h1>
+<ul>
+<li>
+<h1 id="python基础入门up主是个声音特别好听的小姐姐">python基础入门【up主是个声音特别好听的小姐姐】</h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200904200329592.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+</li>
+</ul>
+<h1 id="bv1bv41167a4">💛 BV1bV41167a4</h1>
+<ul>
+<li>
+<h1 id="pytest框架unittest进阶版框架">Pytest框架【unittest进阶版框架】</h1>
+<img src="https://img-blog.csdnimg.cn/20200904201237485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h1 id="">💚</h1>
+<h1 id="-2">💙</h1>
+<h1 id="-3">💜</h1>
+<h1 id="-4">🖤</h1>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[推荐给自学软件测试（python）的宝藏视频]]></title>
+        <id>https://17603845963.github.io/post/tui-jian-gei-zi-xue-ruan-jian-ce-shi-pythonde-bao-cang-shi-pin/</id>
+        <link href="https://17603845963.github.io/post/tui-jian-gei-zi-xue-ruan-jian-ce-shi-pythonde-bao-cang-shi-pin/">
+        </link>
+        <updated>2020-09-04T11:58:13.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="️-bv19t411m7uu">❤️ BV19t411m7uU</h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200904200329592.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="">💛</h1>
+<h1 id="-2">💚</h1>
+<h1 id="-3">💙</h1>
+<h1 id="-4">💜</h1>
+<h1 id="-5">🖤</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Github下载与使用]]></title>
         <id>https://17603845963.github.io/post/github-xia-zai-yu-shi-yong/</id>
@@ -523,102 +564,6 @@ Enter password:
 <p>newman run 脚本 -e 环境文件 -n 循环次数 -r html --reporter-html-export 报告名称</p>
 </blockquote>
 <figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200607232440307.gif" alt="在这里插入图片描述" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[亲测：pip命令提示unknow or unsupported command install解决方法]]></title>
-        <id>https://17603845963.github.io/post/qin-ce-pip-ming-ling-ti-shi-unknow-or-unsupported-command-install-jie-jue-fang-fa/</id>
-        <link href="https://17603845963.github.io/post/qin-ce-pip-ming-ling-ti-shi-unknow-or-unsupported-command-install-jie-jue-fang-fa/">
-        </link>
-        <updated>2020-09-03T12:16:13.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="pip命令提示unknow-or-unsupported-command-install">pip命令提示unknow or unsupported command install</h2>
-<p>最近在学习<strong>Appium</strong>，运行 <strong>cmd</strong> 使用 <strong>pip install Appium-Python-Client</strong>命令<br>
-出现了下面图片所示的报错信息：<br>
-<img src="https://img-blog.csdnimg.cn/20200610110335340.png" alt="在这里插入图片描述" loading="lazy"></p>
-<h2 id="解决办法">解决办法：</h2>
-<p><strong>把pip命令稍加变动【pip → pip.exe 或者 pip3】：</strong></p>
-<pre><code class="language-clike">C:\Users\86176&gt;pip.exe install Appium-Python-Client
-C:\Users\86176&gt;pip3 install Appium-Python-Client
-</code></pre>
-<p><strong>操作执行成功：</strong><br>
-<img src="https://img-blog.csdnimg.cn/20200610112035883.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<hr>
-<h2 id="至此pip操作命令执行成功希望可以帮到你们">至此，pip操作命令执行成功，希望可以帮到你们！</h2>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[HttpRunner框架：安装使用和遇到的问题及相关解决办法]]></title>
-        <id>https://17603845963.github.io/post/httprunner-kuang-jia-an-zhuang-shi-yong-he-yu-dao-de-wen-ti-ji-xiang-guan-jie-jue-ban-fa/</id>
-        <link href="https://17603845963.github.io/post/httprunner-kuang-jia-an-zhuang-shi-yong-he-yu-dao-de-wen-ti-ji-xiang-guan-jie-jue-ban-fa/">
-        </link>
-        <updated>2020-09-03T12:15:37.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="httprunner安装">HttpRunner安装</h2>
-<p><strong>一. 运行 cmd 执行安装命令：</strong></p>
-<pre><code class="language-python">C:\Users\test&gt;pip install httprunner
-</code></pre>
-<p>【这条命令如果出现报错，就切换一下命令】：</p>
-<pre><code class="language-python">① pip.exe install httprunner
-② pip3 install httprunner
-</code></pre>
-<hr>
-<ul>
-<li><strong>安装校验</strong></li>
-</ul>
-<p>在 HttpRunner 安装成功后，系统中会新增如下 5 个命令：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">新增命令</th>
-<th style="text-align:left">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">httprunner :</td>
-<td style="text-align:left">核心命令</td>
-</tr>
-<tr>
-<td style="text-align:left">ate:</td>
-<td style="text-align:left">曾经用过的命令（当时框架名称为 ApiTestEngine），功能与 httprunner 完全相同</td>
-</tr>
-<tr>
-<td style="text-align:left">hrun:</td>
-<td style="text-align:left">httprunner 的缩写，功能与 httprunner 完全相同</td>
-</tr>
-<tr>
-<td style="text-align:left">locusts:</td>
-<td style="text-align:left">基于 Locust 实现性能测试</td>
-</tr>
-<tr>
-<td style="text-align:left">har2case:</td>
-<td style="text-align:left">辅助工具，可将标准通用的 HAR 格式（HTTP Archive）转换为YAML/JSON格式的测试用例</td>
-</tr>
-</tbody>
-</table>
-<p><strong>运行如下命令，若正常显示版本号，则说明 HttpRunner 安装成功：</strong><br>
-<strong>① httprunner -V<br>
-② hrun -V<br>
-③ har2case -V</strong><br>
-<img src="https://img-blog.csdnimg.cn/20200613145337456.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<hr>
-<h2 id="二-运行-hrun-v报如下错">二、运行 hrun -V，报如下错：</h2>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200613145635807.png" alt="在这里插入图片描述" loading="lazy"></figure>
-<h2 id="报错原因">报错原因：</h2>
-<p><strong>hrun.exe 和 httprunner.exe在python目录的script文件夹下，<br>
-因 此 需 要 在 系 统 PATH 变 量 里 面 设 置 环 境 变 量<br>
-【添加python路径和script路径即可】<br>
-添加完毕后重启cmd 运行：hrun -V ，即可正确显示版本号。</strong><br>
-<img src="https://img-blog.csdnimg.cn/20200613145815273.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<hr>
-<h2 id="三-运行-har2case-v-报错">三、运行 har2case -V 报错：</h2>
-<p><strong>运行cmd执行下载安装命令：</strong></p>
-<pre><code class="language-python">C:\Users\test&gt;pip install har2case
-</code></pre>
-<p><strong>【这条命令如果出现报错，就切换一下命令】：</strong></p>
-<pre><code class="language-python">① pip.exe install har2case
-② pip3 install har2case
-</code></pre>
-<p><strong>添加完毕后重启cmd 运行：har2case -V ，即可正确显示版本号</strong></p>
 ]]></content>
     </entry>
 </feed>
