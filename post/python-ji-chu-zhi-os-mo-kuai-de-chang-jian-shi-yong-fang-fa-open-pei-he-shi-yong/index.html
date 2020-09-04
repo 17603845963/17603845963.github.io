@@ -16,7 +16,7 @@ getcwd() 方法显示当前的工作路径，只具体到路径，不具体到�
     <link rel="stylesheet" href="https://17603845963.github.io/media/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
     
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/vs2015.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
     
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/clipboard.min.js"></script>
@@ -47,7 +47,7 @@ getcwd() 方法显示当前的工作路径，只具体到路径，不具体到�
         <div class="message" style="opacity:0"></div>
         <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
     </div>
-    <div id="codeCopyText" style="display: none">亲，代码复制成功了呢~~</div>
+    <div id="codeCopyText" style="display: none">代码复制成功了哦</div>
     <div id="domainname" style="display:none">https://17603845963.github.io</div>
     <!-- 响应式布局，针对PC端内容显示 -->
     <div id="content">
@@ -173,14 +173,14 @@ getcwd() 方法显示当前的工作路径，只具体到路径，不具体到�
     
     <div id=side>
         <div class="avatar-border">
-            <img src="https://17603845963.github.io/images/avatar.png?v=1599198171702" class="avatar">
+            <img src="https://17603845963.github.io/images/avatar.png?v=1599202182562" class="avatar">
         </div>
         <div class="sitename">井 Sir 的私人博客</div>
         <span class="describtion" data-text='["一位秀发茂密的测试工程师"]'>&nbsp;</span>
         
         <div class="search">
             <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
-            <input type="text" class="search-input" placeholder="要按照标题搜索哦ヽ( ⌒ω⌒)人(=^‥^= )ﾉ">
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
             <div class="search-results"></div>
         </div>
         
@@ -237,46 +237,11 @@ getcwd() 方法显示当前的工作路径，只具体到路径，不具体到�
     <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: <a
         href="https://github.com/850552586/gridea-theme-fog">Fog</a></div>
     
-    <div class="sitetime"><div id="sitegotimeDate">载入天数...</div>
-    <div id="sitegotimes">载入时分秒...</div></div>
-    <div id="cussitetime" style="display:none">04/09/2020</div>
-    
     
     </div>
 
 
 <script src="https://17603845963.github.io/media/js/wordshow.js"></script>
-    
-    <script>
-        //----------------------站点运行时间
-        var now = new Date();
-
-        function createtime() {
-            var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
-            var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间
-            now.setTime(now.getTime() + 250);
-            days = (now - grt) / 1000 / 60 / 60 / 24;
-            dnum = Math.floor(days);
-            hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
-            hnum = Math.floor(hours);
-            if (String(hnum).length == 1) {
-                hnum = "0" + hnum;
-            }
-            minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
-            mnum = Math.floor(minutes);
-            if (String(mnum).length == 1) {
-                mnum = "0" + mnum;
-            }
-            seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-            snum = Math.round(seconds);
-            if (String(snum).length == 1) {
-                snum = "0" + snum;
-            }
-            document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
-            document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
-        }
-        setInterval("createtime()", 250);
-    </script>
     
 
 
@@ -434,7 +399,7 @@ getcwd() 方法显示当前的工作路径，只具体到路径，不具体到�
             
             <div class="postdetailimg" style="width:100%;overflow: hidden;">
                 
-                <img src="\media\images\custom-postdefaultimage.png" class="postimage">
+                <img src="" class="postimage">
                 
             </div>
             <div class="postinfo-detail">
@@ -581,7 +546,7 @@ c.close()
                 <div id="ppcontainer" onclick="window.location.href= 'https://17603845963.github.io/post/python-ji-chu-zhi-zip-shi-xian-xing-lie-zhuan-hua/';return false">
                     
                     
-                    <img src="\media\images\custom-postdefaultimage.png" style="width: 100%;" class="opimg">
+                    <img src="" style="width: 100%;" class="opimg">
                     
                     
                     <h4 class="optitle">python基础之 zip( ) 实现行列转化</h4>
@@ -596,7 +561,7 @@ c.close()
                 <div id="npcontainer" onclick="window.location.href= 'https://17603845963.github.io/post/python-ji-chu-zhi-open-cao-zuo-wen-jian-du-xie/';return false">
                     
                     
-                    <img src="\media\images\custom-postdefaultimage.png" style="width: 100%;" class="opimg">
+                    <img src="" style="width: 100%;" class="opimg">
                     
                         
                     <h4 class="optitle">python基础之 open ( ) 操作文件读写</h4>
@@ -682,9 +647,9 @@ c.close()
             </div>
         </div>
     </div>
-    <div id="bgchoice" style="display: none">default</div>
+    <div id="bgchoice" style="display: none">link</div>
     
-    <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
+    <div id="bgurl" style="display:none">https://gitee.com/beimumu/img/raw/master/img/custom-bgimage.png</div>
     
     </div>
 </body>
