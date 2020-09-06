@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://17603845963.github.io</id>
     <title>井 Sir 的私人博客</title>
-    <updated>2020-09-04T12:16:13.967Z</updated>
+    <updated>2020-09-06T10:42:55.222Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://17603845963.github.io"/>
     <link rel="self" href="https://17603845963.github.io/atom.xml"/>
@@ -11,12 +11,61 @@
     <icon>https://17603845963.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 井 Sir 的私人博客</rights>
     <entry>
-        <title type="html"><![CDATA[推荐给自学软件测试(python)的B站宝藏视频]]></title>
+        <title type="html"><![CDATA[python基础 --- getattr( )和setattr( )方法的使用]]></title>
+        <id>https://17603845963.github.io/post/python-ji-chu-getattr-he-setattr-fang-fa-de-shi-yong/</id>
+        <link href="https://17603845963.github.io/post/python-ji-chu-getattr-he-setattr-fang-fa-de-shi-yong/">
+        </link>
+        <updated>2020-09-06T10:41:53.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="一-内建函数-getattr">一、 内建函数 ： getattr ( )</h1>
+<pre><code class="language-python">'''
+getattr( ) : 获取属性（动态获取某个属性的值）
+getattr(&quot;对象或者类名&quot; , &quot;属性名称&quot; ，&quot;当没有此属性需要提供过的默认值&quot; )
+'''
+
+
+class Phone:
+
+    def __init__(self,brand):
+    	# 定义一个类属性
+        self.brand = brand
+
+    def call(self):
+    	# 定义一个实例属性
+        self.num = '120'
+        print(&quot;正在打电话&quot;)
+
+    def send_message(self):
+        print(&quot;正在发消息&quot;)
+
+
+iphone = Phone('OPPO')
+
+# 这里的brand打印OPPO是因为上面传入了类属性
+print(getattr(iphone,&quot;brand&quot;))
+
+# 这里的num之所以打印110而不是120，是因为没有调用call()方法
+# 类.类属性 √     类.实例属性 X
+print(getattr(iphone,&quot;num&quot;,&quot;110&quot;)))
+
+
+# 打印结果
+C:\Users\86176\AppData\Local\Programs\Python\Python36\python.exe &quot;D:/PyCharm_Community/CSDN_blog/getattr+setattr/getattr( ).py&quot;
+OPPO
+110
+
+Process finished with exit code 0
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[推荐软件测试(python)的B站宝藏视频]]></title>
         <id>https://17603845963.github.io/post/tui-jian-gei-zi-xue-ruan-jian-ce-shi-pythonde-b-zhan-bao-cang-shi-pin/</id>
         <link href="https://17603845963.github.io/post/tui-jian-gei-zi-xue-ruan-jian-ce-shi-pythonde-b-zhan-bao-cang-shi-pin/">
         </link>
         <updated>2020-09-04T11:58:13.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="️-bv19t411m7uu">❤️ BV19t411m7uU</h1>
+        <content type="html"><![CDATA[<hr>
+<hr>
+<h1 id="️️️-bv19t411m7uu">❤️❤️❤️ BV19t411m7uU</h1>
 <ul>
 <li>
 <h1 id="python基础入门up主是个声音特别好听的小姐姐">python基础入门【up主是个声音特别好听的小姐姐】</h1>
@@ -24,16 +73,16 @@
 <hr>
 </li>
 </ul>
-<h1 id="bv1bv41167a4">💛 BV1bV41167a4</h1>
+<h1 id="bv1bv41167a4">💛💛💛 BV1bV41167a4</h1>
 <ul>
 <li>
 <h1 id="pytest框架unittest进阶版框架">Pytest框架【unittest进阶版框架】</h1>
 <img src="https://img-blog.csdnimg.cn/20200904201237485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
 </ul>
-<h1 id="">💚</h1>
-<h1 id="-2">💙</h1>
-<h1 id="-3">💜</h1>
-<h1 id="-4">🖤</h1>
+<h1 id="">💚💚💚</h1>
+<h1 id="-2">💙💙💙</h1>
+<h1 id="-3">💜💜💜</h1>
+<h1 id="-4">🖤🖤🖤</h1>
 ]]></content>
     </entry>
     <entry>
@@ -518,52 +567,6 @@ Enter password:
 <p><img src="https://img-blog.csdnimg.cn/20200606100431649.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
 <strong>本地数据库连接成功！！！！</strong></p>
 <h2 id="至于数据库的一些基本命令行命令我也写有学习笔记有需要的可以参考一下">至于数据库的一些基本命令行命令我也写有学习笔记，有需要的可以参考一下</h2>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Postman+Nodejs+Newman输出接口测试报告]]></title>
-        <id>https://17603845963.github.io/post/postmannodejsnewman-shu-chu-jie-kou-ce-shi-bao-gao/</id>
-        <link href="https://17603845963.github.io/post/postmannodejsnewman-shu-chu-jie-kou-ce-shi-bao-gao/">
-        </link>
-        <updated>2020-09-03T12:18:56.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1-先安装nodejs">1、先安装node.js</h2>
-<p>官网下载地址：<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
-<p>附上我的百度云网盘链接：<br>
-<strong>链接：https://pan.baidu.com/s/1lVzY2ZNbCbliLoFR8VHbXA  提取码：w3lk</strong></p>
-<p>【下载完成后就傻瓜式安装，建议默认C盘就行】</p>
-<hr>
-<h2 id="2-winrcmd打开命令行安装cnpm">2、Win+R，cmd打开命令行，安装cnpm</h2>
-<blockquote>
-<p>npm install -g cnpm --registry=https://registry.npm.taobao.org</p>
-</blockquote>
-<hr>
-<h2 id="3-安装newman">3、安装newman</h2>
-<blockquote>
-<p>cnpm install newman --global</p>
-</blockquote>
-<hr>
-<h2 id="4-检查是否安装成功">4、检查是否安装成功</h2>
-<blockquote>
-<p>newman -v</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/2020060723091881.png" alt="安装成功" loading="lazy"><br>
-出现以上版本号提示，表示安装成功；</p>
-<hr>
-<h2 id="5-安装reporter">5、安装reporter</h2>
-<blockquote>
-<p>cnpm install -g newman-reporter-html</p>
-</blockquote>
-<hr>
-<h2 id="6-使用newman命令行执行测试">6、使用newman命令行执行测试</h2>
-<p><strong>- 导出集合为json脚本</strong><br>
-<img src="https://img-blog.csdnimg.cn/20200607231803347.gif" alt="在这里插入图片描述" loading="lazy"><br>
-<strong>-  导出环境为json文件</strong><br>
-<img src="https://img-blog.csdnimg.cn/20200607232007968.gif" alt="在这里插入图片描述" loading="lazy"><br>
-<strong>-  执行命令</strong></p>
-<blockquote>
-<p>newman run 脚本 -e 环境文件 -n 循环次数 -r html --reporter-html-export 报告名称</p>
-</blockquote>
-<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200607232440307.gif" alt="在这里插入图片描述" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
