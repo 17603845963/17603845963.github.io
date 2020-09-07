@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Postman+Newman+Git+Jenkins实现接口自动化测试持续集成 | 井 Sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1599445329616">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="Postman工具常见的接口测试流程是怎样的？
+
+使用Postman+Newman+Git+Jenkins+钉钉/邮件提醒
+
+
+-------------- ♥ 以下分别讲解：windows 下的 Newman 安装 ♥----------..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1599445329616" class="site-logo">
+        <h1 class="site-title">井 Sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Postman+Newman+Git+Jenkins实现接口自动化测试持续集成</h2>
+            <div class="post-date">2020-09-07</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="postman工具常见的接口测试流程是怎样的">Postman工具常见的接口测试流程是怎样的？</h1>
+<blockquote>
+<h1 id="使用postmannewmangitjenkins钉钉邮件提醒">使用Postman+Newman+Git+Jenkins+钉钉/邮件提醒</h1>
+</blockquote>
+<hr>
+<p>-------------- ♥ 以下分别讲解：windows 下的 Newman 安装 ♥----------------</p>
+<hr>
+<h3 id=""></h3>
+<h1 id="一-windows-系统-newman-reporter-插件-安装">一、Windows 系统 Newman + reporter 插件 安装</h1>
+<blockquote>
+<h4 id="1-下载nodejs进行安装然后配置node的环境变量">1、下载Node.js进行安装，然后配置node的环境变量</h4>
+</blockquote>
+<blockquote>
+<h4 id="2-借助-npm-安装-cnpm">2、借助 npm 安装 cnpm</h4>
+<h5 id="npm-install-g-cnpm-registryhttpsregistrynpmtaobaoorg">npm install -g cnpm --registry=https://registry.npm.taobao.org</h5>
+</blockquote>
+<blockquote>
+<h4 id="3-借助-cnpm-安装-newman">3、借助 cnpm 安装 Newman</h4>
+<h5 id="cnpm-install-newman-global">cnpm install newman --global</h5>
+<h5 id="检查是否安装成功-newman-v-显示版本号">检查是否安装成功：【  newman -v 】显示版本号</h5>
+</blockquote>
+<blockquote>
+<h4 id="4-安装html报告插件">4、安装html报告插件</h4>
+<h5 id="cnpm-install-g-newman-reporter-html">cnpm install -g newman-reporter-html</h5>
+</blockquote>
+<blockquote>
+<h4 id="5-使用newman命令行执行测试">5、使用newman命令行执行测试</h4>
+<p><strong>newman run 脚本 -e 环境文件 -n 循环次数 -r html --reporter-html-export 报告名称</strong></p>
+<h2 id="这时候生成的报告有点小丑">【这时候生成的报告有点小丑】</h2>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200907092059997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+</blockquote>
+<blockquote>
+<h4 id="6-安装插件优化报告显示格式生成美观一点的html格式报告">6、安装插件，优化报告显示格式，生成美观一点的html格式报告</h4>
+<h5 id="cnpm-install-g-newman-reporter-htmlextra">cnpm install -g newman-reporter-htmlextra</h5>
+<h1 id="运行脚本">【运行脚本】：</h1>
+<h5 id="newman-run-导出的postman脚本json-r-htmlextra">newman run 导出的postman脚本.json -r htmlextra</h5>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200907092402506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+</blockquote>
+<h3 id="注意事项">注意事项：</h3>
+<ul>
+<li>1、 -r 参数是  --reporters 的缩写，可以在参数后面指定需要生成的报告格式 ，<br>
+比如 -r html , junit , json ,  htmlextra  ，这个会在当前目录下生成一个newman的文件夹，报告都在newman的文件夹下面：<br>
+<img src="https://img-blog.csdnimg.cn/20200907092946211.png#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<hr>
+<ul>
+<li>2、也可以加上下面的参数指定报告名称：(报告默认生成在当前执行命令的路径下 ，也可以自己在报告名称前加上指定路径生成)
+<blockquote>
+<h4 id="-reporter-html-export-htmlreporthtml">- -reporter-html-export htmlReport.html</h4>
+<h4 id="-reporter-htmlextra-export-htmlextrareporthtml">- -reporter-htmlextra-export htmlExtraReport.html</h4>
+<h4 id="-reporter-junit-export-junitreporthtml">- -reporter-junit-export junitReport.html</h4>
+<h4 id="-reporter-json-export-jsonreporthtml">- -reporter-json-export jsonReport.html</h4>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="二-postman脚本持续集成">二、Postman脚本持续集成</h1>
+<p>通过上面的描述 ，现在已经可以将postman脚本生成报告了<br>
+离集成jenkins只差最后的配置工作了：</p>
+<ul>
+<li>
+<p>1、在gitee上新建一个仓库，将postman调试好的脚本导出成json文件，上传到gitee上</p>
+</li>
+<li>
+<p>2、搭建好jenkins环境，并配置好npm的环境以及安装好newman执行环境</p>
+</li>
+<li>
+<p>3、新建一个自由风格的job，配置从git上获取脚本：<br>
+<img src="https://img-blog.csdnimg.cn/20200907095428207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200907095628240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li>
+<p>4、构建中选择windows批处理，填入命令：<br>
+<img src="https://img-blog.csdnimg.cn/20200907095740870.png#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<pre><code class="language-python"># batch命令
+cd /d  %WORKSPACE%
+newman run demo.postman_collection.json -r htmlextra --reporter-htmlextra-export ./report/htmlExtraReport.html 
+
+或者
+
+# shell 命令
+cd $WORKSPACE
+newman run demo.postman_collection.json -r htmlextra --reporter-htmlextra-export ./report/htmlExtraReport.html newman run demo.postman_collection.json -r htmlextra --reporter-htmlextra-export ./report/htmlExtraReport.html
+</code></pre>
+</li>
+<li>
+<p>5、在构建后操作那里 ，添加报告的展示【需安装 HTML Publisher plugin 插件】<br>
+<img src="https://img-blog.csdnimg.cn/20200907100425209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200907100639774.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li>
+<p>6、发送企业微信通知<br>
+<img src="https://img-blog.csdnimg.cn/20200907100846719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200907101105782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200907101320312.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+</ul>
+<hr>
+<h1 id="三-解决jenkins上无法展示html样式的问题">三、解决jenkins上无法展示HTML样式的问题</h1>
+<p><strong>由于安全考虑，jenkins默认是禁止了外部的css和js的加载的<br>
+因此html报告显示会出现异常，常见的解决方案有以下几种：</strong></p>
+<p>1、在jenkins系统管理-&gt;脚本命令行 输入以下脚本运行：（此方案重启jenkins失效）</p>
+<blockquote>
+<p><strong>System.setProperty(&quot;hudson.model.DirectoryBrowserSupport.CSP&quot;, &quot;&quot;)</strong></p>
+</blockquote>
+<p>2、利用jenkins的插件，在启动节点的时候自动触发某个job去执行groovy脚本<br>
+---- 搜索安装Startup Trigger和Groovy插件即可。<br>
+-----配置一个job，然后在job中执行groovy脚本：</p>
+<blockquote>
+<p><strong>System.setProperty(&quot;hudson.model.DirectoryBrowserSupport.CSP&quot;, &quot;&quot;)</strong></p>
+</blockquote>
+<p>3、以windows服务或者java -jar的方式启动的jenkins，可以修改jenkin.xml文件中的启动命令，加入参数</p>
+<blockquote>
+<p><strong>-Dhudson.model.DirectoryBrowserSupport.CSP=</strong></p>
+</blockquote>
+<p>4、用tomcat部署的jenkins，可以直接改catalina.bat文件，找到tomcat/bin下的catalina.bat文件,用Notepad++打开，加上一行代码</p>
+<blockquote>
+<p><strong>set JAVA_OPTS=&quot;-Dhudson.model.DirectoryBrowserSupport.CSP&quot;</strong></p>
+</blockquote>
+<hr>
+<h1 id="四-拓展学习">四、拓展学习</h1>
+<ul>
+<li>
+<p>1、newman其他用法<br>
+(比如执行命令的时候加载环境变配置、设置执行次数等)：</p>
+<blockquote>
+<h4 id="httpswwwnpmjscompackagenewman">https://www.npmjs.com/package/newman</h4>
+</blockquote>
+</li>
+<li>
+<p>2、newman-reporter-htmlextra插件的其他用法<br>
+(比如报告过滤数据，设置标题等)：</p>
+<blockquote>
+<h5 id="httpswwwnpmjscompackagenewman-reporter-htmlextra">https://www.npmjs.com/package/newman-reporter-htmlextra</h5>
+</blockquote>
+</li>
+<li>
+<p>3、钉钉通知在jenkins上的配置，还可以指定具体通知的人等高级用法，可以自己查资料扩展一下.觉得钉钉插件提醒不好用的话，也可以自己写脚本调用钉钉的接口发送消息提醒。</p>
+</li>
+</ul>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/python-ji-chu-getattr-he-setattr-fang-fa-de-shi-yong/">
+                  <h3 class="post-title">
+                    python基础 --- getattr( )和setattr( )方法的使用
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
