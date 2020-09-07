@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://17603845963.github.io</id>
     <title>井 Sir 的私人博客</title>
-    <updated>2020-09-07T03:20:34.278Z</updated>
+    <updated>2020-09-07T08:57:16.348Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://17603845963.github.io"/>
     <link rel="self" href="https://17603845963.github.io/atom.xml"/>
@@ -10,6 +10,106 @@
     <logo>https://17603845963.github.io/images/avatar.png</logo>
     <icon>https://17603845963.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 井 Sir 的私人博客</rights>
+    <entry>
+        <title type="html"><![CDATA[黑羽robot--基于 RobotFramework增强的一款自动化框架]]></title>
+        <id>https://17603845963.github.io/post/hei-yu-robot-ji-yu-robotframework-zeng-qiang-de-yi-kuan-zi-dong-hua-kuang-jia/</id>
+        <link href="https://17603845963.github.io/post/hei-yu-robot-ji-yu-robotframework-zeng-qiang-de-yi-kuan-zi-dong-hua-kuang-jia/">
+        </link>
+        <updated>2020-09-07T08:10:12.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="一-首先安装框架学习所需的项目系统">一、首先安装框架学习所需的项目系统</h1>
+<ul>
+<li>
+<h2 id="bysms-系统安装与运行">Bysms 系统安装与运行</h2>
+<p>1、<a href="https://pan.baidu.com/s/1rnWhuroIMNebStzpwLjsTA#list/path=%2F">网盘下载链接</a>，下载 白月SMS系统 压缩包 bysms.zip</p>
+<p>2、下载解压bysms.zip后，进入bysms目录，双击运行runserver.bat 即可启动 白月SMS系统。 出现下面这样的信息</p>
+</li>
+</ul>
+<pre><code class="language-python">System check identified no issues (0 silenced).
+
+You have 2 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): auth.
+Run 'python manage.py migrate' to apply them.
+September 07, 2020 - 16:06:11
+Django version 2.2.4, using settings 'bysms.settings'
+Starting development server at http://127.0.0.1:8047/
+Quit the server with CTRL-BREAK.
+</code></pre>
+<p>如果双击运行runserver.bat 出现闪退，八成是因为web服务的80端口已经被使用了。</p>
+<p>两种解决方法：</p>
+<ul>
+<li>
+<p>请检查关闭占用80端口的程序，可能是Apache、IIS等web服务。</p>
+</li>
+<li>
+<p>文本编辑器编辑 runserver.bat</p>
+</li>
+<li>
+<p>python manage.py runserver 80 --noreload<br>
+修改网站服务端口为其他端口 比如 8047</p>
+</li>
+</ul>
+<p>python manage.py runserver 8047 --noreload<br>
+以后访问网址加上端口号，比如 http://127.0.0.1:8047/mgr/sign.html</p>
+<blockquote>
+<p>注意：该窗口不能关闭，否则web 系统就会停止</p>
+</blockquote>
+<blockquote>
+<p>输入如下管理员账号</p>
+</blockquote>
+<blockquote>
+<p>用户名 ： byhy     密码： 88888888</p>
+</blockquote>
+<blockquote>
+<p>即可登录</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://gitee.com/jzq739304193/my_gitee/raw/master/pic_room/1599466872(1).jpg" alt="" loading="lazy"></figure>
+<ul>
+<li>
+<p>测试用例下载地址：<a href="http://cdn1.python3.vip/files/selenium/testcases.xlsx">白月SMS系统的测试用例文档</a></p>
+</li>
+<li>
+<p>接下来，我们就使用 黑羽robot 框架， 开发这些用例的自动化</p>
+</li>
+</ul>
+<h1 id="二-安装-黑羽robot">二、安装 黑羽robot</h1>
+<ul>
+<li>1、确保电脑已安装Python3.7 或者 3.8 版本的解释器：python -V</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200907162835701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<ul>
+<li>
+<p>2、 pip 命令安装RobotFramework：<strong>pip3 install robotframework</strong><br>
+<img src="https://img-blog.csdnimg.cn/20200907163103161.png#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li>
+<p>3、安装黑羽robot<br>
+<a href="http://cdn1.python3.vip/files/hyrobot/autotest_hyrobot.zip">【 点击这里下载黑羽robot项目包 】</a></p>
+</li>
+</ul>
+<p>解压下载的zip包，会产生一个名为 autotest_hyrobot 的目录， 这就是hyrobot的自动化项目目录。</p>
+<p>你修改该目录的名字，比如我们要讲解 自动化测试 白月SMS系统 ， 就可以改名为 autotest_bysms</p>
+<p>建议：用PyCharm 等IDE直接打开项目文件夹，一定要 确保 hyrobot 目录 在项目根目录下面，如下<br>
+<img src="http://cdn1.python3.vip/imgs/api/tut_20200831095914_20.png" alt="" loading="lazy"></p>
+<ul>
+<li>4、学习框架知识<br>
+<a href="https://www.bilibili.com/video/av67586688/?p=3">从robotframework 到 黑羽robot - 自动化测试框架</a><br>
+<a href="https://www.bilibili.com/video/BV1Uf4y1y78x">数据驱动 自动化测试 怎么做</a></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[奇奇怪怪的宝藏♥网站]]></title>
+        <id>https://17603845963.github.io/post/qi-qi-guai-guai-de-bao-cang-wang-zhan/</id>
+        <link href="https://17603845963.github.io/post/qi-qi-guai-guai-de-bao-cang-wang-zhan/">
+        </link>
+        <updated>2020-09-07T03:35:05.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="一-质量超级高的图源">一、质量超级高的图源</h1>
+<ul>
+<li>
+<h2 id="wallpaper-超清图源"><a href="https://wall.alphacoders.com/?lang=Chinese">Wallpaper 超清图源</a></h2>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Postman+Newman+Git+Jenkins实现接口自动化测试持续集成]]></title>
         <id>https://17603845963.github.io/post/postmannewmangitjenkins-shi-xian-jie-kou-zi-dong-hua-ce-shi-chi-xu-ji-cheng/</id>
@@ -405,266 +505,6 @@ for i in range(len(L)):
 <p>————————————————<br>
 版权声明：本文为CSDN博主「Kitten_336368」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
 原文链接：https://blog.csdn.net/xiaomaoxiao336368/article/details/84887948</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[数据库---MySQL的命令行命令（在已创建的表中添加主键、自增、默认值）]]></title>
-        <id>https://17603845963.github.io/post/shu-ju-ku-mysql-de-ming-ling-xing-ming-ling-zai-yi-chuang-jian-de-biao-zhong-tian-jia-zhu-jian-zi-zeng-mo-ren-zhi/</id>
-        <link href="https://17603845963.github.io/post/shu-ju-ku-mysql-de-ming-ling-xing-ming-ling-zai-yi-chuang-jian-de-biao-zhong-tian-jia-zhu-jian-zi-zeng-mo-ren-zhi/">
-        </link>
-        <updated>2020-09-03T12:21:15.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1-mysql命令行创建一个订单表">1、MySQL命令行创建一个订单表</h2>
-<pre><code class="language-powershell">mysql&gt; create table order_table(
-    -&gt; order_id int not null,
-    -&gt; price float(10,2),
-    -&gt; user_id int);
-</code></pre>
-<p>创建成功，效果如下：</p>
-<pre><code class="language-powershell">mysql&gt; desc order_table;
-+----------+-------------+------+-----+---------+-------+
-| Field    | Type        | Null | Key | Default | Extra |
-+----------+-------------+------+-----+---------+-------+
-| order_id | int(11)     | NO   |     | NULL    |       |
-| price    | float(10,2) | YES  |     | NULL    |       |
-| user_id  | int(11)     | YES  |     | NULL    |       |
-+----------+-------------+------+-----+---------+-------+
-3 rows in set
-</code></pre>
-<hr>
-<hr>
-<h2 id="2-为已建好的表中-order_id-添加主键">2、为已建好的表中 order_id 添加主键</h2>
-<pre><code class="language-python">mysql&gt; alter table order_table add primary key(order_id);
-</code></pre>
-<p>添加成功，效果如下：</p>
-<pre><code class="language-python">mysql&gt; desc order_table;
-+----------+-------------+------+-----+---------+-------+
-| Field    | Type        | Null | Key | Default | Extra |
-+----------+-------------+------+-----+---------+-------+
-| order_id | int(11)     | NO   | PRI | NULL    |       |
-| price    | float(10,2) | YES  |     | NULL    |       |
-| user_id  | int(11)     | YES  |     | NULL    |       |
-+----------+-------------+------+-----+---------+-------+
-3 rows in set
-</code></pre>
-<hr>
-<hr>
-<h2 id="3-为已建好的表中-order_id-添加自增">3、为已建好的表中 order_id 添加自增</h2>
-<pre><code class="language-python">mysql&gt; alter table order_table modify order_id int auto_increment;
-</code></pre>
-<p>添加成功，效果如下：</p>
-<pre><code class="language-python">mysql&gt; desc order_table;
-+----------+-------------+------+-----+---------+----------------+
-| Field    | Type        | Null | Key | Default | Extra          |
-+----------+-------------+------+-----+---------+----------------+
-| order_id | int(11)     | NO   | PRI | NULL    | auto_increment |
-| price    | float(10,2) | YES  |     | NULL    |                |
-| user_id  | int(11)     | YES  |     | NULL    |                |
-+----------+-------------+------+-----+---------+----------------+
-3 rows in set
-</code></pre>
-<hr>
-<hr>
-<h2 id="4-为已建好的表中-price-添加默认值">4、为已建好的表中 price 添加默认值：</h2>
-<pre><code class="language-python">mysql&gt; alter table order_table modify price float(10,2) default '1234';
-</code></pre>
-<p>添加成功，效果如下：</p>
-<pre><code class="language-python">mysql&gt; desc order_table;
-+----------+-------------+------+-----+---------+----------------+
-| Field    | Type        | Null | Key | Default | Extra          |
-+----------+-------------+------+-----+---------+----------------+
-| order_id | int(11)     | NO   | PRI | NULL    | auto_increment |
-| price    | float(10,2) | YES  |     | 1234.00 |                |
-| user_id  | int(11)     | YES  |     | NULL    |                |
-+----------+-------------+------+-----+---------+----------------+
-3 rows in set
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[数据库---mysql 之 常用命令行命令]]></title>
-        <id>https://17603845963.github.io/post/shu-ju-ku-mysql-zhi-chang-yong-ming-ling-xing-ming-ling/</id>
-        <link href="https://17603845963.github.io/post/shu-ju-ku-mysql-zhi-chang-yong-ming-ling-xing-ming-ling/">
-        </link>
-        <updated>2020-09-03T12:21:01.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>1、展示当前所有的数据库：show databases;</strong></p>
-<pre><code class="language-python">mysql&gt; show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| jzq_test           |
-| mtx_1              |
-| mysql              |
-| performance_schema |
-| study              |
-| sys                |
-+--------------------+
-7 rows in set
-</code></pre>
-<p><strong>2、选中某个数据库（相当于鼠标点击选中）：use sql_name;</strong><br>
-<strong>【使用  数据库名.表名 可以省略 use 数据库名的操作】</strong></p>
-<pre><code class="language-python">mysql&gt; use jzq_test;
-Database changed
-</code></pre>
-<p><strong>3、展示选中数据库下所有的表：show tables;</strong></p>
-<pre><code class="language-python">mysql&gt; show tables;
-+--------------------+
-| Tables_in_jzq_test |
-+--------------------+
-| order_table        |
-| user_info          |
-| user_info_table    |
-+--------------------+
-3 rows in set
-
-</code></pre>
-<p><strong>4、展示表结构：desc table_name;</strong></p>
-<pre><code class="language-python">mysql&gt; desc user_info;
-+-----------+-------------+------+-----+----------+----------------+
-| Field     | Type        | Null | Key | Default  | Extra          |
-+-----------+-------------+------+-----+----------+----------------+
-| user_id   | int(11)     | NO   | PRI | NULL     | auto_increment |
-| user_name | char(10)    | YES  |     | NULL     |                |
-| password  | varchar(10) | YES  |     | 12345555 |                |
-| user_nick | varchar(10) | YES  |     | NULL     |                |
-| card_num  | bigint(20)  | YES  |     | NULL     |                |
-+-----------+-------------+------+-----+----------+----------------+
-5 rows in set
-</code></pre>
-<p><strong>5、查看表数据信息：select * from table_name;</strong></p>
-<pre><code class="language-python">mysql&gt; select * from user_info;
-+---------+-----------+----------+-----------+---------------+
-| user_id | user_name | password | user_nick | card_num      |
-+---------+-----------+----------+-----------+---------------+
-|       1 | zhangsan  | 12345555 | zhangsan  |  123456789111 |
-|       2 | lisi      | 12345555 | ls        | 1234567891222 |
-|       3 | wangwu    | 12345555 | ww        | 1234567891333 |
-|       4 | zhaoliu   | 12345555 | zl        | 1234567891444 |
-+---------+-----------+----------+-----------+---------------+
-4 rows in set
-</code></pre>
-<p><strong>6、创建数据库：create database sql_name;</strong></p>
-<pre><code class="language-python">mysql&gt; create database test_sql;
-Query OK, 1 row affected
-
-mysql&gt; show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| jzq_test           |
-| mtx_1              |
-| mysql              |
-| performance_schema |
-| study              |
-| sys                |
-| test_sql           |
-+--------------------+
-8 rows in set
-
-</code></pre>
-<p><strong>7、创建表:</strong></p>
-<pre><code class="language-python">mysql&gt; create table test_sql_table(
-    -&gt; t_id int zerofill unsigned not null primary key auto_increment,
-    -&gt; t_name varchar(20),
-    -&gt; t_num int(10));
-
-//创建成功，展示如下：
-mysql&gt; desc test_sql_table;
-+--------+---------------------------+------+-----+---------+----------------+
-| Field  | Type                      | Null | Key | Default | Extra          |
-+--------+---------------------------+------+-----+---------+----------------+
-| t_id   | int(10) unsigned zerofill | NO   | PRI | NULL    | auto_increment |
-| t_name | varchar(20)               | YES  |     | NULL    |                |
-| t_num  | int(10)                   | YES  |     | NULL    |                |
-+--------+---------------------------+------+-----+---------+----------------+
-3 rows in set
-</code></pre>
-<p><strong>8、删除表：drop table table_name;</strong></p>
-<pre><code class="language-python">//删表之前：
-mysql&gt; show tables;
-+--------------------+
-| Tables_in_jzq_test |
-+--------------------+
-| order_table        |
-| test_sql_table     |
-| user_info          |
-| user_info_table    |
-+--------------------+
-4 rows in set
-
-//执行删表操作：
-mysql&gt; drop table order_table;
-
-//删表后结果显示；
-mysql&gt; show tables;
-+--------------------+
-| Tables_in_jzq_test |
-+--------------------+
-| test_sql_table     |
-| user_info          |
-| user_info_table    |
-+--------------------+
-3 rows in set
-</code></pre>
-<p><strong>9、删数据库：drop database sql_name;</strong></p>
-<pre><code class="language-python">//删库之前：
-mysql&gt; show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| jzq_test           |
-| mtx_1              |
-| mysql              |
-| performance_schema |
-| study              |
-| sys                |
-| test_sql           |
-+--------------------+
-8 rows in set
-
-//执行删库命令：
-mysql&gt; drop database test_sql;
-
-//删库后展示结果：
-mysql&gt; show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| jzq_test           |
-| mtx_1              |
-| mysql              |
-| performance_schema |
-| study              |
-| sys                |
-+--------------------+
-7 rows in set
-</code></pre>
-<p><strong>10、修改表名：alter table  old_table  rename  to  new_table;</strong></p>
-<pre><code class="language-python"># 当前表名
-mysql&gt; show tables;
-+---------------+
-| Tables_in_jzq |
-+---------------+
-| old_table     |
-+---------------+
-1 row in set
-
-# 执行修改表名的命令
-mysql&gt; alter table old_table rename  to new_table;
-Query OK, 0 rows affected
-
-# 展示修改后的表名
-mysql&gt; show tables;
-+---------------+
-| Tables_in_jzq |
-+---------------+
-| new_table     |
-+---------------+
-1 row in set
-</code></pre>
 ]]></content>
     </entry>
 </feed>
