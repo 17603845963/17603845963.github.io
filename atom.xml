@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://17603845963.github.io</id>
     <title>井 Sir 的私人博客</title>
-    <updated>2020-09-07T08:57:16.348Z</updated>
+    <updated>2020-09-09T09:22:58.144Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://17603845963.github.io"/>
     <link rel="self" href="https://17603845963.github.io/atom.xml"/>
@@ -10,6 +10,68 @@
     <logo>https://17603845963.github.io/images/avatar.png</logo>
     <icon>https://17603845963.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 井 Sir 的私人博客</rights>
+    <entry>
+        <title type="html"><![CDATA[谷歌浏览器如何永久阻止自动升级更新]]></title>
+        <id>https://17603845963.github.io/post/gu-ge-liu-lan-qi-ru-he-yong-jiu-zu-zhi-zi-dong-sheng-ji-geng-xin/</id>
+        <link href="https://17603845963.github.io/post/gu-ge-liu-lan-qi-ru-he-yong-jiu-zu-zhi-zi-dong-sheng-ji-geng-xin/">
+        </link>
+        <updated>2020-09-09T09:21:11.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<h1 id="csdn相关博客一大堆讲的有的没的都没啥用">CSDN相关博客一大堆，讲的有的没的都没啥用</h1>
+<h1 id="我这边找了好多相关文章也算是解决了这个问题">我这边找了好多相关文章也算是解决了这个问题</h1>
+<h1 id="写一篇经验分享给大家">写一篇经验分享给大家：</h1>
+<h3 id="只要删除cprogram-files-x86googleupdate目录下的updateexe文件即可">只要删除C:\Program Files (x86)\Google\Update目录下的update.exe文件即可</h3>
+<h3 id="关键在于怎么删除所以需要进行下面的操作">【关键在于怎么删除，所以需要进行下面的操作】</h3>
+</blockquote>
+<hr>
+<h1 id="一-先安装好-chrome-浏览器">一、先安装好 Chrome 浏览器</h1>
+<ul>
+<li>
+<h3 id="如果你也是测试那这个77版本的你值得拥有">【如果你也是测试，那这个77版本的你值得拥有】</h3>
+<blockquote>
+<h3 id="链接httpspanbaiducoms19xnkulwtsylhpvh8eubgzq">链接：https://pan.baidu.com/s/19XNkuLWTSYlhPvH8eubgzQ</h3>
+<h3 id="提取码oak2">提取码：oak2</h3>
+</blockquote>
+</li>
+</ul>
+<hr>
+<hr>
+<h1 id="二-搜索栏-输入-计算机管理-打开">二、搜索栏 &gt; 输入‘ 计算机管理 ’ &gt; 打开</h1>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200909165344368.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<hr>
+<hr>
+<h1 id="三-系统工具-任务计划程序-任务计划程序库">三、系统工具 &gt; 任务计划程序 &gt; 任务计划程序库</h1>
+<ul>
+<li>
+<h4 id="找到-googleupdatetaskmachinecore-和-googleupdatetaskmachineua">找到 GoogleUpdateTaskMachineCore 和 GoogleUpdateTaskMachineUA</h4>
+</li>
+<li>
+<h1 id="右键-禁用-属性-删除所有的触发器信息">【右键 &gt; 禁用 &gt; 属性 →删除所有的触发器信息】</h1>
+<img src="https://img-blog.csdnimg.cn/2020090916564226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200909170241851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200909170400390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h1 id="四-win-r-运行-msconfig禁用update相关服务">四、Win + R 运行 msconfig，禁用update相关服务</h1>
+<p><img src="https://img-blog.csdnimg.cn/20200909170542833.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200909171130696.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<ul>
+<li>
+<blockquote>
+<h1 id="确定后应该是需要重启一下电脑的">确定后应该是需要重启一下电脑的</h1>
+</blockquote>
+</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200909171721628.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+<ul>
+<li>
+<blockquote>
+<h1 id="回到cprogram-files-x86googleupdate删除exe文件">回到C:\Program Files (x86)\Google\Update删除exe文件</h1>
+</blockquote>
+<img src="https://img-blog.csdnimg.cn/20200909171412507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h1 id="如图-浏览器自动更新失败禁用成功">如图 ，浏览器自动更新失败，禁用成功！</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[黑羽robot--基于 RobotFramework增强的一款自动化框架]]></title>
         <id>https://17603845963.github.io/post/hei-yu-robot-ji-yu-robotframework-zeng-qiang-de-yi-kuan-zi-dong-hua-kuang-jia/</id>
@@ -474,37 +536,6 @@ for item in d :
 for i in range(len(L)):
     print(L[i])
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Android  App 稳定性测试工具--Monkey]]></title>
-        <id>https://17603845963.github.io/post/android-app-wen-ding-xing-ce-shi-gong-ju-monkey/</id>
-        <link href="https://17603845963.github.io/post/android-app-wen-ding-xing-ce-shi-gong-ju-monkey/">
-        </link>
-        <updated>2020-09-03T12:26:13.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="稳定性测试">稳定性测试</h2>
-<p>稳定性测试是指对应用进行长时间的操作，检测功能是否稳定。一般稳定性测试时间是 N*12小时。项目中稳定测试多采用<strong>monkey</strong>，进行随机测试。</p>
-<p>测试方法：<br>
-<strong>1、跑monkey</strong></p>
-<p>adb shell monkey -p packageName【包名】 -v -v -v --throttle 500 -s 4 --ignore-crashes --ignore-timeouts --ignore-security-exceptions times(次数) |logcat -v time &gt; e:\log\monkeyLog.txt（日志保存路径）</p>
-<p>参数：<br>
--p ： 指点包名,如果要指定多个包名，需多个-p参数<br>
--v ： 指定日志的详细程度，取值1-3，三个 -v 详细程度最高<br>
---throttle ： 指定用户操作时的时延，单位毫秒<br>
--s ： 指定伪随机数生成器的seed值，取值1-10，当seed相同，产生的事件序列也相同<br>
---ignore-crashes ： 指应用程序崩溃，monkey依然发送事件，直到事件数完成<br>
---ignore-timeouts： 指应用程序发生ANR，monkey依然发送事件，直到事件数完成<br>
---ignore-security-exceptions： 指应用程序发生许可错误，monkey依然发送事件，直到事件数完成<br>
-|logcat -v time： 给monkey命令的日志加上时间</p>
-<p><strong>2、日志解析</strong><br>
-稳定性测试是否能通过在于日志，需要把日志里的报错日志搜索出来，开发定位问题。<br>
-1）、用Notepad++打开日志<br>
-2）、ctrl + F<br>
-<img src="https://img-blog.csdnimg.cn/2020050614195694.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<p><strong>3）、分析exception日志，定位问题。</strong></p>
-<p>————————————————<br>
-版权声明：本文为CSDN博主「Kitten_336368」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
-原文链接：https://blog.csdn.net/xiaomaoxiao336368/article/details/84887948</p>
 ]]></content>
     </entry>
 </feed>
