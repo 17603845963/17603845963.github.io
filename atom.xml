@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://17603845963.github.io</id>
     <title>井 Sir 的私人博客</title>
-    <updated>2020-09-09T09:22:58.144Z</updated>
+    <updated>2020-09-17T01:39:45.235Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://17603845963.github.io"/>
     <link rel="self" href="https://17603845963.github.io/atom.xml"/>
@@ -10,6 +10,59 @@
     <logo>https://17603845963.github.io/images/avatar.png</logo>
     <icon>https://17603845963.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 井 Sir 的私人博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Jmeter和Postman怎么实现调用上个接口响应为下个接口传参]]></title>
+        <id>https://17603845963.github.io/post/jmeter-he-postman-zen-me-shi-xian-diao-yong-shang-ge-jie-kou-xiang-ying-wei-xia-ge-jie-kou-chuan-can/</id>
+        <link href="https://17603845963.github.io/post/jmeter-he-postman-zen-me-shi-xian-diao-yong-shang-ge-jie-kou-xiang-ying-wei-xia-ge-jie-kou-chuan-can/">
+        </link>
+        <updated>2020-09-17T01:37:51.000Z</updated>
+        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-jmeter%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0">一、Jmeter如何实现</a>
+<ul>
+<li><a href="#1-%E6%B7%BB%E5%8A%A0%E6%AD%A3%E5%88%99%E6%8F%90%E5%8F%96%E5%99%A8">1、添加正则提取器</a></li>
+<li><a href="#2-%E5%9C%A8%E7%99%BB%E5%87%BA%E8%AF%B7%E6%B1%82%E4%B8%AD%E5%BC%95%E7%94%A8-token-%E5%8F%98%E9%87%8F">2、在登出请求中，引用 &quot;${token}&quot; 变量</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-postman-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0">二、Postman 如何实现</a></li>
+</ul>
+(Jmeter+Postman)</p>
+<h1 id="一-jmeter如何实现">一、Jmeter如何实现</h1>
+<ul>
+<li>1、添加正则表达式提取器</li>
+<li>2、下个接口中引用变量</li>
+</ul>
+<h2 id="1-添加正则提取器">1、添加正则提取器</h2>
+<p><img src="https://img-blog.csdnimg.cn/20200917090851356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200917091037398.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200917091158694.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200917091631109.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<h2 id="2-在登出请求中引用-token-变量">2、在登出请求中，引用 &quot;${token}&quot; 变量</h2>
+<p><img src="https://img-blog.csdnimg.cn/20200917092101374.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200917092214434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<h1 id="二-postman-如何实现">二、Postman 如何实现</h1>
+<ul>
+<li>
+<p>1、现在环境变量中添加一个空的 token 变量</p>
+</li>
+<li>
+<p>2、Tests 中提取 token值传入环境变量</p>
+</li>
+<li>
+<p>3、在写个请求中调用 {{token}}</p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200917092855129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+</li>
+</ul>
+<pre><code class="language-python">//获取Json返回对象
+var data=JSON.parse(responseBody)
+
+//对token赋值
+pm.environment.set(&quot;token&quot;, data.data.token);
+// 需要注意的是，这边的 set 后面第二个值要传你想要赋值的对象，根据响应报文修改
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200917092548936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200917093144293.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[谷歌浏览器如何永久阻止自动升级更新]]></title>
         <id>https://17603845963.github.io/post/gu-ge-liu-lan-qi-ru-he-yong-jiu-zu-zhi-zi-dong-sheng-ji-geng-xin/</id>
@@ -70,92 +123,6 @@
 <img src="https://img-blog.csdnimg.cn/20200909171412507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
 </ul>
 <h1 id="如图-浏览器自动更新失败禁用成功">如图 ，浏览器自动更新失败，禁用成功！</h1>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[黑羽robot--基于 RobotFramework增强的一款自动化框架]]></title>
-        <id>https://17603845963.github.io/post/hei-yu-robot-ji-yu-robotframework-zeng-qiang-de-yi-kuan-zi-dong-hua-kuang-jia/</id>
-        <link href="https://17603845963.github.io/post/hei-yu-robot-ji-yu-robotframework-zeng-qiang-de-yi-kuan-zi-dong-hua-kuang-jia/">
-        </link>
-        <updated>2020-09-07T08:10:12.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="一-首先安装框架学习所需的项目系统">一、首先安装框架学习所需的项目系统</h1>
-<ul>
-<li>
-<h2 id="bysms-系统安装与运行">Bysms 系统安装与运行</h2>
-<p>1、<a href="https://pan.baidu.com/s/1rnWhuroIMNebStzpwLjsTA#list/path=%2F">网盘下载链接</a>，下载 白月SMS系统 压缩包 bysms.zip</p>
-<p>2、下载解压bysms.zip后，进入bysms目录，双击运行runserver.bat 即可启动 白月SMS系统。 出现下面这样的信息</p>
-</li>
-</ul>
-<pre><code class="language-python">System check identified no issues (0 silenced).
-
-You have 2 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): auth.
-Run 'python manage.py migrate' to apply them.
-September 07, 2020 - 16:06:11
-Django version 2.2.4, using settings 'bysms.settings'
-Starting development server at http://127.0.0.1:8047/
-Quit the server with CTRL-BREAK.
-</code></pre>
-<p>如果双击运行runserver.bat 出现闪退，八成是因为web服务的80端口已经被使用了。</p>
-<p>两种解决方法：</p>
-<ul>
-<li>
-<p>请检查关闭占用80端口的程序，可能是Apache、IIS等web服务。</p>
-</li>
-<li>
-<p>文本编辑器编辑 runserver.bat</p>
-</li>
-<li>
-<p>python manage.py runserver 80 --noreload<br>
-修改网站服务端口为其他端口 比如 8047</p>
-</li>
-</ul>
-<p>python manage.py runserver 8047 --noreload<br>
-以后访问网址加上端口号，比如 http://127.0.0.1:8047/mgr/sign.html</p>
-<blockquote>
-<p>注意：该窗口不能关闭，否则web 系统就会停止</p>
-</blockquote>
-<blockquote>
-<p>输入如下管理员账号</p>
-</blockquote>
-<blockquote>
-<p>用户名 ： byhy     密码： 88888888</p>
-</blockquote>
-<blockquote>
-<p>即可登录</p>
-</blockquote>
-<figure data-type="image" tabindex="1"><img src="https://gitee.com/jzq739304193/my_gitee/raw/master/pic_room/1599466872(1).jpg" alt="" loading="lazy"></figure>
-<ul>
-<li>
-<p>测试用例下载地址：<a href="http://cdn1.python3.vip/files/selenium/testcases.xlsx">白月SMS系统的测试用例文档</a></p>
-</li>
-<li>
-<p>接下来，我们就使用 黑羽robot 框架， 开发这些用例的自动化</p>
-</li>
-</ul>
-<h1 id="二-安装-黑羽robot">二、安装 黑羽robot</h1>
-<ul>
-<li>1、确保电脑已安装Python3.7 或者 3.8 版本的解释器：python -V</li>
-</ul>
-<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20200907162835701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
-<ul>
-<li>
-<p>2、 pip 命令安装RobotFramework：<strong>pip3 install robotframework</strong><br>
-<img src="https://img-blog.csdnimg.cn/20200907163103161.png#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-<li>
-<p>3、安装黑羽robot<br>
-<a href="http://cdn1.python3.vip/files/hyrobot/autotest_hyrobot.zip">【 点击这里下载黑羽robot项目包 】</a></p>
-</li>
-</ul>
-<p>解压下载的zip包，会产生一个名为 autotest_hyrobot 的目录， 这就是hyrobot的自动化项目目录。</p>
-<p>你修改该目录的名字，比如我们要讲解 自动化测试 白月SMS系统 ， 就可以改名为 autotest_bysms</p>
-<p>建议：用PyCharm 等IDE直接打开项目文件夹，一定要 确保 hyrobot 目录 在项目根目录下面，如下<br>
-<img src="http://cdn1.python3.vip/imgs/api/tut_20200831095914_20.png" alt="" loading="lazy"></p>
-<ul>
-<li>4、学习框架知识<br>
-<a href="https://www.bilibili.com/video/av67586688/?p=3">从robotframework 到 黑羽robot - 自动化测试框架</a><br>
-<a href="https://www.bilibili.com/video/BV1Uf4y1y78x">数据驱动 自动化测试 怎么做</a></li>
-</ul>
 ]]></content>
     </entry>
     <entry>

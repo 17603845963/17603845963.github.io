@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Jmeter和Postman怎么实现调用上个接口响应为下个接口传参 | 井 Sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1600306779069">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+一、Jmeter如何实现
+
+1、添加正则提取器
+2、在登出请求中，引用 &quot;${token}&quot; 变量
+
+
+二、Postman 如何实现
+
+(Jmeter+Postman)
+一、Jmeter如何实现
+
+1、添加正则表达式提..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1600306779069" class="site-logo">
+        <h1 class="site-title">井 Sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Jmeter和Postman怎么实现调用上个接口响应为下个接口传参</h2>
+            <div class="post-date">2020-09-17</div>
+            
+            <div class="post-content" v-pre>
+              <p><ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-jmeter%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0">一、Jmeter如何实现</a>
+<ul>
+<li><a href="#1-%E6%B7%BB%E5%8A%A0%E6%AD%A3%E5%88%99%E6%8F%90%E5%8F%96%E5%99%A8">1、添加正则提取器</a></li>
+<li><a href="#2-%E5%9C%A8%E7%99%BB%E5%87%BA%E8%AF%B7%E6%B1%82%E4%B8%AD%E5%BC%95%E7%94%A8-token-%E5%8F%98%E9%87%8F">2、在登出请求中，引用 &quot;${token}&quot; 变量</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-postman-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0">二、Postman 如何实现</a></li>
+</ul>
+(Jmeter+Postman)</p>
+<h1 id="一-jmeter如何实现">一、Jmeter如何实现</h1>
+<ul>
+<li>1、添加正则表达式提取器</li>
+<li>2、下个接口中引用变量</li>
+</ul>
+<h2 id="1-添加正则提取器">1、添加正则提取器</h2>
+<p><img src="https://img-blog.csdnimg.cn/20200917090851356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200917091037398.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200917091158694.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200917091631109.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<h2 id="2-在登出请求中引用-token-变量">2、在登出请求中，引用 &quot;${token}&quot; 变量</h2>
+<p><img src="https://img-blog.csdnimg.cn/20200917092101374.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200917092214434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<h1 id="二-postman-如何实现">二、Postman 如何实现</h1>
+<ul>
+<li>
+<p>1、现在环境变量中添加一个空的 token 变量</p>
+</li>
+<li>
+<p>2、Tests 中提取 token值传入环境变量</p>
+</li>
+<li>
+<p>3、在写个请求中调用 {{token}}</p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200917092855129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+</li>
+</ul>
+<pre><code class="language-python">//获取Json返回对象
+var data=JSON.parse(responseBody)
+
+//对token赋值
+pm.environment.set(&quot;token&quot;, data.data.token);
+// 需要注意的是，这边的 set 后面第二个值要传你想要赋值的对象，根据响应报文修改
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200917092548936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20200917093144293.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/gu-ge-liu-lan-qi-ru-he-yong-jiu-zu-zhi-zi-dong-sheng-ji-geng-xin/">
+                  <h3 class="post-title">
+                    谷歌浏览器如何永久阻止自动升级更新
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
