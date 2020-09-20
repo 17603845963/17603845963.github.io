@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Unittest框架多个testcase之间全局变量的调用 | 井 Sir 的私人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://17603845963.github.io/favicon.ico?v=1600595050859">
+<link rel="stylesheet" href="https://17603845963.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="unittest模块进行接口自动化的时候遇到以下场景：
+
+
+新增、修改、查看、删除一个项目配置流程
+
+
+
+但是每次用真实数据请求，数据库就会增加很多脏数据😫
+所以就产生了数据一条龙服务：从新增到删除😀
+涉及到了Unittest下个接口需..." />
+    <meta name="keywords" content="Api自动化,python基础" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://17603845963.github.io">
+        <img src="https://17603845963.github.io/images/avatar.png?v=1600595050859" class="site-logo">
+        <h1 class="site-title">井 Sir 的私人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      一位秀发茂密的测试工程师
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://17603845963.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Unittest框架多个testcase之间全局变量的调用</h2>
+            <div class="post-date">2020-09-20</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="unittest模块进行接口自动化的时候遇到以下场景">unittest模块进行接口自动化的时候遇到以下场景：</h1>
+<ul>
+<li>
+<h1 id="新增-修改-查看-删除一个项目配置流程">新增、修改、查看、删除一个项目配置流程</h1>
+</li>
+</ul>
+<hr>
+<h3 id="但是每次用真实数据请求数据库就会增加很多脏数据">但是每次用真实数据请求，数据库就会增加很多脏数据😫</h3>
+<h3 id="所以就产生了数据一条龙服务从新增到删除">所以就产生了数据一条龙服务：从新增到删除😀</h3>
+<h3 id="涉及到了unittest下个接口需要调用上个接口的返回值">涉及到了Unittest下个接口需要调用上个接口的返回值😲</h3>
+<h3 id="网上翻阅了一堆博客都写得很难懂">网上翻阅了一堆博客都写得很难懂😵</h3>
+<h3 id="好在我成功解决了参数调用问题特来分享">好在我成功解决了参数调用问题，特来分享：😋</h3>
+<pre><code class="language-python">'''
+整体思路：
+1. SetUp():使用globals()函数定义全局变量
+2. test_001中，使用 self.g['a'] ，将赋值结果存至全局变量
+3. test_002中，使用变量接收全局变量并引用
+'''
+
+# 先导入 unittest, requests
+import unittest, requests
+
+class Test_case(unittest.TestCase):
+
+    def setUp(self):
+        # 定义全局变量使用globals（）函数来  字典形式的
+        self.g = globals()
+        # 创建session（）保持连接
+        self.s = requests.session()
+
+    def test_001(self):
+        num_1 = &quot;123456&quot;
+        # 1、请求获取响应对象
+        # 2、将响应结果提取出来，放到全集变量中
+        self.g['a'] = num_1
+
+    def test_002(self):
+        # 用一个变量去接收提取出来的全局变量
+        num_2 = self.g['a']
+        # 打印一下变量值
+        print(&quot;test_002取到的值为：&quot; + num_2)
+
+
+if __name__ == '__main__':
+    unittest.main()
+    
+</code></pre>
+<ul>
+<li>
+<h1 id="响应结果如下">响应结果如下：</h1>
+<pre><code class="language-python">C:\Users\86176\AppData\Local\xxxxxxxxxxxxx
+Launching unittests with arguments python -m unittest 
+D:/PyCharm_Community/Asher/ZTHT_Api_Auto_Test/DIY_params/params_use.py in
+ D:\PyCharm_Community\Asher\ZTHT_Api_Auto_Test\DIY_params
+
+
+
+Ran 2 tests in 0.001s
+
+OK
+test_002取到的值为：123456
+
+Process finished with exit code 0
+</code></pre>
+</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200920171405386.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://17603845963.github.io/tag/mEQt7ZTJY/" class="tag">
+                    Api自动化
+                  </a>
+                
+                  <a href="https://17603845963.github.io/tag/python/" class="tag">
+                    python基础
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://17603845963.github.io/post/jmeter-he-postman-zen-me-shi-xian-diao-yong-shang-ge-jie-kou-xiang-ying-wei-xia-ge-jie-kou-chuan-can/">
+                  <h3 class="post-title">
+                    Jmeter和Postman怎么实现调用上个接口响应为下个接口传参
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

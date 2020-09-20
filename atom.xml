@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://17603845963.github.io</id>
     <title>井 Sir 的私人博客</title>
-    <updated>2020-09-17T01:39:45.235Z</updated>
+    <updated>2020-09-20T09:44:13.644Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://17603845963.github.io"/>
     <link rel="self" href="https://17603845963.github.io/atom.xml"/>
@@ -10,6 +10,81 @@
     <logo>https://17603845963.github.io/images/avatar.png</logo>
     <icon>https://17603845963.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 井 Sir 的私人博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Unittest框架多个testcase之间全局变量的调用]]></title>
+        <id>https://17603845963.github.io/post/unittest-kuang-jia-duo-ge-testcase-zhi-jian-quan-ju-bian-liang-de-diao-yong/</id>
+        <link href="https://17603845963.github.io/post/unittest-kuang-jia-duo-ge-testcase-zhi-jian-quan-ju-bian-liang-de-diao-yong/">
+        </link>
+        <updated>2020-09-20T09:42:34.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="unittest模块进行接口自动化的时候遇到以下场景">unittest模块进行接口自动化的时候遇到以下场景：</h1>
+<ul>
+<li>
+<h1 id="新增-修改-查看-删除一个项目配置流程">新增、修改、查看、删除一个项目配置流程</h1>
+</li>
+</ul>
+<hr>
+<h3 id="但是每次用真实数据请求数据库就会增加很多脏数据">但是每次用真实数据请求，数据库就会增加很多脏数据😫</h3>
+<h3 id="所以就产生了数据一条龙服务从新增到删除">所以就产生了数据一条龙服务：从新增到删除😀</h3>
+<h3 id="涉及到了unittest下个接口需要调用上个接口的返回值">涉及到了Unittest下个接口需要调用上个接口的返回值😲</h3>
+<h3 id="网上翻阅了一堆博客都写得很难懂">网上翻阅了一堆博客都写得很难懂😵</h3>
+<h3 id="好在我成功解决了参数调用问题特来分享">好在我成功解决了参数调用问题，特来分享：😋</h3>
+<pre><code class="language-python">'''
+整体思路：
+1. SetUp():使用globals()函数定义全局变量
+2. test_001中，使用 self.g['a'] ，将赋值结果存至全局变量
+3. test_002中，使用变量接收全局变量并引用
+'''
+
+# 先导入 unittest, requests
+import unittest, requests
+
+class Test_case(unittest.TestCase):
+
+    def setUp(self):
+        # 定义全局变量使用globals（）函数来  字典形式的
+        self.g = globals()
+        # 创建session（）保持连接
+        self.s = requests.session()
+
+    def test_001(self):
+        num_1 = &quot;123456&quot;
+        # 1、请求获取响应对象
+        # 2、将响应结果提取出来，放到全集变量中
+        self.g['a'] = num_1
+
+    def test_002(self):
+        # 用一个变量去接收提取出来的全局变量
+        num_2 = self.g['a']
+        # 打印一下变量值
+        print(&quot;test_002取到的值为：&quot; + num_2)
+
+
+if __name__ == '__main__':
+    unittest.main()
+    
+</code></pre>
+<ul>
+<li>
+<h1 id="响应结果如下">响应结果如下：</h1>
+<pre><code class="language-python">C:\Users\86176\AppData\Local\xxxxxxxxxxxxx
+Launching unittests with arguments python -m unittest 
+D:/PyCharm_Community/Asher/ZTHT_Api_Auto_Test/DIY_params/params_use.py in
+ D:\PyCharm_Community\Asher\ZTHT_Api_Auto_Test\DIY_params
+
+
+
+Ran 2 tests in 0.001s
+
+OK
+test_002取到的值为：123456
+
+Process finished with exit code 0
+</code></pre>
+</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20200920171405386.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pfX19fX1E=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Jmeter和Postman怎么实现调用上个接口响应为下个接口传参]]></title>
         <id>https://17603845963.github.io/post/jmeter-he-postman-zen-me-shi-xian-diao-yong-shang-ge-jie-kou-xiang-ying-wei-xia-ge-jie-kou-chuan-can/</id>
@@ -451,57 +526,6 @@ print(&quot;响应cookies&quot;,res.cookies) # 登录成功后才会显示
 print(&quot;cookie的value值&quot;,res.cookies['JSESSIONID(key属性名)']) # 类字典形式通过key取值
 print(&quot;响应正文1&quot;,res.text)    # 返回类型为 html 、xml、json 均可使用
 print(&quot;响应正文2&quot;,res.json())  # 只有json类型的返回值才可以使用.json
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python中For循环语句的使用（配合各种问题）]]></title>
-        <id>https://17603845963.github.io/post/python-zhong-for-xun-huan-yu-ju-de-shi-yong-pei-he-ge-chong-wen-ti/</id>
-        <link href="https://17603845963.github.io/post/python-zhong-for-xun-huan-yu-ju-de-shi-yong-pei-he-ge-chong-wen-ti/">
-        </link>
-        <updated>2020-09-03T12:26:23.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>For 循环语句的使用场景：</strong></p>
-<p>1.现有列表L=【5，9，4，7，3】，求元素和？</p>
-<pre><code class="language-python">L = [5,6,9,3,7]
-result = 0
-for item in L :
-    result += item
-print(result)
-</code></pre>
-<p>2.求出1-100的整数和？</p>
-<pre><code class="language-python"># 计算1-100的和
-count = 0
-# range函数，取左不取右
-for i in range(1,101) :
-    count += i
-print(count)
-</code></pre>
-<p>3.打印如下图案：</p>
-<pre><code class="language-python">*
-* *
-* * *
-* * * *
-* * * * *
-# i 打印5行
-for i in range(1,6):
-	# 每行多打印 i-1 个*号
-    for j in range(i-1):
-        print(&quot;* &quot;,end=&quot;&quot;)
-    print(&quot;*&quot;)
-</code></pre>
-<p>4.遍历字典中的key，value值</p>
-<pre><code class="language-python">d = {&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:26 }
-for item in d :
-	# 遍历所有的key值
-	print(item)
-	# 根据遍历的key值获取对应的value值
-	print(d[item])
-</code></pre>
-<p>5.遍历列表所有的元素</p>
-<pre><code class="language-python">L = [5,6,9,7,3]
-# len（L）为5，range函数默认从0开始
-for i in range(len(L)):
-    print(L[i])
 </code></pre>
 ]]></content>
     </entry>
